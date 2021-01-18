@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.walab.coding.Model.GoalDTO;
 import com.walab.coding.Model.UserProblemDTO;
 import com.walab.coding.Service.UserProblemService;
 import com.walab.coding.Service.UserProblemServiceImpl;
@@ -30,6 +31,8 @@ public class MyproblemsController {
 		int userID = 1; //지금 session 처리와 로그인을 안해서 넣어놓은 예시 데이터!! 나중에 session 처리 할께요!!
 		
 		List<UserProblemDTO> problems = userProblemService.read(userID);
+		List<GoalDTO> goals = userProblemService.readGoal(userID);
+		mv.addObject("goals", goals);
 		mv.addObject("problems", problems);
 		mv.setViewName("mypage/problems");
 		

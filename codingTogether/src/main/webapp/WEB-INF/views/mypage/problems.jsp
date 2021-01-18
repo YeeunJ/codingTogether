@@ -2,6 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@ include file="../inc/header2.jsp" %>
 
@@ -89,18 +90,22 @@
                                     </div>
                                     <div>
                                         <table>
+                                        <c:forEach items="${goals}" var="goals" varStatus="status">
                                             <tr class="box">
                                                 <td>목표</td>
-                                                <td>하루에 3문제</td>
+                                                <td>${goals.goal}</td>
                                             </tr>
                                             <tr class="box">
                                                 <td>기간</td>
-                                                <td>2021-01-02 ~ 2021-02-20</td>
+                                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${goals.startDate}"/> 
+                                                ~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goals.endDate}"/>
+                                                </td>
                                             </tr>
                                             <tr class="box">
                                                 <td>총 문제수</td>
-                                                <td>100문제</td>
+                                                <td>${goals.goalNum}개</td>
                                             </tr>
+                                        </c:forEach>
                                         </table>
                                     </div>
                                 </div>

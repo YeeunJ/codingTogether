@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.walab.coding.Model.GoalDTO;
 import com.walab.coding.Model.UserDTO;
 import com.walab.coding.Model.UserProblemDTO;
 import com.walab.coding.Repository.UserProblemDAO;
@@ -44,6 +45,14 @@ public class UserProblemServiceImpl implements UserProblemService{
 			}
 		}
 		return problems;
+	}
+	
+	@Override
+	public List<GoalDTO> readGoal(int userID){
+		List<GoalDTO> goals = userProblemService.readGoalAll(userID);
+		
+		return goals;
+		
 	}
 
 }
