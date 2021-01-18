@@ -1,0 +1,76 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+.icon-block {
+	padding: 0 15px;
+}
+
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+/*common*/
+
+
+/* footer */
+.coding-title {
+	color: #1f2519;
+	width: 610px;
+	text-align: center;
+	margin: 10px auto 25px auto;
+}
+
+.coding-site {
+	text-align: left;
+	margin: 0 auto 30px auto;
+	width: 670px;
+	font-size: 16px;
+}
+
+.coding-site li {
+	list-style: disc !important;
+	padding: 2px 1px;
+}
+
+.block-wrapper {
+	padding: 30px 80px 7px 80px;
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	row-gap: 10px;
+	column-gap: 15px;
+}
+
+.site-block {
+	display: inline-block;
+	height: 60px;
+	line-height: 50px;
+	border-radius: 8px;
+	color: #1f2519;
+	border: 2px solid #333e2a;
+	text-align: center;
+	transition: background ease 0.8s;
+}
+
+.site-block:hover {
+	background: #ffffff36;
+	border: none;
+}
+/* list format */
+.codingSites {
+	padding: 20px 0;
+	font-size: 16px;
+}
+
+.codingSites a {
+	color: #393939;
+}
+
+.page-footer {
+	position: initial;
+    padding: 0;
+}
