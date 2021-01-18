@@ -16,23 +16,13 @@ import org.springframework.stereotype.Repository;
 import com.walab.coding.Model.GoalDTO;
 import com.walab.coding.Model.UserProblemDTO;
 
-@Repository("userProblemDAO")
-public class UserProblemDAOImpl implements UserProblemDAO{
+@Repository("userActivityDAO")
+public class UserActivityDAOImpl implements UserActivityDAO{
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	private String namespace = "userProblem";
-	
-	public List<UserProblemDTO> readAll(int userID) {
-		
-		List<UserProblemDTO> userProblemList = new ArrayList<UserProblemDTO>();
-		
-		Map<String, Object> userProblemListParam = new HashMap<String, Object>();
-		userProblemListParam.put("userID", userID);
-		
-		return userProblemList = sqlSession.selectList(namespace+".userProblemList", userProblemListParam);
-	}
+	private String namespace = "userActivity";
 	
 	public List<GoalDTO> readGoalAll(int userID){
 		List<GoalDTO> userGoalList = new ArrayList<GoalDTO>();
