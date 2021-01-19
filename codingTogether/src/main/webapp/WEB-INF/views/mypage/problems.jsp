@@ -7,7 +7,6 @@
 <%@ include file="../inc/header2.jsp" %>
 
 <link href="../resources/css/problems.css" rel="stylesheet">
-<script src="../resources/js/createModal.js"></script>
 <script src="../resources/js/problems.js"></script>
 
 <!-- Page Wrapper -->
