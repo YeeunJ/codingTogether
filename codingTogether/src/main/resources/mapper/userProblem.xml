@@ -7,4 +7,7 @@
 		from userProblem as up left join codingSite as cs on up.siteID = cs.id 
 		where up.userID = #{userID}
 	</select>
+	<select id="userGoalList" resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">
+		SELECT goalNum,goal,startDate,endDate FROM goal WHERE userID=#{userID} ORDER BY DATE(startDate) DESC limit 1
+	</select>
 </mapper>

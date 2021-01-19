@@ -48,4 +48,8 @@
 	
 	<beans:bean id="userProblemService" class="com.walab.coding.Service.UserProblemServiceImpl"/>
 	
+	<beans:bean id="userActivityDAO" class="com.walab.coding.Repository.UserActivityDAOImpl"/>
+	
+	<beans:bean id="userActivityService" class="com.walab.coding.Service.UserActivityServiceImpl"/>
+	
 </beans:beans>

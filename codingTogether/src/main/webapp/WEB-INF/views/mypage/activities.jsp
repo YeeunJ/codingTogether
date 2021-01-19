@@ -1,6 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 	language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="nowDate" />  
 
 <%@ include file="../inc/header2.jsp"%>
 
@@ -60,10 +63,9 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<div
-						class="ml-3 d-sm-flex align-items-center justify-content-between mb-3">
-						<h1 class="h3 mb-0 text-gray-800">내 기록들</h1>
-					</div>
+					<div class="ml-3 d-sm-flex align-items-center justify-content-between">
+                    	<h3 class="mt-4 header green-text">내 기록들 </h3>
+                    </div>
 
 					<!-- Content Row -->
 					<div>
@@ -83,23 +85,12 @@
 										</tr>
 									</thead>
 									<tbody>
+										<c:forEach items="${goals}" var="goals" varStatus="status">
 										<tr>
-											<th scope="row">1</th>
-											<td>2021-01-02 ~ 2021-02-20</td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar" role="progressbar"
-														aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-														style="width: 20%">
-														<span>20%</span>
-													</div>
-												</div>
-											</td>
-											<td>진행중</td>
-										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>2021-01-02 ~ 2021-02-10</td>
+											<th scope="row">${status.count}</th>
+											<td><fmt:formatDate pattern="yyyy-MM-dd" value="${goals.startDate}"/> 
+                                                ~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goals.endDate}"/>
+                                            </td>
 											<td>
 												<div class="progress">
 													<div class="progress-bar" role="progressbar"
@@ -109,22 +100,18 @@
 													</div>
 												</div>
 											</td>
-											<td>종료</td>
+											<fmt:formatDate value="${goals.endDate}" pattern="yyyy-MM-dd" var="endDate" /> 
+											<c:choose>
+												<c:when test="${endDate > nowDate}">
+													<td>진행중</td>
+												</c:when>
+												<c:otherwise>
+													<td>종료</td>
+												</c:otherwise>
+											</c:choose>
+											
 										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td>2021-01-02 ~ 2021-02-05</td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar" role="progressbar"
-														aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-														style="width: 100%">
-														<span>100%</span>
-													</div>
-												</div>
-											</td>
-											<td>종료</td>
-										</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>
