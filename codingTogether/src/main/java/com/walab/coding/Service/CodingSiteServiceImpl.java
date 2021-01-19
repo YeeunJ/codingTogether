@@ -6,20 +6,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.walab.coding.Model.CodingSiteDTO;
-import com.walab.coding.Repository.CodingSiteDAO;
+import com.walab.coding.Repository.CodingSiteDAOImpl;
 
-@Service("CodingSiteService")
+@Service
+
 public class CodingSiteServiceImpl implements CodingSiteService {
+	
 	@Autowired
-	CodingSiteDAO codingDAO;
-	
+	CodingSiteDAOImpl codingSiteDAO;
+
 	@Override
-	public List<CodingSiteDTO> read() {
+	public int insertCodingSite(CodingSiteDTO dto) {
 		// TODO Auto-generated method stub
-		List<CodingSiteDTO> result = codingDAO.readCodingSite();
-		
-		return result;
+		return codingSiteDAO.insertCodingSite(dto);
 	}
-	
-	
+
+	@Override
+	public int deleteCodingSite(int id) {
+		// TODO Auto-generated method stub
+		return codingSiteDAO.deleteCodingSite(id);
+	}
+
+	@Override
+	public int updateCodingSite(CodingSiteDTO dto) {
+		// TODO Auto-generated method stub
+		return codingSiteDAO.updateCodingSite(dto);
+	}
+
+	@Override
+	public List<CodingSiteDTO> getCodingSiteList() {
+		// TODO Auto-generated method stub
+		return codingSiteDAO.getCodingSiteList();
+	}
+
 }

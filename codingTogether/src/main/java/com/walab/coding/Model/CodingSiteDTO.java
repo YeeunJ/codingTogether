@@ -3,11 +3,10 @@ package com.walab.coding.Model;
 import java.util.Date;
 
 public class CodingSiteDTO {
-	int id;
-	String siteName;
-	String siteUrl;
-	Date regDate;
-	
+	private int id;
+	private String siteName;
+	private String siteUrl;
+	private Date regDate;
 	public int getId() {
 		return id;
 	}
@@ -31,5 +30,6 @@ public class CodingSiteDTO {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
-	}
+	} 
+	
 }

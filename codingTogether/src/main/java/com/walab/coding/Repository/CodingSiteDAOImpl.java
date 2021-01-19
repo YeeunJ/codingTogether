@@ -1,32 +1,34 @@
 package com.walab.coding.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.mybatis.spring.SqlSessionTemplate;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.walab.coding.Model.CodingSiteDTO;
 
-@Repository("CodingSiteDAO")
-public class CodingSiteDAOImpl implements CodingSiteDAO {
+@Repository
+public class CodingSiteDAOImpl implements CodingSiteDAO{
+
 	@Autowired
-	private SqlSessionTemplate sqlSession;
-	public SqlSessionTemplate getSqlSession() {
-		return sqlSession;
+	SqlSession sqlSession;
+	public int insertCodingSite(CodingSiteDTO dto) {
+		int result=sqlSession.insert("CodingSite.insertCodingSite",dto);
+		return result;
 	}
-	public void setSqlSession(SqlSessionTemplate sqlSession) {
-		this.sqlSession = sqlSession;
+	public int updateCodingSite(CodingSiteDTO dto) {
+		int result=sqlSession.update("CodingSite.updateCodingSite", dto);
+		return result;
 	}
-	
-	@Override
-	public List<CodingSiteDTO> readCodingSite() {
-		List<CodingSiteDTO> codingSitelist = new ArrayList<CodingSiteDTO>();
-		codingSitelist = sqlSession.selectList("codingSite.readCodingsite");
-		
-		return codingSitelist;
+	public int deleteCodingSite(int seq) {
+		int result=sqlSession.delete("CodingSite.deleteCodingSite",seq);
+		return result;
 	}
-	
+	public List<CodingSiteDTO> getCodingSiteList() {
+		List<CodingSiteDTO> result = sqlSession.selectList("CodingSite.getCodingSiteList");
+		return result;
+	}
 }
+
 
