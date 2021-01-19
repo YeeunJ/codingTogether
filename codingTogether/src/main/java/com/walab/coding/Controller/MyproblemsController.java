@@ -28,12 +28,14 @@ public class MyproblemsController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ModelAndView viewProblems(ModelAndView mv) {
 		
-		int userID = 1; //지금 session 처리와 로그인을 안해서 넣어놓은 예시 데이터!! 나중에 session 처리 할께요!!
+		int userID = 1;
 		
-		List<UserProblemDTO> problems = userProblemService.read(userID);
-		List<GoalDTO> goals = userProblemService.readGoal(userID);
-		mv.addObject("goals", goals);
-		mv.addObject("problems", problems);
+		//List<UserProblemDTO> problems = userProblemService.read(userID);
+		//List<GoalDTO> goals = userProblemService.readGoal(userID);
+		
+		//mv.addObject("goals", goals);
+		//mv.addObject("problems", problems);
+		
 		mv.setViewName("mypage/problems");
 		
 		return mv;

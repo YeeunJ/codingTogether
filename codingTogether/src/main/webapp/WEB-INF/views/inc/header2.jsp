@@ -33,6 +33,7 @@
 <script src="../resources/js/demo/chart-area-demo.js"></script>
 <script src="../resources/js/demo/chart-pie-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="../resources/js/createModal.js"></script>
 
 </head>
 <body>

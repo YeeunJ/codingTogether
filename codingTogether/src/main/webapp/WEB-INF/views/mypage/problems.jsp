@@ -7,7 +7,6 @@
 <%@ include file="../inc/header2.jsp" %>
 
 <link href="../resources/css/problems.css" rel="stylesheet">
-<script src="../resources/js/createModal.js"></script>
 <script src="../resources/js/problems.js"></script>
 
 <!-- Page Wrapper -->
@@ -172,6 +171,25 @@
 										<i class="fa fa-search"></i>
 									</button>
 								</fieldset>
+								<div class = "table">
+									<div class="row">
+										<span class="cell th1">No.</span>
+										<span class="cell th2">문제 제목</span>
+										<span class="cell th4">메모</span>
+										<span class="cell th2">날짜</span>
+										<span class="cell th1">난이도</span>
+									</div>
+									<div class="row" id="problem0" onclick="printAllContent('#problem0')">
+										<span class ="cell td1">3</span>
+										<span class ="cell td2 pTitle"><a href="https://www.acmicpc.net/problem/1181" target="_blank">1181</a></span>
+										<span class ="cell td4 pMemo">set을 쓰면 훨씬 빠르게 풀 수 있음</span>
+										<span class ="cell td2 pRegdate">2021-01-14</span>
+										<span class ="cell td1 pDifficulty"><img style="width: 34px;" alt="2" src="../resources/img/difficulty2.png"></span>
+										<span class="pSite" style="display:none;">백준</span>
+										<span class="pSiteUrl" style="display:none;">https://www.acmicpc.net/</span>
+									</div>
+								</div>
+								 <!--
 								<table class="table table-striped">
                                         <thead>
                                           <tr>
@@ -195,7 +213,7 @@
                                           </tr>
                                         </c:forEach>
                                         </tbody>
-                            	</table>
+                            	</table> -->
                             	<div id="registerSolvedProblem" hidden>
                             		<div class = "container">
                             			<form class="col s12">
@@ -238,11 +256,26 @@
                             	<div id="readSolvedProblem" hidden>
                             		<div class = "container">
                             			<div class = "col s12">
-                            				<div>site 이름: <div id="siteName"></div></div>
+                            				<span>코딩 site : </span><span id="siteName"></span>
+                            				<span>문제 제목 : </span><span id="problemName"></span>
+                            				<span>문제 메모 : </span><span id="memo"></span>
+                            				<span>문제 날짜 : </span><span id="regdate"></span>
+                            				<span>문제 난이도 : </span><span id="difficulty"></span>
                             			</div>
 									</div>
                             	</div>
-                            	
+                            	<div id="updateSolvedProblem" hidden>
+                            		<div class = "container">
+                            			<div class = "col s12">
+                            				<span>코딩 site : </span><span id="uSiteName"></span>
+                            				<span>문제 제목 : </span><span id="uProblemName"></span>
+                            				<span>문제 바로가기 : </span><span id="uLink"></span>
+                            				<span>문제 메모 : </span><span id="uMemo"></span>
+                            				<span>문제 날짜 : </span><span id="uRegdate"></span>
+                            				<span>문제 난이도 : </span><span id="uDifficulty"></span>
+                            			</div>
+									</div>
+                            	</div>
                             </div>
                         </div>
                     </div>

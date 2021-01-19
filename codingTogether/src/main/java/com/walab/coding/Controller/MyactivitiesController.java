@@ -19,7 +19,7 @@ import com.walab.coding.Service.UserProblemServiceImpl;
 
 @Controller
 @RequestMapping(value = "/mypage/activities")
-public class Myactivities {
+public class MyactivitiesController {
 
 	@Autowired
 	UserActivityServiceImpl userActivityService;
