@@ -6,7 +6,7 @@
 
 	<%@ include file="./inc/header.jsp"%>
 	<div>
-		<h6 style="margin: 20px;">Coding Site Management</h6>
+		<h6 style="margin: 20px;">코딩 사이트 관리 페이지</h6>
 	</div>
 
 	<div class="row">
