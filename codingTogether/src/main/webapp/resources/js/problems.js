@@ -1,4 +1,4 @@
-/*
+
 data = { 
         datasets: [{ 
             backgroundColor: ['lightblue','yellow'], 
@@ -15,7 +15,8 @@ data = {
             }
         } 
     }); 
-*/
+ 
+
 $(document).ready(function() {
 	$('#register-button').on('click', function() {
 		 createModel("#registerSolvedProblem", "문제 등록", addAjax);
