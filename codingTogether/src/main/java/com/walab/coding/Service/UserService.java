@@ -1,7 +1,10 @@
 package com.walab.coding.Service;
 
+import java.util.List;
+
 import com.walab.coding.Model.UserDTO;
 
 public interface UserService {
-	public void regist(UserDTO ud);
+	List<UserDTO> readUser(int userID);
+
 }

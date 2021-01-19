@@ -10,20 +10,20 @@
 	  		<form id = "registerInfo" method="post" action="registerok">
 		     	<div id="table">
 				      <div class="row">
-				        <span class="cell col1">아이디 </span>
-				        <span class="cell col2"><input type="text" name="userID" placeholder = "아이디를 입력하세요. " required/></span>
+				        <span class="cell th1">아이디 </span>
+				        <span class="cell th1"><input type="text" name="userID" placeholder = "아이디를 입력하세요. " required/></span>
 				      </div>
 				      <div class="row">
-				        <span class="cell col1">닉네임 </span>
-				        <span class="cell col2"><input type="text" name="nickName" placeholder = "닉네임을 입력하세요. " required/> </span>
+				        <span class="cell th2">닉네임 </span>
+				        <span class="cell th2"><input type="text" name="nickName" placeholder = "닉네임을 입력하세요. " required/> </span>
 				      </div>
 				      <div class="row">
-				        <span class="cell col1">학번 </span>
-				        <span class="cell col2"><input type="text" name="userNumber" placeholder = "학번을 입력하세요. " required/></span>								      	
+				        <span class="cell th3">학번 </span>
+				        <span class="cell th3"><input type="text" name="userNumber" placeholder = "학번을 입력하세요. " required/></span>								      	
 				      </div>
 				      <div class="row">
-				        <span class="cell col1">자기소개 </span>
-				        <span class="cell col2"><textarea cols="20" rows="50" name="intro" ></textarea></span>								      
+				        <span class="cell th4">자기소개 </span>
+				        <span class="cell th4"><textarea cols="20" rows="50" name="intro" ></textarea></span>								      
 				      </div>
 				 </div>
 				 <br><br>
@@ -40,20 +40,20 @@
 			<form>
 		     	<div id="table">
 				      <div class="row">
-				        <span class="cell col1">일별 계획 </span>
-				        <span class="cell col2"><input type="text" name="goal" placeholder = "계획을 입력하세요. "/></span>
+				        <span class="cell th1">일별 계획 </span>
+				        <span class="cell th1"><input type="text" name="goal" placeholder = "계획을 입력하세요. "/></span>
 				      </div>
 				      <div class="row">
-				        <span class="cell col1">시작 일자 </span>
-				        <span class="cell col2"><input type="date" name="startDate"/></span>
+				        <span class="cell th2">시작 일자 </span>
+				        <span class="cell th2"><input type="date" name="startDate"/></span>
 				      </div>
 				      <div class="row">
-				        <span class="cell col1">종료 일자 </span>
-				        <span class="cell col2"><input type="date" name="endDate"/></span>								      	
+				        <span class="cell th3">종료 일자 </span>
+				        <span class="cell th3"><input type="date" name="endDate"/></span>								      	
 				      </div>
 				      <div class="row">
-				        <span class="cell col1">목표 갯수 </span>
-				        <span class="cell col2"><input type="number" name="goalNum"></textarea></span>								      
+				        <span class="cell th4">목표 갯수 </span>
+				        <span class="cell th4"><input type="number" name="goalNum"></span>								      
 				      </div>
 				 </div>
 				 <br><br>

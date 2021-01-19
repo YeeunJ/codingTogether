@@ -138,13 +138,35 @@ data = {
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 font-weight-bold text-info text-uppercase mb-1">
-                                                오늘 해야 할 양</div>
+                                                오늘 해야 할 양
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
-                                    <div class="h1 pt-5 center "> 1문제 / 3문제</div>
+                                    <div class="h1 pt-5 center">           
+							     	<div id="table">
+							     	   <c:forEach items="${problems}" var="problems" varStatus="status">
+								        <c:if test="${status.count == 6}">
+									        <div class="box">
+									        	<span class="h5 font-weight-bold text-info text-uppercase mb-1">현재 푼 문제 개수</span>
+									        	<span class="h5 font-weight-bold text-info text-uppercase mb-1">${status.count} </span>
+									        </div>
+								      	</c:if>
+									   </c:forEach>						     									      
+									 </div>	                                   
+							     	 <div id="table">
+							     	   <c:forEach items="${goals}" var="goal" varStatus="status">
+									      <div class="box">
+									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">목표 개수 </span>
+									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">${goal.goalNum} </span>
+									      </div>
+									   </c:forEach>						     									      
+									 </div>	                                    
+                                    
+                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
