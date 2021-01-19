@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/")
 public class HomeController {
 	
+	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String viewHome() {
+		System.out.println("HElleo");
 		return "home";
 	}
 }

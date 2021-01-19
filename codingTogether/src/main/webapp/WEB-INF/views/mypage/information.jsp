@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 	language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 
 <%@ include file="../inc/header2.jsp"%>
 
@@ -61,12 +62,12 @@
 
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
-
+	                    
+	                    
 					<!-- Page Heading -->
-					<div
-						class="ml-3 d-sm-flex align-items-center justify-content-between mb-3">
-						<h1 class="h3 mb-0 text-gray-800">내 정보</h1>
-					</div>
+					<div class="ml-3 d-sm-flex align-items-center justify-content-between">
+                    	<h3 class="mt-4 header green-text">내 정보 </h3>
+                    </div>
 
 					<!-- Content Row -->
 					<div>
@@ -77,23 +78,25 @@
 							</div>
 							<div class="card-body">
 						     	<div id="table">
+						     	   <c:forEach items="${users}" var="user" varStatus="status">
 								      <div class="row">
-								        <span class="cell col1">아이디 </span>
-								        <span class="cell col2">입력한 아이디 </span>
+								        <span class="cell th1">이름 </span>
+								        <span class="cell th1">${user.name} </span>
 								      </div>
 								      <div class="row">
-								        <span class="cell col1">닉네임 </span>
-								        <span class="cell col2">입력한 닉네임 </span>
+								        <span class="cell th2">닉네임 </span>
+								        <span class="cell th2">${user.nickName}</span>
 								      </div>
 								      <div class="row">
-								        <span class="cell col1">학번 </span>
-								        <span class="cell col2">입력한 학번 </span>								      	
+								        <span class="cell th3">학번</span>
+								        <span class="cell th3">${user.userNumber}</span>
 								      </div>
 								      <div class="row">
-								        <span class="cell col1">자기소개 </span>
-								        <span class="cell col2">입력한 자기소개 </span>								      
+								        <span class="cell th4">자기소개 </span>
+								        <span class="cell th4">${user.intro} </span>
 								      </div>
-								 </div>
+								   </c:forEach>						     									      
+								 </div>	
 							</div>
 							<div class="row center">
 									<input type="button" value="수정하기 " onclick="showInfoEdit();hideInfo();" id="download-button" class="btn-large waves-effect waves-light green" />
@@ -107,37 +110,53 @@
 							<div class="card-body">
 								<form id = "registerInfo" method="post" action="registerok">	
 							     	<div id="table">
+							     		<c:forEach items="${users}" var="user" varStatus="status">
 									      <div class="row">
-									        <span class="cell col1">아이디  </span>
-									        <span class="cell col2"><input type="text" name="userID" placeholder = "입력한 아이디"/> </span>
+									        <span class="cell th1">이름</span>
+									        <span class="cell th1"><input type="text" name="userName" placeholder = "${user.name}"/> </span>
 									      </div>
 									      <div class="row">
-									        <span class="cell col1">닉네임 </span>
-									        <span class="cell col2"><input type="text" name="nickName" placeholder = "입력한 닉네임"/> </span>
+									        <span class="cell th2">닉네임</span>
+									        <span class="cell th2"><input type="text" name="nickName" placeholder = "${user.nickName}"/> </span>
 									      </div>
 									      <div class="row">
-									        <span class="cell col1">학번</span>
-									        <span class="cell col2"><input type="text" name="userNumber" placeholder = "입력한 닉네임"/> </span>
+									        <span class="cell th3">학번</span>
+									        <span class="cell th3"><input type="text" name="userNumber" placeholder = "${user.userNumber}"/> </span>
 									      </div>
 									      <div class="row">
-									        <span class="cell col1">자기소개 </span>
-									        <span class="cell col2"><textarea cols="20" rows="10" name="intro" ></textarea> </span>
-									      </div>									     									      
+									        <span class="cell th4">자기소개</span>
+									        <span class="cell th4"><textarea cols="20" rows="10" name="intro" placeholder = "${user.intro}"></textarea> </span>
+									      </div>
+										</c:forEach>									     									      
 									 </div>											
 								</form>
 							</div>
-							
-						    <div class="row center">
-						      <input id = "submit" type="button" value="수정하기 " id="download-button" class="btn-large waves-effect waves-light green" />
-						      <input id = "add" type = "button" value="취소하기 " onclick = "showInfo(); hideInfoEdit()" id="download-button" class="btn-large waves-effect waves-light green" />
+							<div class="row center" style ="padding: 10px;">
+					   	  		 <input id = "submit" type="button" value="수정하기 " id="download-button" class="btn-large waves-effect waves-light green" />
+					     		 <input id = "add" type = "button" value="취소하기 " onclick = "showInfo(); hideInfoEdit()" id="download-button" class="btn-large waves-effect waves-light green" />
 						    </div>	
-						</div>						
+						</div>
+												
 						<div class="card shadow mb-4" id = "goal">
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary">내 목표 </h6>
 							</div>
 							<div class="card-body">
 						     	<div id="table">
+						     	   <c:forEach items="${goals}" var="goal" varStatus="status">
+								      <div class="row">
+								        <span class="cell th1">목표 내용</span>
+								        <span class="cell th1">${goal.goal} </span>
+								      </div>
+								      <div class="row">
+								        <span class="cell th2">목표 기간</span>
+                                        <span class="cell th2"><fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/> 
+                                        ~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>
+                                        </span>							        
+								      </div>
+								   </c:forEach>						     									      
+								 </div>								
+<!-- 						     	<div id="table">
 								      <div class="row">
 								        <span class="cell col1">목표 내용 </span>
 								        <span class="cell col2">입력한 목표 내용  </span>
@@ -146,12 +165,14 @@
 								        <span class="cell col1">기간 </span>
 								        <span class="cell col2">입력한 목표 기간  </span>
 								      </div>
-								 </div>								
+								 </div>	 -->							
 							</div>
 							<div class="row center">
 									<input type="button" value="수정하기 " onclick="showGoalEdit(); hideGoal();" id="download-button" class="btn-large waves-effect waves-light green" />
 							</div>
 						</div>
+			
+
 						
 						<div class="card shadow mb-4" id = goalEdit style = "display:none">
 							<div class="card-header py-3">
@@ -160,14 +181,21 @@
 							<div class="card-body">
 								  <form id = "registerGoal" method="post" action="registerok" >
 							     	<div id="table">
+							     		<c:forEach items="${goals}" var="goal" varStatus="status">
 									      <div class="row">
-									        <span class="cell col1">목표 내용 </span>
-									        <span class="cell col2"><input type="text" name="goal" placeholder = "입력한 목표내용"/> </span>
+									        <span class="cell th1">목표 내용 </span>
+									        <span class="cell th1"><input type="text" name="goal" placeholder = "${goal.goal}"/> </span>
 									      </div>
 									      <div class="row">
-									        <span class="cell col1">기간 </span>
-									        <span class="cell col2"><input type="text" name="startDate" placeholder = "입력한 목표기간"/> </span>
+									        <span class="cell th2">목표 시작일</span>
+									        <span class="cell th3"><input type="text" name="startDate" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/>/> </span>
+                                       
 									      </div>
+									      <div class="row">
+									        <span class="cell th3">목표 종료일</span>
+									        <span class="cell th3"><input type="text" name="endDate" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>/> </span>
+									      </div>
+									      </c:forEach>
 									 </div>									  
 								  </form>
 							</div>
@@ -226,3 +254,5 @@
     </div> -->
 
 	<%@ include file="../inc/footer.jsp"%>
+
+

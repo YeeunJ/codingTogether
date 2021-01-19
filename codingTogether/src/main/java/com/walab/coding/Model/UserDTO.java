@@ -1,12 +1,22 @@
 package com.walab.coding.Model;
 
+import java.sql.Date;
+
 public class UserDTO {
 	private String name;
 	private String email;
 	private String userNumber;
 	private String nickName;
 	private String intro;
+	private Date regDate;
+
 	
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
 	public int getId() {
 		return id;
 	}

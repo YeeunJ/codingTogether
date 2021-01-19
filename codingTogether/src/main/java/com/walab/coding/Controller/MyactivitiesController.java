@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value = "/mypage/activities")
-public class Myactivities {
+public class MyactivitiesController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String activities() {

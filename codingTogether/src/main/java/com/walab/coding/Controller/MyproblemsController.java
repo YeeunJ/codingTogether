@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.walab.coding.Model.GoalDTO;
 import com.walab.coding.Model.UserProblemDTO;
+import com.walab.coding.Service.GoalServiceImpl;
 import com.walab.coding.Service.UserProblemService;
 import com.walab.coding.Service.UserProblemServiceImpl;
 
@@ -24,6 +26,9 @@ public class MyproblemsController {
 	@Autowired
 	UserProblemServiceImpl userProblemService;
 	
+	@Autowired
+	GoalServiceImpl goalService;	
+	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ModelAndView viewProblems(ModelAndView mv) {
 		
@@ -31,6 +36,11 @@ public class MyproblemsController {
 		
 		List<UserProblemDTO> problems = userProblemService.read(userID);
 		mv.addObject("problems", problems);
+		mv.setViewName("mypage/problems");
+
+		List<GoalDTO> goals = goalService.readGoal(userID);
+		System.out.println(goals.toString());
+		mv.addObject("goals", goals);
 		mv.setViewName("mypage/problems");
 		
 		return mv;
