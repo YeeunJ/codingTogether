@@ -8,6 +8,26 @@
 
 <link href="../resources/css/problems.css" rel="stylesheet">
 <script src="../resources/js/problems.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+data = { 
+        datasets: [{ 
+            backgroundColor: ['lightblue','yellow'], 
+            data: [100, 20] 
+        }],
+        labels: ['총 문제수','푼 문제수'] };
+    var ctx = document.getElementById("myChart"); 
+    var myDoughnutChart = new Chart(ctx, { 
+        type: 'doughnut', 
+        data: data, 
+        options: {
+            legend: {
+                display: false
+            }
+        } 
+    });
+</script>
 
 <!-- Page Wrapper -->
     <div id="wrapper">
