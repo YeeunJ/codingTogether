@@ -22,7 +22,7 @@ public class UserActivityDAOImpl implements UserActivityDAO{
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	private String namespace = "userActivity";
+	private String namespace = "goal";
 	
 	public List<GoalDTO> readGoalAll(int userID){
 		List<GoalDTO> userGoalList = new ArrayList<GoalDTO>();

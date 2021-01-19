@@ -36,6 +36,12 @@ public class MyproblemsController {
 		//mv.addObject("goals", goals);
 		//mv.addObject("problems", problems);
 		
+		
+		List<UserProblemDTO> problems = userProblemService.read(userID);
+		List<GoalDTO> goals = userProblemService.readGoal(userID);
+		
+		mv.addObject("goals", goals);
+		mv.addObject("problems", problems);
 		mv.setViewName("mypage/problems");
 		
 		return mv;

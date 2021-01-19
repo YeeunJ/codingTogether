@@ -109,11 +109,50 @@
 													<td>종료</td>
 												</c:otherwise>
 											</c:choose>
-											
 										</tr>
 										</c:forEach>
 									</tbody>
 								</table>
+								<!-- 기간누르면 해당목표 상세모달 뜸 -->
+								<!-- <div id="MyActivitiesDetail" hidden>
+                            		<div class = "container">
+                            			<form class="col s12">
+									      <div class="row">
+									      	<div class="input-field col s4">
+										      <select id = "siteName" required>
+											      <optgroup label="코딩사이트 선택">
+											      	<option value="" disabled selected>코딩사이트 별 입력</option>
+											        <option value="1">백준</option>
+											        <option value="2">leetcode</option>
+											        <option value="3">SW expert academy</option>
+											        <option value="4">programmers</option>
+											        <option value="5">oncoder</option>
+											        <option value="6">goorm</option>
+											        <option value="7">leetcode(database)</option>
+											      </optgroup>
+											      <optgroup label="링크로 입력">
+											        <option value="8">링크로 입력</option>
+											      </optgroup>
+										      </select>
+										      <label>코딩사이트 선택</label>
+										      <span class="helper-text">코딩 사이트를 선택해서 입력하거나 링크로 입력할 수 있습니다.</span>
+										    </div>
+									        <div class="input-field col s6">
+									          <input id="problems" type="text" class="validate">
+									          <label for="problems">Problems</label>
+									          <span class="helper-text">문제들을 입력할 때 ,로 구분해주세요!!</span>
+									        </div>
+									        <button type="button" id = "add" class="modal_button green lighten-1" onClick = "insertProblems()">추가</button>
+									      </div>
+									      <div class="input-field col s10">
+										      <label for="last_name">입력한 Problems</label>
+										      <br><br>
+										      <div id = "confirmSite">
+									          </div>
+									      </div>
+										</form>
+                            		</div>
+                            	</div> -->
 							</div>
 						</div>
 					</div>

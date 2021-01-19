@@ -55,7 +55,7 @@
 	
 	<beans:bean id="CodingSiteDAO" class="com.walab.coding.Repository.CodingSiteDAOImpl"/>
 	<beans:bean id="CodingSiteService" class="com.walab.coding.Service.CodingSiteServiceImpl"/>
-		
+
 	<beans:bean id="recommendDAO" class="com.walab.coding.Repository.RecommendDAOImpl"/>
 	<beans:bean id="recommendService" class="com.walab.coding.Service.RecommendProblemServiceImpl"/>
 	
