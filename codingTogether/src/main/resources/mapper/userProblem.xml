@@ -9,6 +9,6 @@
 	</select>
 	
 	<select id="deleteUserProblem" parameterType="hashmap">
-		delete from userProblem where up.userID = #{userID}
+		delete from userProblem where id = #{userID}
 	</select>
 </mapper>

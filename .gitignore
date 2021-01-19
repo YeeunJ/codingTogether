@@ -114,5 +114,6 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 config.properties
-
+codingTogether/.classpath
+codingTogether/.project
 # End of https://www.toptal.com/developers/gitignore/api/macos,java-web,eclipse,maven
