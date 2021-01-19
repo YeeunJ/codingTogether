@@ -13,7 +13,45 @@
 	font-size: inherit;
 }
 
-/*common*/
+/* table common */
+.table {
+	display: table !important; 
+	width: 100% !important;
+}
+
+.row {
+	display: table-row !important;
+}
+
+.row:nth-child(2n) {
+	background-color: #f7f7f7 !important;
+}
+
+.th1, .th2, .th3, .th4, .th5, .th6, .th7, .th8, .th9 { font-weight: bold !important; }
+
+.cell {
+	display: table-cell !important; 
+	padding: 7px !important; 
+	border-bottom: 1px solid #DDD !important;
+}
+
+.th1, .td1 { width: 10% !important;}
+
+.th2, .td2 { width: 20% !important;}
+
+.th3, .td3 { width: 30% !important;}
+
+.th4, .td4 { width: 40% !important;}
+
+.th5, .td5 { width: 50% !important;}
+
+.th6, .td6 { width: 60% !important;}
+
+.th7, .td7 { width: 70% !important;}
+
+.th8, .td8 { width: 80% !important;}
+
+.th9, .td9 { width: 90% !important;}
 
 
 /* footer */
@@ -74,3 +112,5 @@
 	position: initial;
     padding: 0;
 }
+
+.sweet-modal-box.alert{left: 0 !important;}

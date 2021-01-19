@@ -57,3 +57,5 @@
 	height: 300px;
     overflow: scroll;
 }
+
+.sweet-modal-box.alert{left: 0 !important;}

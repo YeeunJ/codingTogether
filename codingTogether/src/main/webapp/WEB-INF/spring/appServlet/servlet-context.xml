@@ -45,11 +45,12 @@
 	</beans:bean>
 	
 	<beans:bean id="userProblemDAO" class="com.walab.coding.Repository.UserProblemDAOImpl"/>
-	
 	<beans:bean id="userProblemService" class="com.walab.coding.Service.UserProblemServiceImpl"/>
 	
 	<beans:bean id="userActivityDAO" class="com.walab.coding.Repository.UserActivityDAOImpl"/>
-	
 	<beans:bean id="userActivityService" class="com.walab.coding.Service.UserActivityServiceImpl"/>
+	
+	<beans:bean id="recommendDAO" class="com.walab.coding.Repository.RecommendDAOImpl"/>
+	<beans:bean id="recommendService" class="com.walab.coding.Service.RecommendProblemServiceImpl"/>
 	
 </beans:beans>

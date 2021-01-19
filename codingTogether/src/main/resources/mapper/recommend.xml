@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="userProblem">
-	<select id="readUserProblemList" resultType="com.walab.coding.Model.UserProblemDTO" parameterType="hashmap">
+<mapper namespace="recommend">
+	<!-- <select id="userProblemList" resultType="com.walab.coding.Model.UserProblemDTO" parameterType="hashmap">
 		select up.id as id, cs.siteName as site, cs.siteUrl as siteUrl, up.problem as problem, up.link as link, up.difficulty as difficulty, up.memo as memo, up.regDate as regDate 
 		from userProblem as up left join codingSite as cs on up.siteID = cs.id 
 		where up.userID = #{userID}
-	</select>
+	</select> -->
 	
-	<select id="deleteUserProblem" parameterType="hashmap">
-		delete from userProblem where up.userID = #{userID}
+	<select id="readRecommendList" resultType="com.walab.coding.Model.RecommendDTO" parameterType="hashmap">
+		SELECT recom.title, us.nickname as nickname
+		FROM recommend1 as recom left join user as us on recom.userID = us.id
 	</select>
 </mapper>
