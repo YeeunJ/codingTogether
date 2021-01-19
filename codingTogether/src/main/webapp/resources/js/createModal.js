@@ -27,7 +27,7 @@ function createModel(content, titleValue, actionFunction){
 		variant.fn.apply(this, variant.args);
 }
 
-function updateModel(readContent, updateContent, titleValue, actionFunction){
+function rudModel(readContent, updateContent, titleValue, updateFunction, deleteFunction){
 		var variant = {
 			args: [
 				{
@@ -47,7 +47,7 @@ function updateModel(readContent, updateContent, titleValue, actionFunction){
 											label: '등록',
 											classes: 'green',
 											action: function() {
-												actionFunction();
+												updateFunction();
 												return $.sweetModal({
 													content: '<p style = "font-weight:800; font-size:15px; padding-top: 15px;">데이터가 수정 되었습니다~:)</p>',
 													icon: $.sweetModal.ICON_SUCCESS
@@ -55,6 +55,17 @@ function updateModel(readContent, updateContent, titleValue, actionFunction){
 											}
 										}
 									]
+								});
+							}
+						},
+						{
+							label: '삭제',
+							classes: 'green',
+							action: function() {
+								deleteFunction();
+								return $.sweetModal({
+									content: '<p style = "font-weight:800; font-size:15px; padding-top: 15px;">데이터가 삭제 되었습니다~:)</p>',
+									icon: $.sweetModal.ICON_SUCCESS
 								});
 							}
 						}

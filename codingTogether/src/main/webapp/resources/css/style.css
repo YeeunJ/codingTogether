@@ -74,3 +74,5 @@
 	position: initial;
     padding: 0;
 }
+
+.sweet-modal-box.alert{left 0 !important;}

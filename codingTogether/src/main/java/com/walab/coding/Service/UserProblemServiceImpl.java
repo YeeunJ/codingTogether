@@ -13,7 +13,7 @@ import com.walab.coding.Repository.UserProblemDAO;
 public class UserProblemServiceImpl implements UserProblemService{
 	
 	@Autowired
-	UserProblemDAO userProblemService ;//= new UserProblemDAO(dataSource);
+	UserProblemDAO userProblemService ;
 	
 	@Override
 	public List<UserProblemDTO> read(int userID){

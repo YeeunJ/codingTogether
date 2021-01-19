@@ -167,6 +167,16 @@
 										<i class="fa fa-search"></i>
 									</button>
 								</fieldset>
+								<div class = "table">
+									<div class="row">
+										<span class="cell th2"></span>
+										<span class="cell th2"></span>
+										<span class="cell th2"></span>
+										<span class="cell th2"></span>
+										<span class="cell th2"></span>
+									</div>
+								</div>
+								 <!--
 								<table class="table table-striped">
                                         <thead>
                                           <tr>
@@ -190,7 +200,7 @@
                                           </tr>
                                         </c:forEach>
                                         </tbody>
-                            	</table>
+                            	</table> -->
                             	<div id="registerSolvedProblem" hidden>
                             		<div class = "container">
                             			<form class="col s12">
