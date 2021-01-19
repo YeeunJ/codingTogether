@@ -52,4 +52,12 @@
 	
 	<beans:bean id="userActivityService" class="com.walab.coding.Service.UserActivityServiceImpl"/>
 	
+		
+	<beans:bean id="userDAO" class="com.walab.coding.Repository.UserDAOImpl"/>
+	<beans:bean id="userService" class="com.walab.coding.Service.UserServiceImpl"/>
+	
+	<beans:bean id="CodingSiteDAO" class="com.walab.coding.Repository.CodingSiteDAOImpl"/>
+	<beans:bean id="CodingSiteService" class="com.walab.coding.Service.CodingSiteServiceImpl"/>
+		
+	
 </beans:beans>
