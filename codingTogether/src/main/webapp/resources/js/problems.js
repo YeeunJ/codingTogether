@@ -21,15 +21,15 @@ $(document).ready(function() {
 		 createModel("#registerSolvedProblem", "문제 등록", addAjax);
 		 $('select').formSelect();
 	});
-	
-	$('.problemContent').on('click', function() {
-		
-		 updateModel("#readSolvedProblem", "#updateSolvedProblem", "problem 정보", updateAjax);
-		 $('select').formSelect();
-	});
 });
 function printAllContent(id){
-	updateModel("#readSolvedProblem", "#updateSolvedProblem", $(id+' .pTitle').html(), updateAjax);
+	$('#siteName').html($(id+' .pSite').html());
+	$('#problemName').html($(id+' .pSite').html());
+	$('#memo').html($(id+' .pMemo').html());
+	$('#regdate').html($(id+' .pRegdate').html());
+	$('#difficulty').html($(id+' .pDifficulty').html());
+	
+	rudModel("#readSolvedProblem", "#updateSolvedProblem", $(id+' .pTitle').html(), updateAjax, deleteAjax);
 	$('select').formSelect();
 }
 
@@ -39,6 +39,11 @@ function addAjax (){
 }
 
 function updateAjax (){
+	console.log("update!!");
+	//ajax 넣는 함수
+}
+
+function deleteAjax (){
 	console.log("update!!");
 	//ajax 넣는 함수
 }
