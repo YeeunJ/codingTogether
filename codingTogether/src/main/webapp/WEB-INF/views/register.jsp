@@ -3,11 +3,9 @@
 
 <%@ include file="./inc/header.jsp" %>
   
-  <div class="section no-pad-bot" id="index-banner">
     <div class="container" style = "max-width: 50%;">
-      <br><br>
-      <h4 class="header center green-text">초기 정보 설정 </h4><br>
-	  		<form id = "registerInfo" method="post" action="registerok">
+      <br><h4 class="header center green-text">초기 정보 설정 </h4><br>
+	  		<form id = "registerInfo" method="post" action="./registerUserinfo">
 		     	<div id="table">
 				      <div class="row">
 				        <span class="cell th1">아이디 </span>
@@ -37,7 +35,7 @@
     <div class="container" style = "max-width: 50%;">
       <br><br>
       <h4 class="header center green-text">초기 목표 설정 </h4><br>
-			<form>
+			<form action="./registerUsergoal" method="post">
 		     	<div id="table">
 				      <div class="row">
 				        <span class="cell th1">일별 계획 </span>
@@ -48,8 +46,13 @@
 				        <span class="cell th2"><input type="date" name="startDate"/></span>
 				      </div>
 				      <div class="row">
+<<<<<<< HEAD
 				        <span class="cell th3">종료 일자 </span>
 				        <span class="cell th3"><input type="date" name="endDate"/></span>								      	
+=======
+				        <span class="cell col1">종료 일자 </span>
+				        <span class="cell col2"><input id="date" type="date" name="endDate"/></span>								      	
+>>>>>>> branch 'soong' of https://github.com/YeeunJ/codingTogether.git
 				      </div>
 				      <div class="row">
 				        <span class="cell th4">목표 갯수 </span>
@@ -59,10 +62,9 @@
 				 <br><br>
 				 <div class="center">			
 		          	<input type="submit" value="등록 " id="download-button" class="btn-large waves-effect waves-light green" />
-		         </div>        
+		         </div>
 			</form>
       </div>
-    </div>
 
   
 <%@ include file="./inc/footer.jsp" %>
