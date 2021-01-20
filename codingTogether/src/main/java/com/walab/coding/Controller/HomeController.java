@@ -30,6 +30,8 @@ public class HomeController {
 	
 	@Autowired
 	CodingSiteServiceImpl codingSiteService;
+	
+	@Autowired
 	UserServiceImpl UserService;
 	
 	
@@ -57,17 +59,21 @@ public class HomeController {
 //		String[] siteID_arr = request.getParameterValues("siteId");
 //		String[] prob_arr = request.getParameterValues("problem");
 //		String[] link_arr = request.getParameterValues("link");
-//		
+
 		int userID = 1;
-		
 		
 		for(int i=0 ; i<siteId.size() ; i++) {
 			System.out.println(siteId.get(i));
 			UserProblemsDTO p = new UserProblemsDTO();
+			
 			p.setUserID(userID);
-			p.setSiteID(Integer.parseInt(siteId.get(i)));
+			if(Integer.parseInt(siteId.get(i)) != 0)
+				p.setSiteID(Integer.parseInt(siteId.get(i)));
+			
 			p.setProblem(problem.get(i));
-			p.setLink(link.get(i));
+			if(link.get(i) == null)
+				p.setLink(null);
+			else	p.setLink(link.get(i));
 			p.setDifficulty(null);
 			p.setMemo(null);
 			
