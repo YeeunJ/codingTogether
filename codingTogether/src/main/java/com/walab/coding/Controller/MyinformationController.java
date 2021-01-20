@@ -81,13 +81,12 @@ public class MyinformationController {
 //		return "redirect:/mypage/information";	
 //	}
 	@RequestMapping(value="/editok", method = RequestMethod.POST)
-	public String editPostOK(GoalDTO goalDTO) {
+	public String editGoal(GoalDTO goalDTO) {
 		if(goalService.updateGoal(goalDTO)==0)
 				System.out.println("데이터 수정 실패");
 		else
 			System.out.println("데이터 수정 성공!!");
-		return "redirect:../mypage/information";
-		
+		return "redirect:/";
 	}	
 
 }

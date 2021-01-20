@@ -80,21 +80,21 @@
 							<div class="card-body">
 						     	<div id="table">
 						     	   <c:forEach items="${users}" var="user" varStatus="status">
-								      <div class="row">
-								        <span class="cell th1">이름 </span>
-								        <span class="cell th1">${user.name} </span>
+								      <div class="tableRow">
+								        <span class="tableCell th1">이름 </span>
+								        <span class="tableCell th1">${user.name} </span>
 								      </div>
-								      <div class="row">
-								        <span class="cell th2">닉네임 </span>
-								        <span class="cell th2">${user.nickName}</span>
+								      <div class="tableRow">
+								        <span class="tableCell th2">닉네임 </span>
+								        <span class="tableCell th2">${user.nickName}</span>
 								      </div>
-								      <div class="row">
-								        <span class="cell th3">학번</span>
-								        <span class="cell th3">${user.userNumber}</span>
+								      <div class="tableRow">
+								        <span class="tableCell th3">학번</span>
+								        <span class="tableCell th3">${user.userNumber}</span>
 								      </div>
-								      <div class="row">
-								        <span class="cell th4">자기소개 </span>
-								        <span class="cell th4">${user.intro} </span>
+								      <div class="tableRow">
+								        <span class="tableCell th4">자기소개 </span>
+								        <span class="tableCell th4">${user.intro} </span>
 								      </div>
 								   </c:forEach>						     									      
 								 </div>	
@@ -112,23 +112,23 @@
 								<form id = "registerInfo" method="post" action="registerok">	
 							     	<div id="table">
 							     		<c:forEach items="${users}" var="user" varStatus="status">
-									      <div class="row">
-									        <span class="cell th1">이름</span>
-									        <span class="cell th1"><input type="text" name="userName" placeholder = "${user.name}"/> </span>
+									      <div class="tableRow">
+									        <span class="tableCell th1">이름</span>
+									        <span class="tableCell th1"><input type="text" name="userName" value ="${user.name}" placeholder = "${user.name}"/> </span>
 									      </div>
-									      <div class="row">
-									        <span class="cell th2">닉네임</span>
-									        <span class="cell th2"><input type="text" name="nickName" placeholder = "${user.nickName}"/> </span>
+									      <div class="tableRow">
+									        <span class="tableCell th2">닉네임</span>
+									        <span class="tableCell th2"><input type="text" name="nickName" value ="${user.nickName}" placeholder = "${user.nickName}"/> </span>
 									      </div>
-									      <div class="row">
-									        <span class="cell th3">학번</span>
-									        <span class="cell th3"><input type="text" name="userNumber" placeholder = "${user.userNumber}"/> </span>
+									      <div class="tableRow">
+									        <span class="tableCell th3">학번</span>
+									        <span class="tableCell th3"><input type="text" name="userNumber" value ="${user.userNumber}" placeholder = "${user.userNumber}"/> </span>
 									      </div>
-									      <div class="row">
-									        <span class="cell th4">자기소개</span>
-									        <span class="cell th4"><textarea cols="20" rows="10" name="intro" placeholder = "${user.intro}"></textarea> </span>
+									      <div class="tableRow">
+									        <span class="tableCell th4">자기소개</span>
+									        <span class="tableCell th4"><textarea cols="20" rows="10" name="intro" placeholder = "${user.intro}">${user.intro}</textarea> </span>
 									      </div>
-										</c:forEach>									     									      
+										</c:forEach>									     						 			      
 									 </div>											
 								</form>
 							</div>
@@ -145,28 +145,21 @@
 							<div class="card-body">
 						     	<div id="table">
 						     	   <c:forEach items="${goals}" var="goal" varStatus="status">
-								      <div class="row">
-								        <span class="cell th1">목표 내용</span>
-								        <span class="cell th1">${goal.goal} </span>
+								      <div class="tableRow">
+								        <span class="tableCell th1">목표 내용</span>
+								        <span class="tableCell th1">${goal.goal} </span>
 								      </div>
-								      <div class="row">
-								        <span class="cell th2">목표 기간</span>
-                                        <span class="cell th2"><fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/> 
+								      <div class="tableRow">
+								        <span class="tableCell th2">목표 기간</span>
+                                        <span class="tableCell th2"><fmt:formatDate pattern="yyyy-MM-dd"  value="${goal.startDate}" /> 
                                         ~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>
-                                        </span>							        
+                                        </span>
+                                        <fmt:formatDate pattern="yyyy-MM-dd"  value="${goal.startDate}" var = "sDate" /> 
+                                        <fmt:formatDate pattern="yyyy-MM-dd" var = "eDate" value="${goal.endDate}"/>
+                                        						        
 								      </div>
 								   </c:forEach>						     									      
-								 </div>								
-<!-- 						     	<div id="table">
-								      <div class="row">
-								        <span class="cell col1">목표 내용 </span>
-								        <span class="cell col2">입력한 목표 내용  </span>
-								      </div>
-								      <div class="row">
-								        <span class="cell col1">기간 </span>
-								        <span class="cell col2">입력한 목표 기간  </span>
-								      </div>
-								 </div>	 -->							
+								 </div>															
 							</div>
 							<div class="row center">
 									<input type="button" value="수정하기 " onclick="showGoalEdit(); hideGoal();" id="download-button"  class="waves-effect waves-light btn-large green" />
@@ -183,22 +176,23 @@
 								  <form:form id = "editGoal" method="post" action="information/editok" >
 										<div id="table">
 										<c:forEach items="${goals}" var="goal" varStatus="status">
-											<div class="row">
-												<span class="cell th1">목표 내용 </span>
-												<span class="cell th1"><input type="text" name="goal" placeholder = "${goal.goal}"/> </span>
+											<input name = "id"  type = "hidden" />
+											<div class="tableRow">
+												<span class="tableCell th1">목표 내용 </span>
+												<span class="tableCell th1"><input type="text" name="goal" value ="${goal.goal}" placeholder = "${goal.goal}"/> </span>
 											</div>
-											<div class="row">
-											    <span class="cell th2">목표 시작일</span>
-											    <span class="cell th3"><input type="date" name="startDate" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/>/> </span>
+											<div class="tableRow">
+											    <span class="tableCell th2">목표 시작일</span>
+											    <span class="tableCell th3"><input type="date" name="startDate" value ="${sDate}" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/>/> </span>
 											                        
 											</div>
-											<div class="row">
-											    <span class="cell th3">목표 종료일</span>
-											    <span class="cell th3"><input type="date" name="endDate" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>/> </span>
+											<div class="tableRow">
+											    <span class="tableCell th3">목표 종료일</span>
+											    <span class="tableCell th3"><input type="date" name="endDate" value ="${eDate}" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>/> </span>
 											</div>
 										</c:forEach>
 										</div>									  			
-										<div class="row center" style ="padding: 10px;">
+										<div class="row center" style ="padding: 10px; position: absolute; top: 50%; left: 50%; display:flex; align-items: center;justify-content: center;">
 										  <input id = "submit" type="submit" value="수정하기 " id="download-button" class="btn-large waves-effect waves-light green" />
 										  <input id = "add" type = "button" value="취소하기 " onclick = "showGoal(); hideGoalEdit()" id="download-button" class="btn-large waves-effect waves-light green" />
 										</div>
