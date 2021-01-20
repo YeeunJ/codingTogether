@@ -42,7 +42,7 @@ public class MyproblemsController {
 		
 		
 		List<UserProblemDTO> problems = userProblemService.read(userID);
-		List<GoalDTO> goals = userProblemService.readGoal(userID);
+		List<GoalDTO> goals = goalService.readGoal(userID);
 		
 		mv.addObject("goals", goals);
 		mv.addObject("problems", problems);

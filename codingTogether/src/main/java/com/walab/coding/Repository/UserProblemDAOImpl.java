@@ -30,14 +30,4 @@ public class UserProblemDAOImpl implements UserProblemDAO{
 		
 		return userProblemList = sqlSession.selectList(namespace+".readUserProblemList", userProblemListParam);
 	}
-	
-	public List<GoalDTO> readGoalAll(int userID){
-		List<GoalDTO> userGoalList = new ArrayList<GoalDTO>();
-		
-		Map<String, Object> userGoalListParam = new HashMap<String, Object>();
-		userGoalListParam.put("userID", userID);
-		
-		return userGoalList = sqlSession.selectList(namespace+".userGoalList", userGoalListParam);
-		
-	}
 }

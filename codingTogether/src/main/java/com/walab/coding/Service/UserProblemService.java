@@ -8,6 +8,4 @@ import com.walab.coding.Model.UserProblemDTO;
 
 public interface UserProblemService {
 	List<UserProblemDTO> read(int userID);
-	
-	List<GoalDTO> readGoal(int userID);
 }

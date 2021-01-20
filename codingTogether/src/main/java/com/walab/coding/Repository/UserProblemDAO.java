@@ -9,5 +9,4 @@ import com.walab.coding.Model.UserProblemDTO;
 public interface UserProblemDAO {
 	public List<UserProblemDTO> readAll(int userID);
 	
-	public List<GoalDTO> readGoalAll(int userID);
 }
