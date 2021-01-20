@@ -39,7 +39,7 @@ public class GoalDAOImpl implements GoalDAO{
 //	}
 	
 	public int updateGoal(GoalDTO goalDTO) {
-		int result = sqlSession.update(namespace+".updateGoal", goalDTO);
+		int result=sqlSession.update(namespace+".updateCodingSite", goalDTO);
 		return result;
 		}
 }

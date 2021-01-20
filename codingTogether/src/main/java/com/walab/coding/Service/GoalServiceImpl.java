@@ -30,8 +30,8 @@ public class GoalServiceImpl implements GoalService{
 //	}
 	
 	@Override
-	public int updateGoal(GoalDTO dto) {
+	public int updateGoal(GoalDTO goalDTO) {
 		// TODO Auto-generated method stub
-		return goalService.updateGoal(dto);
+		return goalDAO.updateGoal(goalDTO);
 	}
 }

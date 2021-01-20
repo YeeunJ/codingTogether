@@ -2,6 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 	language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ taglib uri = "http://www.springframework.org/tags/form" prefix = "form" %>
 
 <%@ include file="../inc/header2.jsp"%>
 
@@ -168,7 +169,7 @@
 								 </div>	 -->							
 							</div>
 							<div class="row center">
-									<input type="button" value="수정하기 " onclick="showGoalEdit(); hideGoal();" id="download-button" class="btn-large waves-effect waves-light green" />
+									<input type="button" value="수정하기 " onclick="showGoalEdit(); hideGoal();" id="download-button"  class="waves-effect waves-light btn-large green" />
 							</div>
 						</div>
 			
@@ -178,34 +179,33 @@
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary">내 목표 수정 </h6>
 							</div>
-							<div class="card-body">
-								  <form id = "registerGoal" method="post" action="registerok" >
-							     	<div id="table">
-							     		<c:forEach items="${goals}" var="goal" varStatus="status">
-									      <div class="row">
-									        <span class="cell th1">목표 내용 </span>
-									        <span class="cell th1"><input type="text" name="goal" placeholder = "${goal.goal}"/> </span>
-									      </div>
-									      <div class="row">
-									        <span class="cell th2">목표 시작일</span>
-									        <span class="cell th3"><input type="text" name="startDate" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/>/> </span>
-                                       
-									      </div>
-									      <div class="row">
-									        <span class="cell th3">목표 종료일</span>
-									        <span class="cell th3"><input type="text" name="endDate" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>/> </span>
-									      </div>
-									      </c:forEach>
-									 </div>									  
-								  </form>
-							</div>
-						    <div class="row center" style ="padding: 10px;">
-						      <input id = "submit" type="button" value="수정하기 " id="download-button" class="btn-large waves-effect waves-light green" />
-						      <input id = "add" type = "button" value="취소하기 " onclick = "showGoal(); hideGoalEdit()" id="download-button" class="btn-large waves-effect waves-light green" />
-						    </div>	
-						</div>										
-					</div>
-				</div>
+							<div class="card-body">							
+								  <form:form id = "editGoal" method="post" action="information/editok" >
+										<div id="table">
+										<c:forEach items="${goals}" var="goal" varStatus="status">
+											<div class="row">
+												<span class="cell th1">목표 내용 </span>
+												<span class="cell th1"><input type="text" name="goal" placeholder = "${goal.goal}"/> </span>
+											</div>
+											<div class="row">
+											    <span class="cell th2">목표 시작일</span>
+											    <span class="cell th3"><input type="date" name="startDate" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/>/> </span>
+											                        
+											</div>
+											<div class="row">
+											    <span class="cell th3">목표 종료일</span>
+											    <span class="cell th3"><input type="date" name="endDate" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>/> </span>
+											</div>
+										</c:forEach>
+										</div>									  			
+										<div class="row center" style ="padding: 10px;">
+										  <input id = "submit" type="submit" value="수정하기 " id="download-button" class="btn-large waves-effect waves-light green" />
+										  <input id = "add" type = "button" value="취소하기 " onclick = "showGoal(); hideGoalEdit()" id="download-button" class="btn-large waves-effect waves-light green" />
+										</div>
+						    		</form:form>						    	
+							</div>										
+						</div>
+				
 
 				<!-- /.container-fluid -->
 

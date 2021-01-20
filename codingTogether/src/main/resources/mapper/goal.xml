@@ -17,8 +17,8 @@
 	</select> -->
 	<update id="updateGoal">
 		UPDATE goal
-		SET goal=#{goal}, startDate=#{startDate}, endDate=#{startDate}
-		WHERE id=#{userID}
+		SET goal=#{goal}, startDate=#{startDate}, endDate=#{endDate}
+		WHERE userID=#{userID}
 	</update>
 
 </mapper>
