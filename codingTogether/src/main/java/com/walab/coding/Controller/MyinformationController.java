@@ -50,4 +50,13 @@ public class MyinformationController {
 		
 		return mv;
 	}
+	
+	@RequestMapping(value="/editok", method = RequestMethod.POST)
+	public String editGoal(GoalDTO goalDTO) {
+		if(goalService.updateGoal(goalDTO)==0)
+				System.out.println("목표 수정 실패");
+		else
+			System.out.println("목표 수정 성공!!");
+		return "redirect:../mypage/information";	
+	}
 }

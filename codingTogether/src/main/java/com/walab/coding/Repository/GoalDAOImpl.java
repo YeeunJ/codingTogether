@@ -38,5 +38,11 @@ public class GoalDAOImpl implements GoalDAO{
 //		return goalCount = sqlSession.selectList(namespace+".goalCount", goalListParam);
 //	}
 	
-
+	public int updateGoal(GoalDTO goalDTO) {
+		int result = sqlSession.update(namespace+".updateGoal", goalDTO);
+		return result;
+		}
 }
+	
+
+

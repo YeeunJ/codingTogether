@@ -28,4 +28,10 @@ public class GoalServiceImpl implements GoalService{
 //		List<GoalDTO> goalsCount = goalService.countGoal(userID);
 //		return goalsCount;
 //	}
+	
+	@Override
+	public int updateGoal(GoalDTO dto) {
+		// TODO Auto-generated method stub
+		return goalService.updateGoal(dto);
+	}
 }
