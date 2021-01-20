@@ -26,7 +26,7 @@ public class GoalDAOImpl implements GoalDAO{
 		Map<String, Object> goalListParam = new HashMap<String, Object>();
 		goalListParam.put("userID", userID);
 		
-		return goalList = sqlSession.selectList(namespace+".goalList", goalListParam);
+		return goalList = sqlSession.selectList(namespace+".readGoalList", goalListParam);
 	}
 //	public List<GoalDTO> countGoal(int userID) {
 //		

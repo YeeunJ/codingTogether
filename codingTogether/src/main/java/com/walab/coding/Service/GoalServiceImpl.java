@@ -13,12 +13,12 @@ import com.walab.coding.Repository.GoalDAO;
 public class GoalServiceImpl implements GoalService{
 	
 	@Autowired
-	GoalDAO goalService ;
+	GoalDAO goalDAO ;
 	
 	
 	@Override
 	public List<GoalDTO> readGoal(int userID){
-		List<GoalDTO> goals = goalService.readGoalAll(userID);
+		List<GoalDTO> goals = goalDAO.readGoalAll(userID);
 		return goals;
 	}
 

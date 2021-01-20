@@ -9,7 +9,7 @@
 </mapper> -->
 
 <mapper namespace="goal">
-	<select id="goalList"
+	<select id="readGoalList"
 		resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">
 		SELECT * FROM goal WHERE id=#{userID} ORDER BY DATE(startDate) DESC limit 1	</select>
 <!-- 	<select id="goalCount" resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">

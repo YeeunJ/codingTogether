@@ -14,12 +14,12 @@ import com.walab.coding.Repository.UserProblemDAO;
 public class UserProblemServiceImpl implements UserProblemService{
 	
 	@Autowired
-	UserProblemDAO userProblemService ;
+	UserProblemDAO userProblemDAO;
 	
 	@Override
 	public List<UserProblemDTO> read(int userID){
 		
-		List<UserProblemDTO> problems = userProblemService.readAll(userID);
+		List<UserProblemDTO> problems = userProblemDAO.readAll(userID);
 		
 		for(UserProblemDTO problem: problems){
 			
@@ -45,14 +45,6 @@ public class UserProblemServiceImpl implements UserProblemService{
 			}
 		}
 		return problems;
-	}
-	
-	@Override
-	public List<GoalDTO> readGoal(int userID){
-		List<GoalDTO> goals = userProblemService.readGoalAll(userID);
-		
-		return goals;
-		
 	}
 
 }
