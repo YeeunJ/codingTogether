@@ -10,7 +10,7 @@ import com.walab.coding.Model.RecommendDTO;
 import com.walab.coding.Repository.RecommendDAO;
 
 @Service("recommendService")
-public class RecommendProblemServiceImpl implements RecommendProblemService {
+public class RecommendServiceImpl implements RecommendService {
 
 	@Autowired
 	RecommendDAO recommendDAO;

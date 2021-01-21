@@ -9,11 +9,22 @@
 </mapper> -->
 
 <mapper namespace="goal">
-	<select id="readGoalList"
-		resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">
-		SELECT * FROM goal WHERE id=#{userID} ORDER BY DATE(startDate) DESC limit 1	</select>
+	<select id="readGoal" resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">
+		SELECT * FROM goal WHERE userID=#{userID} ORDER BY DATE(startDate) DESC limit 1	
+	</select>
+	 
+	<select id="readGoalList" resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">
+		SELECT * FROM goal WHERE userID=#{userID} ORDER BY DATE(startDate) DESC
+	</select>
+		
 <!-- 	<select id="goalCount" resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">
 		select count(*) from userProblem group by userID having userID = 1;
 	</select> -->
+	
+	<update id="updateGoal">
+		UPDATE goal
+		SET goal=#{goal}, startDate=#{startDate}, endDate=#{endDate}
+		WHERE id=#{userID}
+	</update>
 
 </mapper>

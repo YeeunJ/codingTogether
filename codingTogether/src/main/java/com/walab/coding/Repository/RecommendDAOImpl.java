@@ -25,6 +25,6 @@ public class RecommendDAOImpl implements RecommendDAO {
 		Map<String, Object> recommendListParam = new HashMap<String, Object>();
 		//recommendListParam.put("userID", userID);
 		
-		return recommendList = sqlSession.selectList(namespace+".recommendList", recommendListParam);
+		return recommendList = sqlSession.selectList(namespace+".readRecommendList", recommendListParam);
 	}
 }

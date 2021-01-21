@@ -107,44 +107,45 @@ function setForm(id, sitename, url){
 		<h4 class="header green-text">코딩 사이트 관리</h4>
 		<br>
 	</div>
-	<div class="col-1"></div>
-	<div class="col-2">
-		<button id="addbtn"
-			class="btn-small waves-effect waves-light green button">추가</button>
-		<button id="editbtn"
-			class="btn-small waves-effect waves-light green button">편집</button>
-		<br>
-
+	<div class="table">
+		<div class="right">
+			<button id="addbtn"
+				class=" btn-small waves-effect waves-light green button">추가</button>
+			<button id="editbtn"
+				class=" btn-small waves-effect waves-light green button">편집</button>
+		</div>
+	</div>
 	<form name="form1" action="manageCodingsite/addok" method="post">
 		 
 		<div id="table">
-			<div class="row">
-				<span class="cell th3 tablehead">사이트 이름 </span> 
-				<span class="cell th5 tablehead">URL</span> 
-				<span class="cell th1"></span> 
-				<span class="cell th1"></span>
+			<div class="tableRow">
+				<span class="tableCell th3 tablehead">사이트 이름 </span> 
+				<span class="tableCell th5 tablehead">URL</span> 
+				<span class="tableCell th1"></span> 
+				<span class="tableCell th1"></span>
+
 			</div>
 			<c:forEach items="${posts}" var="u">
-				<div class="row content">
-			 		<span class="cell td3 sub">${u.getSiteName()}</span> 
-					<span class="cell td5 sub"><a href="${u.getSiteUrl()}">${u.getSiteUrl()}</a></span> 
-					<span class="cell td1 sub"><button onclick="editOk(this, '${u.getId()}','${u.getSiteName()}','${u.getSiteUrl()}')" type="button" id="change" style="display:none;" class="edit waves-effect waves-light btn-small green">수정</button></span> 
-					<span class="cell td1 sub"><a href="javascript:deleteOk('${u.getId()}')"><button style="display:none;"class="edit waves-effect waves-light btn-small green" type="button">삭제</button></a></span>
+				<div class="tableRow content">
+			 		<span class="tableCell td3 sub">${u.getSiteName()}</span> 
+					<span class="tableCell td5 sub"><a href="${u.getSiteUrl()}">${u.getSiteUrl()}</a></span> 
+					<span class="tableCell td1 sub"><button onclick="editOk(this, '${u.getId()}','${u.getSiteName()}','${u.getSiteUrl()}')" type="button" id="change" style="display:none;" class="edit waves-effect waves-light btn-small green">수정</button></span> 
+					<span class="tableCell td1 sub"><a href="javascript:deleteOk('${u.getId()}')"><button style="display:none;"class="edit waves-effect waves-light btn-small green" type="button">삭제</button></a></span>
 				</div>
 			</c:forEach>
 			
-			<div id="new" style=" display: none;" class="row">
+			<div id="new" style="display: none;" class="row">
 				<input id="editonly" type="hidden" name="id" />
-				<span class="cell td3 sub"><input  id="siteName" type='text'name='siteName'></span>
-				<span class="cell td5 sub"><input  id="siteUrl" type='text' name='siteUrl'></span> 
-				<span class="cell td1 sub"><button id="cancelbtn"class=" waves-effect waves-light btn-small green" type="button">취소</button></span>
-				<span class="cell td1 sub"><button id="submitbtn"class=" waves-effect waves-light btn-small green" type="submit">추가</button></span>
+				<span class="tableCell td3 sub"><input  id="siteName" type='text'name='siteName'></span>
+				<span class="tableCell td5 sub"><input  id="siteUrl" type='text' name='siteUrl'></span> 
+				<span class="tableCell td1 sub"><button id="cancelbtn"class=" waves-effect waves-light btn-small green" type="button">취소</button></span>
+				<span class="tableCell td1 sub"><button id="submitbtn"class=" waves-effect waves-light btn-small green" type="submit">추가</button></span>
 			</div>
 		</div>
-</form>
+		</form>
 	</div>
 
-</div>
+
 
 
 <%@ include file="./inc/footer.jsp"%>

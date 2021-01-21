@@ -29,7 +29,7 @@ public class MyinformationController {
 	@Autowired
 	UserServiceImpl userService;
 	
-	@Autowired
+	@Autowired	
 	GoalServiceImpl goalService;	
 	
 	
@@ -50,4 +50,43 @@ public class MyinformationController {
 		
 		return mv;
 	}
+//	@RequestMapping(value = "/editok", method = {RequestMethod.GET, RequestMethod.POST})
+//	public ModelAndView editGoal(ModelAndView mv) {
+//		
+//		int userID = 1;
+//		GoalDTO goal; //지금 session 처리와 로그인을 안해서 넣어놓은 예시 데이터!! 나중에 session 처리 할께요!!
+//		
+//		goal = goalService.updateGoal(userID);
+//		System.out.println(goal.toString());
+//		mv.addObject("updateGoal", goal);
+//		mv.setViewName("mypage/information");
+////		if(goalService.updateGoal(GoalDTO goalDTO)==0)
+////		System.out.println("목표 수정 실패");
+////		else
+////		System.out.println("목표 수정 성공!!");
+//		
+//		return mv;
+//	}	
+	
+//	@RequestMapping(value="/editok", method = {RequestMethod.GET, RequestMethod.POST})
+//	public String editGoal(GoalDTO goalDTO, ModelAndView mv) {
+//		mv.addObject("goals", goalService.updateGoal(goalDTO));
+////		mv.addObject("startDate", startDate);
+////		mv.addObject("endDate", endDate);
+//
+//		if(goalService.updateGoal(goalDTO)==0)
+//				System.out.println("목표 수정 실패");
+//		else
+//			System.out.println("목표 수정 성공!!");
+//		return "redirect:/mypage/information";	
+//	}
+	@RequestMapping(value="/editok", method = RequestMethod.POST)
+	public String editGoal(GoalDTO goalDTO) {
+		if(goalService.updateGoal(goalDTO)==0)
+				System.out.println("데이터 수정 실패");
+		else
+			System.out.println("데이터 수정 성공!!");
+		return "redirect:/";
+	}	
+
 }

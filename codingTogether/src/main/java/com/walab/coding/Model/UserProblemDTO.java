@@ -3,6 +3,7 @@ package com.walab.coding.Model;
 import java.sql.Date;
 
 public class UserProblemDTO {
+	private int id;
 	private String problem;
 	private String site;
 	private String siteUrl;
@@ -11,6 +12,13 @@ public class UserProblemDTO {
 	private String memo;
 	private Date regDate;
 	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getProblem() {
 		return problem;
 	}
