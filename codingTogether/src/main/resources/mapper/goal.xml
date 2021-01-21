@@ -10,11 +10,11 @@
 
 <mapper namespace="goal">
 	<select id="readGoal" resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">
-		SELECT * FROM goal WHERE id=#{userID} ORDER BY DATE(startDate) DESC limit 1	
+		SELECT * FROM goal WHERE userID=#{userID} ORDER BY DATE(startDate) DESC limit 1	
 	</select>
 	 
 	<select id="readGoalList" resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">
-		SELECT * FROM goal WHERE id=#{userID} ORDER BY DATE(startDate) DESC
+		SELECT * FROM goal WHERE userID=#{userID} ORDER BY DATE(startDate) DESC
 	</select>
 		
 <!-- 	<select id="goalCount" resultType="com.walab.coding.Model.GoalDTO" parameterType="hashmap">

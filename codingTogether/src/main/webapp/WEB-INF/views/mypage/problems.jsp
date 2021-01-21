@@ -70,8 +70,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="ml-3 d-sm-flex align-items-center justify-content-between mb-3">
-                        <h1 class="h3 mb-0 text-gray-800">내가 푼 문제들</h1>
+                    <div class="ml-3 d-sm-flex align-items-center justify-content-between">
+                    	<h3 class="mt-4 header green-text">내 기록들 </h3>
                     </div>
 
                     <!-- Content Row -->
@@ -196,19 +196,19 @@
 									</button>
 								</fieldset>
 								<div class = "table">
-									<div class="row">
-										<span class="cell th1">No.</span>
-										<span class="cell th2">문제 제목</span>
-										<span class="cell th4">메모</span>
-										<span class="cell th2">날짜</span>
-										<span class="cell th1">난이도</span>
+									<div class="tableRow">
+										<span class="tableCell th1">No.</span>
+										<span class="tableCell th2">문제 제목</span>
+										<span class="tableCell th4">메모</span>
+										<span class="tableCell th2">날짜</span>
+										<span class="tableCell th1">난이도</span>
 									</div>
-									<div class="row" id="problem0" onclick="printAllContent('#problem0')">
-										<span class ="cell td1">3</span>
-										<span class ="cell td2 pTitle"><a href="https://www.acmicpc.net/problem/1181" target="_blank">1181</a></span>
-										<span class ="cell td4 pMemo">set을 쓰면 훨씬 빠르게 풀 수 있음</span>
-										<span class ="cell td2 pRegdate">2021-01-14</span>
-										<span class ="cell td1 pDifficulty"><img style="width: 34px;" alt="2" src="../resources/img/difficulty2.png"></span>
+									<div class="tableRow" id="problem0" onclick="printAllContent('#problem0')">
+										<span class ="tableCell td1">3</span>
+										<span class ="tableCell td2 pTitle"><a href="https://www.acmicpc.net/problem/1181" target="_blank">1181</a></span>
+										<span class ="tableCell td4 pMemo">set을 쓰면 훨씬 빠르게 풀 수 있음</span>
+										<span class ="tableCell td2 pRegdate">2021-01-14</span>
+										<span class ="tableCell td1 pDifficulty"><img style="width: 34px;" alt="2" src="../resources/img/difficulty2.png"></span>
 										<span class="pSite" style="display:none;">백준</span>
 										<span class="pSiteUrl" style="display:none;">https://www.acmicpc.net/</span>
 									</div>
