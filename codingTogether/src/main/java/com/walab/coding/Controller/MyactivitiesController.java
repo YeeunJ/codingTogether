@@ -31,7 +31,7 @@ public class MyactivitiesController {
 		int userID = 1; //지금 session 처리와 로그인을 안해서 넣어놓은 예시 데이터!! 나중에 session 처리 할께요!!
 		
 		List<GoalDTO> goalList = goalService.readGoalAll(userID);
-		mv.addObject("goals", goalList);
+		mv.addObject("goalList", goalList);
 		mv.setViewName("mypage/activities");
 		
 		return mv;
