@@ -10,24 +10,6 @@
 <script src="../resources/js/problems.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-<script>
-data = { 
-        datasets: [{ 
-            backgroundColor: ['lightblue','yellow'], 
-            data: [100, 20] 
-        }],
-        labels: ['총 문제수','푼 문제수'] };
-    var ctx = document.getElementById("myChart"); 
-    var myDoughnutChart = new Chart(ctx, { 
-        type: 'doughnut', 
-        data: data, 
-        options: {
-            legend: {
-                display: false
-            }
-        } 
-    });
-</script>
 
 <!-- Page Wrapper -->
     <div id="wrapper">
@@ -109,20 +91,20 @@ data = {
                                     </div>
                                     <div>
                                         <table>
-                                        <c:forEach items="${goals}" var="goals" varStatus="status">
+                                        <c:forEach items="${goal}" var="goal" varStatus="status">
                                             <tr class="box">
                                                 <td>목표</td>
-                                                <td>${goals.goal}</td>
+                                                <td>${goal.goal}</td>
                                             </tr>
                                             <tr class="box">
                                                 <td>기간</td>
-                                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${goals.startDate}"/> 
-                                                ~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goals.endDate}"/>
+                                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/> 
+                                                ~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>
                                                 </td>
                                             </tr>
                                             <tr class="box">
                                                 <td>총 문제수</td>
-                                                <td>${goals.goalNum}개</td>
+                                                <td>${goal.goalNum}개</td>
                                             </tr>
                                         </c:forEach>
                                         </table>
@@ -157,7 +139,7 @@ data = {
 									   </c:forEach>						     									      
 									 </div>	                                   
 							     	 <div id="table">
-							     	   <c:forEach items="${goals}" var="goal" varStatus="status">
+							     	   <c:forEach items="${goal}" var="goal" varStatus="status">
 									      <div class="box">
 									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">목표 개수 </span>
 									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">${goal.goalNum} </span>
