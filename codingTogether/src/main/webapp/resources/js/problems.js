@@ -24,29 +24,66 @@ $(document).ready(function() {
 	});
 });
 function printAllContent(id){
-	$('#siteName').html($(id+' .pSite').html());
-	$('#problemName').html($(id+' .pSite').html());
+	$('#site').html($(id+' .pSite').html());
+	$('#problemName').html($(id+' .pTitle').html());
 	$('#memo').html($(id+' .pMemo').html());
 	$('#regdate').html($(id+' .pRegdate').html());
 	$('#difficulty').html($(id+' .pDifficulty').html());
 	
+	$('#UuserProblemID').html(id.substring(8, id.length));
+	$('#Usite').html($(id+' .pSite').html());
+	$('#UproblemName').html($(id+' .pTitle').html());
+	$('#Umemo').html($(id+' .pMemo').html());
+	$('#Uregdate').html($(id+' .pRegdate').html());
+	$('#Udifficulty').attr('value', $(id+' .pDifficulty').attr('alt'));
+	console.log($(id+' .pDifficulty').attr('alt'));
+	
 	rudModel("#readSolvedProblem", "#updateSolvedProblem", $(id+' .pTitle').html(), updateAjax, deleteAjax);
-	$('select').formSelect();
+	//$('select').formSelect();
 }
 
 function addAjax (){
 	console.log("success");
 	//ajax 넣는 함수
+	//승아가 구현함!!
 }
 
-function updateAjax (){
-	console.log("update!!");
-	//ajax 넣는 함수
+function updateAjax(){
+	$.ajax({
+		url: "problems/update",
+		type: "POST",
+		async: false,
+		data: {
+			id:$('#UuserProblemID').html(),
+			difficulty:$('.sweet-modal-content #Udifficulty').val(),
+			memo: $('.sweet-modal-content #Umemo').val()
+		},
+		success: function(data){
+			console.log(data);
+			$('#problemsContent').html(data);
+		}, 
+		error:function(request, status, error){
+			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        }
+	});
 }
 
 function deleteAjax (){
-	console.log("update!!");
-	//ajax 넣는 함수
+	$.ajax({
+		url: "./problems/delete",
+		type: "POST",
+		async: false,
+		data: {
+			id:$('#UuserProblemID').html()
+		},
+		success: function(data){
+			console.log(data);
+			$('#problemsContent').html(data);
+		}, 
+		error:function(request, status, error){
+			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        }
+	});
 }
 
 

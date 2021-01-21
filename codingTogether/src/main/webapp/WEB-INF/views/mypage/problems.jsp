@@ -195,49 +195,8 @@
 										<i class="fa fa-search"></i>
 									</button>
 								</fieldset>
-								<div class = "table">
-									<div class="tableRow">
-										<span class="tableCell th1">No.</span>
-										<span class="tableCell th2">문제 제목</span>
-										<span class="tableCell th4">메모</span>
-										<span class="tableCell th2">날짜</span>
-										<span class="tableCell th1">난이도</span>
-									</div>
-									<div class="tableRow" id="problem0" onclick="printAllContent('#problem0')">
-										<span class ="tableCell td1">3</span>
-										<span class ="tableCell td2 pTitle"><a href="https://www.acmicpc.net/problem/1181" target="_blank">1181</a></span>
-										<span class ="tableCell td4 pMemo">set을 쓰면 훨씬 빠르게 풀 수 있음</span>
-										<span class ="tableCell td2 pRegdate">2021-01-14</span>
-										<span class ="tableCell td1 pDifficulty"><img style="width: 34px;" alt="2" src="../resources/img/difficulty2.png"></span>
-										<span class="pSite" style="display:none;">백준</span>
-										<span class="pSiteUrl" style="display:none;">https://www.acmicpc.net/</span>
-									</div>
+								<div class = "table" id="problemsContent">
 								</div>
-								 <!--
-								<table class="table table-striped">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">No.</th>
-                                            <th scope="col">문제 제목</th>
-                                            <th scope="col">메모</th>
-                                            <th scope="col">날짜</th>
-                                            <th scope="col">난이도</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                        <c:forEach items="${problems}" var="problem" varStatus="status">
-                                          <tr class="problemContent" id="problem${status.count}" onclick="printAllContent('#problem${status.count}')">
-                                            <td scope="row">${status.count}</td>
-                                            <td class="pTitle"><a href="${problem.link}" target="_blank">${problem.problem}</a></td>
-                                            <td class="pMemo">${problem.memo}</td>
-                                            <td class="pRegdate">${problem.regDate}</td>
-                                            <td class="pDifficulty" style="padding: 0.3rem 1rem;"><img style="width: 34px;" alt="2" src="../resources/img/difficulty${problem.difficulty}.png"></td>
-                                            <td class ="pSite" style="display:none;">${problem.site}</td>
-                                            <td class ="pSiteUrl" style="display:none;">${problem.siteUrl}</td>
-                                          </tr>
-                                        </c:forEach>
-                                        </tbody>
-                            	</table> -->
                             	<div id="registerSolvedProblem" hidden>
                             		<div class = "container">
                             			<form class="col s12">
@@ -278,44 +237,59 @@
                             		</div>
                             	</div>
                             	<div id="readSolvedProblem" hidden>
-                            		<div class = "container">
-                            			<div class = "col s12">
-                            				<span>코딩 site : </span><span id="siteName"></span>
-                            				<span>문제 제목 : </span><span id="problemName"></span>
-                            				<span>문제 메모 : </span><span id="memo"></span>
-                            				<span>문제 날짜 : </span><span id="regdate"></span>
-                            				<span>문제 난이도 : </span><span id="difficulty"></span>
-                            			</div>
+                            		<div class = "table">
+										<div class="tableRow">
+											<span class="tableCell th1">문제 제목</span>
+											<span class="tableCell td7" id="problemName"></span>
+											<span class="tableCell th1">사이트 이름</span>
+											<span class="tableCell td2" id="site"></span>
+										</div>
+										<div class = "tableRow">
+											<span class="tableCell th1">날짜</span>
+											<span class="tableCell td2" id="regdate"></span>
+											<span class="tableCell th1">난이도</span>
+											<span class="tableCell td7" id="difficulty"></span>
+										</div>
+										<div class = "tableRow">
+											<span class="tableCell th1">메모</span>
+											<span class="tableCell td9" id="memo"></span>
+										</div>
 									</div>
                             	</div>
                             	<div id="updateSolvedProblem" hidden>
-                            		<div class = "container">
-                            			<div class = "col s12">
-                            				<span>코딩 site : </span><span id="uSiteName"></span>
-                            				<span>문제 제목 : </span><span id="uProblemName"></span>
-                            				<span>문제 바로가기 : </span><span id="uLink"></span>
-                            				<span>문제 메모 : </span><span id="uMemo"></span>
-                            				<span>문제 날짜 : </span><span id="uRegdate"></span>
-                            				<span>문제 난이도 : </span><span id="uDifficulty"></span>
-                            			</div>
-									</div>
-                            	</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- End of Main Content -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-	<%@ include file="../inc/footer.jsp" %>
+	                            	<div class = "container">
+	                            		<form class="col s12">
+		                            		<div class = "table">
+												<div class="tableRow">
+													<span id="UuserProblemID" style="display=none"></span>
+													<span class="tableCell th1">문제 제목</span>
+													<span class="tableCell td7" id="UproblemName"></span>
+													<span class="tableCell th1">사이트 이름</span>
+													<span class="tableCell td2" id="Usite"></span>
+												</div>
+												<div class = "tableRow">
+													<span class="tableCell th1">날짜</span>
+													<span class="tableCell td2" id="regdate"></span>
+													<span class="tableCell th1">난이도</span>
+													<input id="Udifficulty" type="text" class="validate" placeholder="1~5사이 숫자로 난이도를 표현하세요!!">
+												</div>
+												<div class = "tableRow">
+													<span class="tableCell th1">메모</span>
+													<textarea id="Umemo" type="text" class="validate" placeholder="이 문제에 메모하고 싶은 내용을 적어주세요!!"></textarea>
+												</div>
+											</div>
+	                            		</form>
+	                            		</div>
+	                            	</div>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      </div>
+	                  </div>
+	                  </div>
+	               </div>
+	               
+<a class="scroll-to-top rounded" href="#page-top">
+<i class="fas fa-angle-up"></i>
+</a>
+<%@ include file="../inc/footer.jsp" %>

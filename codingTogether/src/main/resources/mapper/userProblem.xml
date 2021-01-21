@@ -8,7 +8,12 @@
 		where up.userID = #{userID}
 	</select>
 	
-	<select id="deleteUserProblem" parameterType="hashmap">
-		delete from userProblem where id = #{userID}
-	</select>
+	<delete id="deleteUserProblem" parameterType="hashmap">
+		delete from userProblem where id = #{problemID}
+	</delete>
+	
+	<update id="updateUserProblem" parameterType="hashmap">
+		update userProblem set difficulty='${difficulty}', memo='${memo}' where id = #{problemID}
+	</update>
+	
 </mapper>
