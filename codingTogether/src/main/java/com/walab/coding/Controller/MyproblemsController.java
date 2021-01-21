@@ -67,7 +67,7 @@ public class MyproblemsController {
 		List<UserProblemDTO> problems = userProblemService.read(userID);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("problems", problems);
-		mv.setViewName("mypage/solvedProblemsContent");
+		mv.setViewName("ajaxContent/problemsContent");
 		
 		return mv;
 
@@ -89,7 +89,7 @@ public class MyproblemsController {
 		List<UserProblemDTO> problems = userProblemService.read(userID);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("problems", problems);
-		mv.setViewName("mypage/solvedProblemsContent");
+		mv.setViewName("ajaxContent/problemsContent");
 		return mv;
 	}
 	

@@ -196,7 +196,7 @@
 									</button>
 								</fieldset>
 								<div class = "table" id="problemsContent">
-									<%@ include file="./solvedProblemsContent.jsp" %>
+									<%@ include file="../ajaxContent/problemsContent.jsp" %>
 								</div>
                             	<div id="registerSolvedProblem" hidden>
                             		<div class = "container">
