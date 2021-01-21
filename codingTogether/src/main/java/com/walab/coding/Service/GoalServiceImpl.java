@@ -24,8 +24,8 @@ public class GoalServiceImpl implements GoalService{
 	
 	@Override
 	public List<GoalDTO> readGoalAll(int userID){
-		List<GoalDTO> goals = goalDAO.readGoalAll(userID);
-		return goals;
+		List<GoalDTO> goalList = goalDAO.readGoalAll(userID);
+		return goalList;
 	}
 
 	

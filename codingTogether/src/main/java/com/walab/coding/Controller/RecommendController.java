@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.walab.coding.Model.RecommendDTO;
-import com.walab.coding.Service.RecommendProblemServiceImpl;
+import com.walab.coding.Service.RecommendServiceImpl;
 
 /**
  * Handles requests for the application RecommendProblems page.
@@ -20,7 +20,7 @@ import com.walab.coding.Service.RecommendProblemServiceImpl;
 public class RecommendController {
 	
 	@Autowired
-	RecommendProblemServiceImpl recommendProblemService;
+	RecommendServiceImpl recommendProblemService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ModelAndView recommendProblem(ModelAndView mv) {

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.walab.coding.Model.RecommendDTO;
 
-public interface RecommendProblemService {
+public interface RecommendService {
 
 	List<RecommendDTO> readRecom();
 }

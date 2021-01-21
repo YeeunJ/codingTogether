@@ -10,6 +10,6 @@
 
 	<select id="readRecommendList" resultType="com.walab.coding.Model.RecommendDTO" parameterType="hashmap">
 		SELECT recom.title, us.nickname as nickname
-		FROM recommend1 as recom left join user as us on recom.userID = us.id
+		FROM recommend as recom left join user as us on recom.userID = us.id
 	</select>
 </mapper>

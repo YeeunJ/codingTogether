@@ -70,8 +70,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="ml-3 d-sm-flex align-items-center justify-content-between mb-3">
-                        <h1 class="h3 mb-0 text-gray-800">내가 푼 문제들</h1>
+                    <div class="ml-3 d-sm-flex align-items-center justify-content-between">
+                    	<h3 class="mt-4 header green-text">내 기록들 </h3>
                     </div>
 
                     <!-- Content Row -->
