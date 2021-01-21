@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.walab.coding.Model.GoalDTO;
 import com.walab.coding.Model.UserProblemDTO;
 import com.walab.coding.Service.GoalServiceImpl;
-import com.walab.coding.Service.UserActivityServiceImpl;
 import com.walab.coding.Service.UserProblemServiceImpl;
 
 /**
