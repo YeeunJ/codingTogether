@@ -83,19 +83,19 @@
 	
 	var count=0;
 	function insertProblems(){
+		var siteId = $('#siteName').val();
 		var array = ['', '백준', 'leetcode', 'SW expert academy', 'oncoder', 'goorm', 'leetcode[database]', 'link'];
 		var site = $("#siteName option:selected").val();
 		var value = document.getElementById("problems").value;
 		var valueSplit = value.split(',');
 		var data = $('#confirmSite').html();
 		for(var i in valueSplit){
-			data += '<div id = "confirmProblemValue'+count+'" onClick="deleteThis(\'confirmProblemValue'+count+'\')"><input disabled value="'+valueSplit[i]+' ('+array[site]+')" id="last_name disabled" type="text" class="validate"/></div>';
+			data += '<div id = "confirmProblemValue'+count+'" onClick="deleteThis(\'confirmProblemValue'+count+'\')"><input disabled name="'+siteId+'" value="'+valueSplit[i]+' ('+array[site]+')" id="last_name disabled" type="text" class="problem validate"/></div>';
 			count++;
 		}
 		$('#confirmSite').html(data);
 		document.getElementById("problems").value = "";
-		$("#siteName option:selected").val("");
-	}
+	};
 
 
 </script>

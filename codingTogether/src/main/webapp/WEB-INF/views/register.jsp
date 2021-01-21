@@ -46,8 +46,8 @@
 				        <span class="cell th2"><input type="date" name="startDate"/></span>
 				      </div>
 				      <div class="row">
-				        <span class="cell col1">종료 일자 </span>
-				        <span class="cell col2"><input id="date" type="date" name="endDate"/></span>								      	
+				        <span class="cell th3">종료 일자 </span>
+				        <span class="cell th3"><input id="date" type="date" name="endDate"/></span>								      	
 				      </div>
 				      <div class="row">
 				        <span class="cell th4">목표 갯수 </span>
