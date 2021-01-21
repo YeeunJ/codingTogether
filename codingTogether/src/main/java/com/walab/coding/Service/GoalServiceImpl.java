@@ -18,6 +18,12 @@ public class GoalServiceImpl implements GoalService{
 	
 	@Override
 	public List<GoalDTO> readGoal(int userID){
+		List<GoalDTO> goal = goalDAO.readGoal(userID);
+		return goal;
+	}
+	
+	@Override
+	public List<GoalDTO> readGoalAll(int userID){
 		List<GoalDTO> goals = goalDAO.readGoalAll(userID);
 		return goals;
 	}
@@ -34,4 +40,5 @@ public class GoalServiceImpl implements GoalService{
 		// TODO Auto-generated method stub
 		return goalDAO.updateGoal(goalDTO);
 	}
+
 }

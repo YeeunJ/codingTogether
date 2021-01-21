@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.walab.coding.Model.GoalDTO;
 import com.walab.coding.Model.UserProblemDTO;
+import com.walab.coding.Service.GoalServiceImpl;
 import com.walab.coding.Service.UserActivityServiceImpl;
 import com.walab.coding.Service.UserProblemServiceImpl;
 
@@ -22,15 +23,15 @@ import com.walab.coding.Service.UserProblemServiceImpl;
 public class MyactivitiesController {
 
 	@Autowired
-	UserActivityServiceImpl userActivityService;
+	GoalServiceImpl goalService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ModelAndView viewProblems(ModelAndView mv) {
 		
 		int userID = 1; //지금 session 처리와 로그인을 안해서 넣어놓은 예시 데이터!! 나중에 session 처리 할께요!!
 		
-		List<GoalDTO> goals = userActivityService.readGoal(userID);
-		mv.addObject("goals", goals);
+		List<GoalDTO> goalList = goalService.readGoalAll(userID);
+		mv.addObject("goals", goalList);
 		mv.setViewName("mypage/activities");
 		
 		return mv;
