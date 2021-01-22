@@ -102,7 +102,7 @@ function setForm(id, sitename, url){
 </script>
 
 
-<div class="container">
+<div id="codingSiteContainer" class="container">
 	<div>
 		<h4 class="header green-text">코딩 사이트 관리</h4>
 		<br>
@@ -125,7 +125,7 @@ function setForm(id, sitename, url){
 				<span class="tableCell th1"></span>
 
 			</div>
-			<c:forEach items="${posts}" var="u">
+			<c:forEach items="${CodingSite}" var="u">
 				<div class="tableRow content">
 			 		<span class="tableCell td3 sub">${u.getSiteName()}</span> 
 					<span class="tableCell td5 sub"><a href="${u.getSiteUrl()}">${u.getSiteUrl()}</a></span> 
