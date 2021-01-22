@@ -10,24 +10,6 @@
 <script src="../resources/js/problems.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-<script>
-data = { 
-        datasets: [{ 
-            backgroundColor: ['lightblue','yellow'], 
-            data: [100, 20] 
-        }],
-        labels: ['총 문제수','푼 문제수'] };
-    var ctx = document.getElementById("myChart"); 
-    var myDoughnutChart = new Chart(ctx, { 
-        type: 'doughnut', 
-        data: data, 
-        options: {
-            legend: {
-                display: false
-            }
-        } 
-    });
-</script>
 
 <!-- Page Wrapper -->
     <div id="wrapper">
@@ -88,8 +70,8 @@ data = {
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="ml-3 d-sm-flex align-items-center justify-content-between mb-3">
-                        <h1 class="h3 mb-0 text-gray-800">내가 푼 문제들</h1>
+                    <div class="ml-3 d-sm-flex align-items-center justify-content-between">
+                    	<h3 class="mt-4 header green-text">내 기록들 </h3>
                     </div>
 
                     <!-- Content Row -->
@@ -109,20 +91,20 @@ data = {
                                     </div>
                                     <div>
                                         <table>
-                                        <c:forEach items="${goals}" var="goals" varStatus="status">
+                                        <c:forEach items="${goal}" var="goal" varStatus="status">
                                             <tr class="box">
                                                 <td>목표</td>
-                                                <td>${goals.goal}</td>
+                                                <td>${goal.goal}</td>
                                             </tr>
                                             <tr class="box">
                                                 <td>기간</td>
-                                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${goals.startDate}"/> 
-                                                ~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goals.endDate}"/>
+                                                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/> 
+                                                ~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>
                                                 </td>
                                             </tr>
                                             <tr class="box">
                                                 <td>총 문제수</td>
-                                                <td>${goals.goalNum}개</td>
+                                                <td>${goal.goalNum}개</td>
                                             </tr>
                                         </c:forEach>
                                         </table>
@@ -157,7 +139,7 @@ data = {
 									   </c:forEach>						     									      
 									 </div>	                                   
 							     	 <div id="table">
-							     	   <c:forEach items="${goals}" var="goal" varStatus="status">
+							     	   <c:forEach items="${goal}" var="goal" varStatus="status">
 									      <div class="box">
 									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">목표 개수 </span>
 									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">${goal.goalNum} </span>
@@ -213,49 +195,9 @@ data = {
 										<i class="fa fa-search"></i>
 									</button>
 								</fieldset>
-								<div class = "table">
-									<div class="row">
-										<span class="cell th1">No.</span>
-										<span class="cell th2">문제 제목</span>
-										<span class="cell th4">메모</span>
-										<span class="cell th2">날짜</span>
-										<span class="cell th1">난이도</span>
-									</div>
-									<div class="row" id="problem0" onclick="printAllContent('#problem0')">
-										<span class ="cell td1">3</span>
-										<span class ="cell td2 pTitle"><a href="https://www.acmicpc.net/problem/1181" target="_blank">1181</a></span>
-										<span class ="cell td4 pMemo">set을 쓰면 훨씬 빠르게 풀 수 있음</span>
-										<span class ="cell td2 pRegdate">2021-01-14</span>
-										<span class ="cell td1 pDifficulty"><img style="width: 34px;" alt="2" src="../resources/img/difficulty2.png"></span>
-										<span class="pSite" style="display:none;">백준</span>
-										<span class="pSiteUrl" style="display:none;">https://www.acmicpc.net/</span>
-									</div>
+								<div class = "table" id="problemsContent">
+									<%@ include file="../ajaxContent/problemsContent.jsp" %>
 								</div>
-								 <!--
-								<table class="table table-striped">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">No.</th>
-                                            <th scope="col">문제 제목</th>
-                                            <th scope="col">메모</th>
-                                            <th scope="col">날짜</th>
-                                            <th scope="col">난이도</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                        <c:forEach items="${problems}" var="problem" varStatus="status">
-                                          <tr class="problemContent" id="problem${status.count}" onclick="printAllContent('#problem${status.count}')">
-                                            <td scope="row">${status.count}</td>
-                                            <td class="pTitle"><a href="${problem.link}" target="_blank">${problem.problem}</a></td>
-                                            <td class="pMemo">${problem.memo}</td>
-                                            <td class="pRegdate">${problem.regDate}</td>
-                                            <td class="pDifficulty" style="padding: 0.3rem 1rem;"><img style="width: 34px;" alt="2" src="../resources/img/difficulty${problem.difficulty}.png"></td>
-                                            <td class ="pSite" style="display:none;">${problem.site}</td>
-                                            <td class ="pSiteUrl" style="display:none;">${problem.siteUrl}</td>
-                                          </tr>
-                                        </c:forEach>
-                                        </tbody>
-                            	</table> -->
                             	<div id="registerSolvedProblem" hidden>
                             		<div class = "container">
                             			<form class="col s12">
@@ -296,44 +238,59 @@ data = {
                             		</div>
                             	</div>
                             	<div id="readSolvedProblem" hidden>
-                            		<div class = "container">
-                            			<div class = "col s12">
-                            				<span>코딩 site : </span><span id="siteName"></span>
-                            				<span>문제 제목 : </span><span id="problemName"></span>
-                            				<span>문제 메모 : </span><span id="memo"></span>
-                            				<span>문제 날짜 : </span><span id="regdate"></span>
-                            				<span>문제 난이도 : </span><span id="difficulty"></span>
-                            			</div>
+                            		<div class = "table">
+										<div class="tableRow">
+											<span class="tableCell th1">문제 제목</span>
+											<span class="tableCell td7" id="problemName"></span>
+											<span class="tableCell th1">사이트 이름</span>
+											<span class="tableCell td2" id="site"></span>
+										</div>
+										<div class = "tableRow">
+											<span class="tableCell th1">날짜</span>
+											<span class="tableCell td2" id="regdate"></span>
+											<span class="tableCell th1">난이도</span>
+											<span class="tableCell td7" id="difficulty"></span>
+										</div>
+										<div class = "tableRow">
+											<span class="tableCell th1">메모</span>
+											<span class="tableCell td9" id="memo"></span>
+										</div>
 									</div>
                             	</div>
                             	<div id="updateSolvedProblem" hidden>
-                            		<div class = "container">
-                            			<div class = "col s12">
-                            				<span>코딩 site : </span><span id="uSiteName"></span>
-                            				<span>문제 제목 : </span><span id="uProblemName"></span>
-                            				<span>문제 바로가기 : </span><span id="uLink"></span>
-                            				<span>문제 메모 : </span><span id="uMemo"></span>
-                            				<span>문제 날짜 : </span><span id="uRegdate"></span>
-                            				<span>문제 난이도 : </span><span id="uDifficulty"></span>
-                            			</div>
-									</div>
-                            	</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- End of Main Content -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-	<%@ include file="../inc/footer.jsp" %>
+	                            	<div class = "container">
+	                            		<form class="col s12">
+		                            		<div class = "table">
+												<div class="tableRow">
+													<span id="UuserProblemID" style="display=none"></span>
+													<span class="tableCell th1">문제 제목</span>
+													<span class="tableCell td7" id="UproblemName"></span>
+													<span class="tableCell th1">사이트 이름</span>
+													<span class="tableCell td2" id="Usite"></span>
+												</div>
+												<div class = "tableRow">
+													<span class="tableCell th1">날짜</span>
+													<span class="tableCell td2" id="regdate"></span>
+													<span class="tableCell th1">난이도</span>
+													<input id="Udifficulty" type="text" class="validate" placeholder="1~5사이 숫자로 난이도를 표현하세요!!">
+												</div>
+												<div class = "tableRow">
+													<span class="tableCell th1">메모</span>
+													<textarea id="Umemo" type="text" class="validate" placeholder="이 문제에 메모하고 싶은 내용을 적어주세요!!"></textarea>
+												</div>
+											</div>
+	                            		</form>
+	                            		</div>
+	                            	</div>
+	                            </div>
+	                         </div>
+	                      </div>
+	                      </div>
+	                  </div>
+	                  </div>
+	               </div>
+	               
+<a class="scroll-to-top rounded" href="#page-top">
+<i class="fas fa-angle-up"></i>
+</a>
+<%@ include file="../inc/footer.jsp" %>

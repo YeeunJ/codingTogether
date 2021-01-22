@@ -27,7 +27,7 @@
 	background-color: #f7f7f7 !important;
 }
 
-.th1, .th2, .th3, .th4, .th5, .th6, .th7, .th8, .th9 { font-weight: bold !important; }
+.th1, .th15, .th2, .th3, .th4, .th5, .th6, .th7, .th8, .th9 { font-weight: bold !important; }
 
 .tableCell {
 	display: table-cell !important; 
@@ -36,6 +36,8 @@
 }
 
 .th1, .td1 { width: 10% !important;}
+
+.th15, .td15 { width: 15% !important;}
 
 .th2, .td2 { width: 20% !important;}
 

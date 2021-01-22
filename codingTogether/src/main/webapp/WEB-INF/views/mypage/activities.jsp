@@ -75,44 +75,42 @@
 								<h6 class="m-0 font-weight-bold text-primary">내 기록들</h6>
 							</div>
 							<div class="card-body">
-								<table class="table">
-									<thead>
-										<tr>
-											<th scope="col">No.</th>
-											<th scope="col">기간</th>
-											<th scope="col">달성률</th>
-											<th scope="col">상태</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${goals}" var="goals" varStatus="status">
-										<tr>
-											<th scope="row">${status.count}</th>
-											<td><fmt:formatDate pattern="yyyy-MM-dd" value="${goals.startDate}"/> 
-                                                ~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goals.endDate}"/>
-                                            </td>
-											<td>
-												<div class="progress">
-													<div class="progress-bar" role="progressbar"
-														aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
-														style="width: 70%">
-														<span>70%</span>
-													</div>
+								<div class = "table">
+									<div class="tableRow">
+										<span class="tableCell th1">No.</span>
+										<span class="tableCell th3">기간</span>
+										<span class="tableCell th3">달성률</span>
+										<span class="tableCell th2">상태</span>
+									</div>
+									<c:forEach items="${goalList}" var="goals" varStatus="status">
+									<div class="tableRow">
+										<span class ="tableCell td1">${status.count}</span>
+										<span class ="tableCell td3">
+											<fmt:formatDate pattern="yyyy-MM-dd" value="${goals.startDate}"/> 
+                                        	~ <fmt:formatDate pattern="yyyy-MM-dd" value="${goals.endDate}"/>
+										</span>
+										<span class ="tableCell td3">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar"
+													aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+													style="width: 70%">
+													<span>70%</span>
 												</div>
-											</td>
-											<fmt:formatDate value="${goals.endDate}" pattern="yyyy-MM-dd" var="endDate" /> 
-											<c:choose>
-												<c:when test="${endDate > nowDate}">
-													<td>진행중</td>
-												</c:when>
-												<c:otherwise>
-													<td>종료</td>
-												</c:otherwise>
-											</c:choose>
-										</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+											</div>
+										</span>
+										<fmt:formatDate value="${goals.endDate}" pattern="yyyy-MM-dd" var="endDate" /> 
+										<c:choose>
+											<c:when test="${endDate > nowDate}">
+												<span class ="tableCell td2">진행중</span>
+											</c:when>
+											<c:otherwise>
+												<span class ="tableCell td2">종료</span>
+											</c:otherwise>
+										</c:choose>
+									</div>
+									</c:forEach>
+								</div>
+
 								<!-- 기간누르면 해당목표 상세모달 뜸 -->
 								<!-- <div id="MyActivitiesDetail" hidden>
                             		<div class = "container">

@@ -16,8 +16,6 @@
 		<br>
 		<div class="row center">
 			<button id="register-button" class="probBtn">문제 등록하러 가기</button>
-			<!-- 				<a href="" id="register-button" class="probBtn">문제 등록하러 가기</a>
- -->
 		</div>
 		<br> <br>
 		<hr>
@@ -79,7 +77,6 @@
 </div>
 <!-- second finish -->
 
-<!-- <div class="container">
 	<form class="col s12">
 		<div class="row">
 			<div class="input-field col s4">
@@ -109,13 +106,14 @@
 		</div>
 	</form>
 	<button id="createProblem">create Problem</button>
-</div>  --> 
+</div> 
 
 <br>
 
 </div>
 
 <script>
+	
 	$('#createProblem').click(function() {
 		var probs;
 		var siteId = [];
@@ -124,19 +122,28 @@
 		
 		$('.problem').each(function(){
 			
-			var s_id = null;
+			var s_id = 0;
 			var l = null;
+			var p;
 			var valueSplit = $(this).val().split(' ');
 			
 			if($(this).attr('name') == 0){ // link로 설정하는 경우
-				l = $(this).val();
+				l = valueSplit[0];
+				console.log("link: "+l);
+				
+				var split = l.split('/');
+				p = split[split.length-1];
+				console.log("problem: "+split[split.length-1]);
+	
 			} else { // siteId 존재하는 경우
 				s_id = $(this).attr('name');
+				p = valueSplit[0];
 			}
 			
 			siteId.push(s_id);
-			problem.push(valueSplit[0]);
+			problem.push(p);
 			link.push(l);
+			
 			/* var p = {
 				siteID: siteId,
 				problem: valueSplit[0],
@@ -147,8 +154,8 @@
 			console.log($(this).val());
 		});
 		
-		probs = {"siteId":siteId, "problem":problem, "link":link, "test": "test!!!"};
-		var testarr = [0,1,2];
+		probs = {"siteId":siteId, "problem":problem, "link":link};
+
 		for(var i=0 ; i<siteId.length ; i++) {
 			console.log("TEST: "+siteId[i]+"/"+problem[i]+"/"+link[i]);
 		}
@@ -157,9 +164,8 @@
 	   $.ajax({
 	        url : './createProblem',
 	        type: 'POST',
-	        dataType: 'json',
 	        data: {
-	        	"siteId":siteId, "problem":problem, "link":link, "test": "test"
+	        	"siteId":siteId, "problem":problem, "link":link
 	        },
 	        success: function(data) {
 	            alert('리스트에 추가하였습니다.');
@@ -168,6 +174,7 @@
 	            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	        },
 	    });
+	});
 	   
 		function deleteThis(id){
 			var allid = "#"+id;
@@ -189,7 +196,7 @@
 			$('#confirmSite').html(data);
 			document.getElementById("problems").value = "";
  		};
-	})
+	
 
 </script>
 <%@ include file="./inc/footer.jsp"%>

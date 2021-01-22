@@ -46,5 +46,13 @@ public class UserProblemServiceImpl implements UserProblemService{
 		}
 		return problems;
 	}
+	
+	public int update(UserProblemDTO upd) {
+		return userProblemDAO.updateProblem(upd);
+	}
+	
+	public int delete(int userProblemID) {
+		return userProblemDAO.deleteProblem(userProblemID);
+	}
 
 }
