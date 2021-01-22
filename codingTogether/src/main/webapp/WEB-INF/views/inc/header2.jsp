@@ -19,14 +19,11 @@
 
 <script src="../resources/vendor/jquery/jquery.min.js"></script>
 <script src="../resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="../resources/vendor/chart.js/Chart.min.js"></script>
 <script src="../resources/js/materialize.js"></script>
 <script src="../resources/js/init.js"></script>
 <script src="../resources/js/jquery.sweet-modal.min.js"></script>
 <script src="../resources/js/sb-admin-2.min.js"></script>
-<script src="../resources/js/demo/chart-area-demo.js"></script>
-<script src="../resources/js/demo/chart-pie-demo.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="../resources/vendor/chart.js/Chart.min.js"></script>
 <script src="../resources/js/createModal.js"></script>
 
 </head>

@@ -3,12 +3,32 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
 <%@ include file="../inc/header2.jsp" %>
 
 <link href="../resources/css/problems.css" rel="stylesheet">
 <script src="../resources/js/problems.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
+<script>
+window.onload = function() {
+	data = { 
+	        datasets: [{ 
+	            backgroundColor: ['lightblue','yellow'], 
+	            data: [100, 20] }],
+	        	labels: ['총 문제수','푼 문제수'] 
+	        };
+var ctx = document.getElementById("myChart"); 
+var myDoughnutChart = new Chart(ctx, { 
+    type: 'doughnut', 
+    data: data, 
+    options: {
+       legend: {
+         display: false
+       }
+    } 
+ });
+}
+</script>
 
 
 <!-- Page Wrapper -->
@@ -71,7 +91,7 @@
 
                     <!-- Page Heading -->
                     <div class="ml-3 d-sm-flex align-items-center justify-content-between">
-                    	<h3 class="mt-4 header green-text">내 기록들 </h3>
+                    	<h3 class="mt-4 header green-text">내가 푼 문제들 </h3>
                     </div>
 
                     <!-- Content Row -->
@@ -166,7 +186,7 @@
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
-                                    <canvas id="myChart"></canvas>
+                                    <canvas id="myChart" width="200" height="100"></canvas>
                                     <div class="mt-4 text-center small">
                                         <span class="ml-3 mr-2">
                                             <i class="fas fa-circle" style="color: lightblue;"></i> 총 문제수
