@@ -36,7 +36,7 @@ fieldset {
 	border-radius: 5px;
 }
 
-#title {
+.title {
 	border: 0;
 	background-color: Transparent;
 }
