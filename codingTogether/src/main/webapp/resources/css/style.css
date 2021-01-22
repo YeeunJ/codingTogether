@@ -27,7 +27,7 @@
 	background-color: #f7f7f7 !important;
 }
 
-.th1, .th2, .th3, .th4, .th5, .th6, .th7, .th8, .th9 { font-weight: bold !important; }
+.th1, .th15, .th2, .th3, .th4, .th5, .th6, .th7, .th8, .th9 { font-weight: bold !important; }
 
 .tableCell {
 	display: table-cell !important; 
@@ -36,6 +36,8 @@
 }
 
 .th1, .td1 { width: 10% !important;}
+
+.th15, .td15 { width: 15% !important;}
 
 .th2, .td2 { width: 20% !important;}
 
@@ -114,3 +116,43 @@
 }
 
 .sweet-modal-box.alert{left: 0 !important;}
+
+
+/* materialize.css 파일에 있는 것 덮어씌우기 */
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #677e52 !important;
+  -webkit-box-shadow: 0 1px 0 0 #677e52 !important;
+          box-shadow: 0 1px 0 0 #677e52 !important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 12px !important;
+    color: #677e52 !important;
+    line-height: 18px !important;
+    padding: 10px 12px !important;
+}
+
+.select-dropdown li.disabled, .select-dropdown li.disabled > span, .select-dropdown li.optgroup {
+    color: rgba(0, 0, 0, 0.3) !important;
+    background-color: transparent !important;
+}
+
+.select-wrapper input.select-dropdown {
+	font-size: 12px !important;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 1px solid #677e52 !important;
+}

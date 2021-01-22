@@ -1,3 +1,12 @@
+.order {
+	width: 13%;
+	float: right;
+}
+
+#register-button {
+	float: left;
+}
+
 fieldset {
   position: relative;
   padding: 0 0 0 40px;
@@ -22,21 +31,8 @@ fieldset {
   	color:white;
   	border-radius: 10px;
 }
-.sort {
-	list-style: none;
-	float: left;
-	width: 25%;
-}
 
-.sortBtn {
-	width: 80%;
-	height: 30px;
-	margin: auto;
-	color:white;
-	border-radius: 5px;
-}
-
-#title {
+.title {
 	border: 0;
 	background-color: Transparent;
 }

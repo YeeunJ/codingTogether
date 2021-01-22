@@ -21,8 +21,8 @@ input {
 	width:100%;
 }
 
-.container{
-	min-height:70%;
+#codingSiteContainer{
+	min-height:100%;
 }
 .right{
 	float:right;
