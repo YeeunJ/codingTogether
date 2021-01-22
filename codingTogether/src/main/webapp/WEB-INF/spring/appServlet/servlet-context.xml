@@ -59,5 +59,7 @@
 	<beans:bean id="goalDAO" class="com.walab.coding.Repository.GoalDAOImpl"/>
 	<beans:bean id="goalService" class="com.walab.coding.Service.GoalServiceImpl"/>
 	
+	<beans:bean id="recomCommentDAO" class="com.walab.coding.Repository.RecomCommentDAOImpl"/>
+	<beans:bean id="recomCommentService" class="com.walab.coding.Service.RecomCommentServiceImpl"/>
 	
 </beans:beans>

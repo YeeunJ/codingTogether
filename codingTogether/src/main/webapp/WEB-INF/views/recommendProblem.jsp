@@ -32,23 +32,39 @@
 						<span class="tableCell th1">No.</span>
 						<span class="tableCell th4">제목</span>
 						<span class="tableCell th2">등록자</span>
-						<span class="tableCell th15">난이도</span>
-						<span class="tableCell th15">추천수</span>
+						<span class="tableCell th1">난이도</span>
+						<span class="tableCell th1">추천수</span>
+						<span class="tableCell th1">댓글수</span>
 					</div>
 					<c:forEach items="${recoms}" var="recoms" varStatus="status">
+						<c:set var="count" value="0"/>
+						<c:forEach items="${commentCount}" var="c">
+							<c:if test="${ c.recomID eq recoms.id }">
+    							<c:set var="count" value="${ c.count }"/>
+							</c:if>
+						</c:forEach>
 						<div class="tableRow" id="recoms${recoms.id}" onclick="printAllContent('#recoms${recoms.id}')">
 							<span class="tableCell td1">${status.count}</span>
 							<%-- <button class="title">${recoms.title}</button> --%>
 							<span class="tableCell td4 readTitle">${recoms.title}</span>
 							<span class="tableCell td2">${recoms.nickname}</span>
-							<span class="tableCell td15"></span>
-							<span class="tableCell td15"></span>
+							<span class="tableCell td1"></span>
+							<span class="tableCell td1"></span>
+							<span class="tableCell td1">${ count }</span>
 							<span class="readProblem" style="display:none;">10문제</span>
 							<span class="readTag" style="display:none;">정렬</span>
 							<span class="readContent" style="display:none;">${recoms.content}</span>
 							<span class="readRecommend" style="display:none;">10</span>
 						</div>
 					</c:forEach>
+					
+					<div id="comment" style="background: pink; width:200px;"">
+						<div>
+							<input id="content" value="" />
+							<button id="addComment">댓글 추가</button>
+						</div>
+					</div>
+					
 				</div>
 				<br><br>
 		      	
@@ -118,3 +134,26 @@
 			</div>
 		
 <%@ include file="./inc/footer.jsp" %>
+
+<script>
+
+$('#addComment').click(function() {
+	if(confirm("댓글을 추가하시겠습니까?")){
+		$.ajax({
+			url: "recommendProblem/addComment",
+			type: "POST",
+			async: false,
+			data: {
+				recomID: 2,
+				content: $('#content').val()
+			},
+			success: function(data){
+				$('#comment').append(data);
+			}, 
+			error:function(request, status, error){
+				console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	        }
+		}); 
+	}
+});
+</script>

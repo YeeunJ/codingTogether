@@ -24,20 +24,20 @@ import com.walab.coding.Service.CodingSiteServiceImpl;
 
 
 @Controller
-//@RequestMapping(value = "/manageCodingsite")
+@RequestMapping(value = "/manageCodingsite")
 public class CodingsiteController {
 	
 	@Autowired
 	CodingSiteServiceImpl codingSiteService;
 	
-	@RequestMapping(value="manageCodingsite", method=RequestMethod.GET)
+	@RequestMapping(value="", method=RequestMethod.GET)
 	public ModelAndView CodingSiteList(ModelAndView mv) {
-		mv.addObject("posts", codingSiteService.read());
-		mv.setViewName("codingSite");
+		mv.addObject("CodingSite", codingSiteService.read());
+		mv.setViewName("manageCodingsite");
 		return mv;
 	}
 	
-	@RequestMapping(value="manageCodingsite/addSite", method = RequestMethod.POST)
+	@RequestMapping(value="/addok", method = RequestMethod.POST)
 	public String addCodingSiteOK(CodingSiteDTO dto) {
 		System.out.println("in addok");
 		if(codingSiteService.insertCodingSite(dto)==0)
@@ -49,9 +49,18 @@ public class CodingsiteController {
 		
 	}
 
-	@RequestMapping(value="manageCodingsite/editok", method = RequestMethod.POST)
-	public String editPostOK(CodingSiteDTO dto) {
-		System.out.println(dto.toString());
+	@RequestMapping(value="/editok", method = RequestMethod.POST)
+	public String editPostOK(HttpServletRequest request) {
+		
+		String siteName = request.getParameter("siteName");
+		String siteUrl = request.getParameter("siteUrl");
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		CodingSiteDTO dto = new CodingSiteDTO();
+		dto.setId(id);
+		dto.setSiteName(siteName);
+		dto.setSiteUrl(siteUrl);
+		
 		if(codingSiteService.updateCodingSite(dto)==0)
 				System.out.println("데이터 수정 실패");
 		else
@@ -59,7 +68,7 @@ public class CodingsiteController {
 		return "redirect:../manageCodingsite";
 		
 	}
-	@RequestMapping(value="manageCodingsite/deleteok/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/deleteok/{id}", method = RequestMethod.GET)
 	public String deletePostOK(@PathVariable("id") int id, HttpServletRequest request) {
 		if(codingSiteService.deleteCodingSite(id)==0)
 				System.out.println("데이터 삭제 실패");
@@ -70,7 +79,7 @@ public class CodingsiteController {
 	    return "redirect:"+ referer;
 	}
 	
-	@RequestMapping(value = "manageCodingsite/sitelist", method = RequestMethod.GET,produces = "application/text; charset=utf8")
+	@RequestMapping(value = "/sitelist", method = RequestMethod.GET,produces = "application/text; charset=utf8")
 	@ResponseBody
 	public String home2(Locale locale, Model model) {
 		ArrayList<String> data = new ArrayList<String>();

@@ -10,6 +10,19 @@
 var isAdd = true;
 
 $(document).ready(function() {
+	
+	var posts = new Array();
+	
+	<c:forEach items="${CodingSite}" var="u">
+		
+		var list = new Object();
+		list.siteName = "${u.getSiteName()}";
+		list.siteUrl = "${u.getSiteUrl()}";
+		list.id = ${u.getId()};
+				
+		posts.push(list);
+	
+	</c:forEach>
 
 	$('#editbtn').click(function() {
 		if ($(".edit").css("display") == "none") {
@@ -17,11 +30,6 @@ $(document).ready(function() {
 		} else {
 			$('.edit').hide();
 		}
-		/* if ($('#submitbtn').html().substring(0, 2) == '추가') {
-			$('#submitbtn').html('수정');
-		} else {
-			$('#submitbtn').html('추가');
-		} */
 		if ($(this).html().substring(0, 4) == '편집완료') {
 			$(this).html('편집');
 		} else {
@@ -49,9 +57,9 @@ $(document).ready(function() {
 	$('#addbtn').click(function() {
 		setAddBtnMode(false)
 	});
-  	$('#cancelbtn').click(function(){
+  	$('#cancelAdd').click(function(){
 	  	if(!isAdd) setAddBtnMode(true); 
-	  	$("div#new").hide();
+	  	$('div#new').attr('style', 'display: none !important');
 	});
 	 
 	function setAddBtnMode(add){
@@ -72,33 +80,59 @@ $(document).ready(function() {
 		} 
 	}
 	
+	function deleteOk(id) {            
+		if (confirm("정말로 삭제하겠습니까?"))
+			location.href = './manageCodingsite/deleteok/' + id;
+	}
+	
+	$(document).on("click", ".editSite", function(){
+		var form = document.form1;
+		var tableRow = $(this).closest('.tableRow');
+		var editCell = tableRow.find('.tableCell');
+		var index = $('.tableRow').index(tableRow);
+		form.action="manageCodingsite/editok";
+		
+		$(editCell[0]).html('<input id="editonly" type="hidden" name="id" value="'+ posts[index-1].id +'" /> <input id="siteName" type="text" name="siteName" value="'+posts[index-1].siteName+'">');
+		$(editCell[1]).html('<input id="siteUrl" type="text" name="siteUrl" value="'+ posts[index-1].siteUrl +'">');
+		$(editCell[2]).html('<button id="cancelbtn" class="cancelbtn waves-effect waves-light btn-small green" type="button">취소</button>');
+		$(editCell[3]).html('<button id="submitbtn" class="submitbtn waves-effect waves-light btn-small green" type="submit">수정</button>');
+	});
+
+
+	$(document).on("click", "#cancelbtn", function() {
+		var tableRow = $(this).closest('.tableRow');
+		var cancelCell = tableRow.find('.tableCell');
+		var index = $('.tableRow').index(tableRow);
+
+		$(cancelCell[0]).html(posts[index-1].siteName);
+		$(cancelCell[1]).html('<a href="'+posts[index-1].siteUrl+'">'+posts[index-1].siteUrl+'</a>');
+		$(cancelCell[2]).html('<button type="button" id="change" class="editSite edit waves-effect waves-light btn-small green">수정</button>');
+		$(cancelCell[3]).html('<button value="'+posts[index-1].id+'" class="deleteBtn edit waves-effect waves-light btn-small green" type="button">삭제</button>');
+
+
+	});
+	
+	$(document).on("click", ".deleteBtn", function(){
+		var id = $(this).val();
+		if (confirm("정말로 삭제하겠습니까?")){
+			location.href = './manageCodingsite/deleteok/' + id;
+		}
+	});
+
+	function setForm(id, sitename, url){
+		var form = document.form1;
+		form.id.value = id; 
+		form.siteName.value = sitename; 
+		form.siteUrl.value = url; 
+		if(id=='' )
+			form.action="manageCodingsite/addok";
+		else
+			form.action="manageCodingsite/editok";
+			
+	}
 
 });
 
-function deleteOk(id) {            
-	if (confirm("정말로 삭제하겠습니까?"))
-		location.href = './manageCodingsite/deleteok/' + id;
-}
-
-function editOk(obj, id, sitename, url){
-	
-  	if ($("#new").css("display") == "none") {
-		$("div#new").show();
-	} 
-	setForm(id, sitename,url);
-}
-
-function setForm(id, sitename, url){
-	var form = document.form1;
-	form.id.value = id; 
-	form.siteName.value = sitename; 
-	form.siteUrl.value = url; 
-	if(id=='' )
-		form.action="manageCodingsite/addok";
-	else
-		form.action="manageCodingsite/editok";
-		
-}
 </script>
 
 
@@ -129,16 +163,16 @@ function setForm(id, sitename, url){
 				<div class="tableRow content">
 			 		<span class="tableCell td3 sub">${u.getSiteName()}</span> 
 					<span class="tableCell td5 sub"><a href="${u.getSiteUrl()}">${u.getSiteUrl()}</a></span> 
-					<span class="tableCell td1 sub"><button onclick="editOk(this, '${u.getId()}','${u.getSiteName()}','${u.getSiteUrl()}')" type="button" id="change" style="display:none;" class="edit waves-effect waves-light btn-small green">수정</button></span> 
-					<span class="tableCell td1 sub"><a href="javascript:deleteOk('${u.getId()}')"><button style="display:none;"class="edit waves-effect waves-light btn-small green" type="button">삭제</button></a></span>
+					<span class="tableCell td1 sub"><button type="button" id="change" style="display:none;" class="editSite edit waves-effect waves-light btn-small green">수정</button></span> 
+					<span class="tableCell td1 sub"><button style="display:none;" value="${u.getId()}" class="deleteBtn edit waves-effect waves-light btn-small green" type="button">삭제</button></span>
 				</div>
 			</c:forEach>
 			
-			<div id="new" style="display: none;" class="row">
+			<div id="new" style="display: none !important;" class="tableRow content">
 				<input id="editonly" type="hidden" name="id" />
 				<span class="tableCell td3 sub"><input  id="siteName" type='text'name='siteName'></span>
 				<span class="tableCell td5 sub"><input  id="siteUrl" type='text' name='siteUrl'></span> 
-				<span class="tableCell td1 sub"><button id="cancelbtn"class=" waves-effect waves-light btn-small green" type="button">취소</button></span>
+				<span class="tableCell td1 sub"><button id="cancelAdd"class=" waves-effect waves-light btn-small green" type="button">취소</button></span>
 				<span class="tableCell td1 sub"><button id="submitbtn"class=" waves-effect waves-light btn-small green" type="submit">추가</button></span>
 			</div>
 		</div>
