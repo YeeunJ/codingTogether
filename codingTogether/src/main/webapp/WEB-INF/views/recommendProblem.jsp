@@ -33,18 +33,18 @@
 						<span class="tableCell th15">추천수</span>
 					</div>
 					<c:forEach items="${recoms}" var="recoms" varStatus="status">
-					<div class="tableRow">
-						<span class="tableCell td1">${status.count}</span>
-						<%-- <span class="tableCell td4 pTitle" id="recoms${recoms.id}" onclick="printAllContent('#recoms${recoms.id}')"><button class="title">${recoms.title}</button></span> --%>
-						<span class="tableCell td4 pTitle" id="recoms${recoms.id}" onclick="printAllContent('#recoms${recoms.id}')">${recoms.title}</span>
-						<span class="tableCell td2">${recoms.nickname}</span>
-						<span class="tableCell td15"></span>
-						<span class="tableCell td15"></span>
-						<span class="pProblem" style="display:none;">10문제</span>
-						<span class="pTag" style="display:none;">정렬</span>
-						<span class="pContent" style="display:none;">조금 어려워요</span>
-						<span class="pRecommend" style="display:none;">10</span>
-					</div>
+						<div class="tableRow" id="recoms${recoms.id}" onclick="printAllContent('#recoms${recoms.id}')">
+							<span class="tableCell td1">${status.count}</span>
+							<%-- <button class="title">${recoms.title}</button> --%>
+							<span class="tableCell td4 readTitle">${recoms.title}</span>
+							<span class="tableCell td2">${recoms.nickname}</span>
+							<span class="tableCell td15"></span>
+							<span class="tableCell td15"></span>
+							<span class="readProblem" style="display:none;">10문제</span>
+							<span class="readTag" style="display:none;">정렬</span>
+							<span class="readContent" style="display:none;">${recoms.content}</span>
+							<span class="readRecommend" style="display:none;">10</span>
+						</div>
 					</c:forEach>
 				</div>
 				<br><br>
