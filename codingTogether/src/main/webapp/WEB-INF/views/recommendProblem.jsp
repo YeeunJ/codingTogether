@@ -13,14 +13,17 @@
 				     <button class="searchBtn green"><i class="fa fa-search"></i></button>
 				</fieldset>
 				
-				<ul>
-			      <li class="sort"><button class="sortBtn green">난이도순</button></li>
-			      <li class="sort"><button class="sortBtn green">제목순</button></li>
-			      <li class="sort"><button class="sortBtn green">추천순</button></li>
-			      <li class="sort"><button class="sortBtn green">최신순</button></li>
-			    </ul>
+				<div class="input-field col s12 order">
+					<select>
+						<option value="" disabled selected>정렬</option>
+						<option value="1">난이도순</option>
+						<option value="2">제목순</option>
+						<option value="3">추천순</option>
+						<option value="4">최신순</option>
+					</select>
+				</div>
 			    
-			    <button id="register-button" class= "waves-effect waves-light btn green">문제 추천집 만들기</button>
+			    <button id="register-button" class= "waves-effect waves-light btn green input-field">문제 추천집 만들기</button>
 			    
 			    <br><br>
 			    
