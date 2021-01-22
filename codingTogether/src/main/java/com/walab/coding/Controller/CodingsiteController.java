@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.walab.coding.Model.CodingSiteDTO;
 import com.walab.coding.Service.CodingSiteServiceImpl;
@@ -25,9 +26,10 @@ public class CodingsiteController {
 	CodingSiteServiceImpl codingSiteService;
 	
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public String CodingSiteList(Model model) {
-		model.addAttribute("posts",codingSiteService.read());
-		return "manageCodingsite";
+	public ModelAndView CodingSiteList(ModelAndView mv) {
+		mv.addObject("posts", codingSiteService.read());
+		mv.setViewName("codingSite");
+		return mv;
 		
 	}
 	
@@ -44,6 +46,7 @@ public class CodingsiteController {
 
 	@RequestMapping(value="/editok", method = RequestMethod.POST)
 	public String editPostOK(CodingSiteDTO dto) {
+		System.out.println(dto.toString());
 		if(codingSiteService.updateCodingSite(dto)==0)
 				System.out.println("데이터 수정 실패");
 		else

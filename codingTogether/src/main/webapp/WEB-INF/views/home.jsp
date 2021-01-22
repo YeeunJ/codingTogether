@@ -22,6 +22,7 @@
 	</div>
 </div>
 
+
 <!-- second section start- 랭킹, 태그, 순위 -->
 <div class="container">
 	<div class="section">
