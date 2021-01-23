@@ -9,6 +9,7 @@ public class RecommendDTO {
 	private String nickname;
 	private String title;
 	private String content;
+	private int recomCount;
 	private Date deleteDate;
 	private Date regDate;
 	
@@ -41,6 +42,12 @@ public class RecommendDTO {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public int getRecomCount() {
+		return recomCount;
+	}
+	public void setRecomCount(int recomCount) {
+		this.recomCount = recomCount;
 	}
 	public Date getDeleteDate() {
 		return deleteDate;

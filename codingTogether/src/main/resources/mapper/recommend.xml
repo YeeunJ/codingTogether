@@ -8,8 +8,14 @@
 		where up.userID = #{userID}
 	</select> -->
 
-	<select id="readRecommendList" resultType="com.walab.coding.Model.RecommendDTO" parameterType="hashmap">
+	<select id="readRecommendList" resultType="com.walab.coding.Model.RecommendDTO">
 		SELECT recom.id as id, recom.title as title, recom.content as content, us.nickname as nickname
 		FROM recommend as recom left join user as us on recom.userID = us.id
+	</select>
+	
+	<select id="readRecommendCountList" resultType="com.walab.coding.Model.RecomCountDTO" parameterType="hashmap">
+		SELECT recommend
+		FROM recomCount
+		WHERE recomID = #{recomID}
 	</select>
 </mapper>

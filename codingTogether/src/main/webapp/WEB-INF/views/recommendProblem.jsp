@@ -42,11 +42,10 @@
 							<span class="tableCell td4 readTitle">${recoms.title}</span>
 							<span class="tableCell td2">${recoms.nickname}</span>
 							<span class="tableCell td15"></span>
-							<span class="tableCell td15"></span>
+							<span class="tableCell td15 readRecommend">${recoms.recomCount}</span>
 							<span class="readProblem" style="display:none;">10문제</span>
 							<span class="readTag" style="display:none;">정렬</span>
 							<span class="readContent" style="display:none;">${recoms.content}</span>
-							<span class="readRecommend" style="display:none;">10</span>
 						</div>
 					</c:forEach>
 				</div>
@@ -97,13 +96,13 @@
 				<br><br> -->
 				
 				<!-- read -->
-				<div id="readRecommendProblem" hidden>
+				<div id="readRecommendProblem">
 					<div class = "container">
 						<div class = "col s12">
 							<span>문제 : </span><span id="problems"></span>
                             <span>태그 : </span><span id="tags"></span>
                				<span>내용 : </span><span id="contents"></span>
-               				<span>추천 : </span><span id="recommends"></span>
+               				<span>추천 : </span><span id="recommends"></span><span>&nbsp;&nbsp;&nbsp;</span><button class= "waves-effect waves-light btn green">추천</button>
                         </div>
 					</div>
 				</div>	
