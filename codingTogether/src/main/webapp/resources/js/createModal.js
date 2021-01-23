@@ -77,3 +77,18 @@ function rudModel(readContent, updateContent, titleValue, updateFunction, delete
 		variant.fn = variant.fn || $.sweetModal;
 		variant.fn.apply(this, variant.args);
 }
+
+function readModel(readContent, titleValue){
+		var variant = {
+			args: [
+				{
+					content: $(readContent).html(),
+					title: titleValue,
+					showCloseButton: true
+				}
+			]
+		};
+		
+		variant.fn = variant.fn || $.sweetModal;
+		variant.fn.apply(this, variant.args);
+}
