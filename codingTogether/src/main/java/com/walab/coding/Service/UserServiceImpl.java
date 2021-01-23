@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.walab.coding.Model.GoalDTO;
 import com.walab.coding.Model.UserDTO;
+import com.walab.coding.Model.UserProblemDTO;
 import com.walab.coding.Model.UserProblemsDTO;
 import com.walab.coding.Repository.UserDAO;
 
@@ -43,5 +44,9 @@ public class UserServiceImpl implements UserService{
 		for(UserProblemsDTO p : prob) {
 			userDAO.createUserProblem(p);
 		}
+	}
+	@Override
+	public int updateUser(UserDTO updateUser) {
+		return userDAO.updateUser(updateUser);
 	}
 }

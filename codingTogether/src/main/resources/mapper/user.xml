@@ -12,4 +12,16 @@
 	<select id="userList"
 		resultType="com.walab.coding.Model.UserDTO" parameterType="hashmap">
 		SELECT * FROM user WHERE id=#{userID}	</select>
+		
+ 	<update id="updateUser" parameterType="hashmap">
+		UPDATE user SET name='${name}', nickName='${nickName}', userNumber='${userNumber}', intro='${intro}' WHERE id = #{id}
+	</update>  
+<!-- 	<update id="updateUser">
+		UPDATE user
+		SET name=#{name},
+		nickName=#{nickName},
+		userNumber=#{userNumber},
+		intro=#{intro}
+		WHERE id=#{id}
+	</update> 	 --> 
 </mapper>
