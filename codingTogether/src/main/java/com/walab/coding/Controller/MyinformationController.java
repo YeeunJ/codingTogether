@@ -1,6 +1,11 @@
 package com.walab.coding.Controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -80,13 +85,80 @@ public class MyinformationController {
 //			System.out.println("목표 수정 성공!!");
 //		return "redirect:/mypage/information";	
 //	}
-	@RequestMapping(value="/editok", method = RequestMethod.POST)
-	public String editGoal(GoalDTO goalDTO) {
-		if(goalService.updateGoal(goalDTO)==0)
-				System.out.println("데이터 수정 실패");
-		else
-			System.out.println("데이터 수정 성공!!");
-		return "redirect:/";
-	}	
+//	@RequestMapping(value="/editok", method = RequestMethod.POST)
+//	public String editGoal(GoalDTO goalDTO) {
+//		if(goalService.updateGoal(goalDTO)==0)
+//				System.out.println("데이터 수정 실패");
+//		else
+//			System.out.println("데이터 수정 성공!!");
+//		return "redirect:/";
+//	}	
+	@RequestMapping(value = "/updateGoal", method = RequestMethod.POST)
+	public ModelAndView updateGoal(HttpServletRequest httpServletRequest) {
+		
+		int userID = 1;
+		
+//		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
 
+		GoalDTO updateGoal = new GoalDTO();
+		updateGoal.setGoal(httpServletRequest.getParameter("goal"));
+		updateGoal.setId(Integer.parseInt(httpServletRequest.getParameter("id")));
+		try {
+			updateGoal.setStartDate(transFormat.parse(httpServletRequest.getParameter("startDate")));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		try {
+			updateGoal.setEndDate(transFormat.parse(httpServletRequest.getParameter("endDate")));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
+		
+		if(goalService.updateGoal(updateGoal) > 0) {
+			System.out.println("success");
+		}else {
+			System.out.println("fail");
+			System.out.println(updateGoal.getGoal() + updateGoal.getStartDate() + updateGoal.getEndDate());
+		}
+		
+		List<GoalDTO> goals = goalService.readGoal(userID);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("goals", goals);
+		mv.setViewName("redirect:/mypage/information");
+		
+		return mv;
+
+	}
+	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+	public ModelAndView updateInfo(HttpServletRequest httpServletRequest) {
+		
+		int userID = 1;
+		
+		UserDTO updateUser = new UserDTO();
+		updateUser.setName(httpServletRequest.getParameter("name"));
+		updateUser.setNickName(httpServletRequest.getParameter("nickName"));
+		updateUser.setUserNumber(httpServletRequest.getParameter("userNumber"));
+		updateUser.setIntro(httpServletRequest.getParameter("intro"));
+		updateUser.setId(Integer.parseInt(httpServletRequest.getParameter("id")));
+
+		if(userService.updateUser(updateUser) > 0) {
+			System.out.println("success");
+		}else {
+			System.out.println("fail");
+			System.out.println(updateUser.getName() + updateUser.getNickName());
+		}
+		
+		List<UserDTO> users = userService.readUser(userID);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("users", users);
+		mv.setViewName("redirect:/mypage/information");
+		
+		return mv;
+
+	}
 }

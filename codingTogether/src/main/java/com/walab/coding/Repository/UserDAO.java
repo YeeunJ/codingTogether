@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.walab.coding.Model.GoalDTO;
 import com.walab.coding.Model.UserDTO;
+import com.walab.coding.Model.UserProblemDTO;
 import com.walab.coding.Model.UserProblemsDTO;
 
 public interface UserDAO {
@@ -14,5 +15,7 @@ public interface UserDAO {
 
 	public List<UserDTO> readUserAll(int userID);
 //	public List<UserDTO> updateUser(int userID);
+	public int updateUser(UserDTO updateUser);
+
 
 }

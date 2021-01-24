@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.walab.coding.Model.GoalDTO;
+import com.walab.coding.Model.UserProblemDTO;
 import com.walab.coding.Repository.GoalDAO;
 
 
@@ -40,5 +41,6 @@ public class GoalServiceImpl implements GoalService{
 		// TODO Auto-generated method stub
 		return goalDAO.updateGoal(goalDTO);
 	}
+
 
 }

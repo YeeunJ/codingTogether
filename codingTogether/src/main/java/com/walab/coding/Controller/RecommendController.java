@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.walab.coding.Model.CodingSiteDTO;
 import com.walab.coding.Model.RecomCommentDTO;
 import com.walab.coding.Model.RecommendDTO;
+import com.walab.coding.Service.CodingSiteServiceImpl;
 import com.walab.coding.Service.RecomCommentServiceImpl;
 import com.walab.coding.Service.RecommendServiceImpl;
 
@@ -29,6 +31,8 @@ public class RecommendController {
 	RecommendServiceImpl recommendProblemService;
 	@Autowired
 	RecomCommentServiceImpl recomCommentService;
+	@Autowired
+	CodingSiteServiceImpl codingSiteService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ModelAndView recommendProblem(ModelAndView mv) {
@@ -38,7 +42,10 @@ public class RecommendController {
 		List<RecommendDTO> recoms = recommendProblemService.readRecom();
 		List<RecomCommentDTO> recomComment = recomCommentService.read();
 		List<Map<Integer,Integer>> commentCount = recomCommentService.readCount();
-				
+		List<CodingSiteDTO> codingSite = codingSiteService.read();
+		
+		
+		mv.addObject("CodingSite", codingSite);
 		mv.addObject("recoms", recoms);
 		mv.addObject("recomComment", recomComment);
 		mv.addObject("commentCount", commentCount);

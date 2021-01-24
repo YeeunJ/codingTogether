@@ -22,13 +22,17 @@ instance.destroy();
 	});
 });*/
 
+function createProblems() {
+	createModel("#createProblems", "문제집 등록", addAjax);
+}
+
 function printAllContent(id){
 	$('#problems').html($(id+' .readProblem').html());
 	$('#tags').html($(id+' .readTag').html());
 	$('#contents').html($(id+' .readContent').html());
 	$('#recommends').html($(id+' .readRecommend').html());
 	
-	//rudModel("#readRecommendProblem", "#updateRecommendProblem", $(id+' .readTitle').html(), updateAjax, deleteAjax);
+	rudModel("#readRecommendProblem", "#updateRecommendProblem", $(id+' .readTitle').html(), updateAjax, deleteAjax);
 	$('select').formSelect();
 }
 

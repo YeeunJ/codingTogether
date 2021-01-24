@@ -25,7 +25,7 @@ $(document).ready(function() {
 	
 	$('#submitbtn').click(function() {
 		var form = document.form1;
-		alert(form.action);
+		console.log(form.action+"/"+$("#siteName").val()+"/"+$("#siteUrl").val());
 		if(form.siteName.value == ''){
 			alert('사이트 이름을 입력하세요 ');
 			form.siteName.focus();
@@ -42,7 +42,7 @@ $(document).ready(function() {
   	
 	$('#addbtn').click(function() {
 		var form = document.form1;
-		form.action = "manageCodingsite/addSite"
+		form.action = "manageCodingsite/addok"
 		
 		$("div#new").show();
 		$("input#siteName").focus();
@@ -131,7 +131,7 @@ $(document).ready(function() {
 				<span class="tableCell th1"><button id="editbtn" type="button" class=" btn-small waves-effect waves-light green button">편집</button></span>
 
 			</div>
-			<c:forEach items="${posts}" var="u">
+			<c:forEach items="${CodingSite}" var="u">
 				<div class="tableRow content">
 			 		<span class="tableCell td3 sub">${u.getSiteName()}</span> 
 					<span class="tableCell td5 sub"><a href="${u.getSiteUrl()}">${u.getSiteUrl()}</a></span> 

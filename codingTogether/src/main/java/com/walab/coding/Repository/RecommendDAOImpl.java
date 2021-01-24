@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.walab.coding.Model.RecomCountDTO;
 import com.walab.coding.Model.RecommendDTO;
 
 @Repository("recommendDAO")
@@ -17,14 +18,36 @@ public class RecommendDAOImpl implements RecommendDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	private String namespace = "recommend";
+	private List<RecommendDTO> recommendList = new ArrayList<RecommendDTO>();
 	
 	public List<RecommendDTO> readRecom() {
 		
-		List<RecommendDTO> recommendList = new ArrayList<RecommendDTO>();
+		recommendList = sqlSession.selectList(namespace+".readRecommendList");
 		
-		Map<String, Object> recommendListParam = new HashMap<String, Object>();
-		//recommendListParam.put("userID", userID);
+		for(int i=0;i<recommendList.size();i++) {
+			readRecomCount(recommendList.get(i), i);
+		}
 		
-		return recommendList = sqlSession.selectList(namespace+".readRecommendList", recommendListParam);
+		return recommendList;
+	}
+	
+	public void readRecomCount(RecommendDTO recommend, int index) {
+		
+		List<RecomCountDTO> recommendCountList = new ArrayList<RecomCountDTO>();
+		int cnt = 0;
+		Map<String, Object> recommendCountListParam = new HashMap<String, Object>();
+		recommendCountListParam.put("recomID", recommend.getId());
+		
+		recommendCountList = sqlSession.selectList(namespace+".readRecommendCountList", recommendCountListParam);
+		
+		for(int i=0;i<recommendCountList.size();i++) {
+			RecomCountDTO recomCount = recommendCountList.get(i);
+			
+			cnt += recomCount.getRecommend();
+		}
+		
+		recommend.setRecomCount(cnt);
+		
+		recommendList.set(index, recommend);
 	}
 }

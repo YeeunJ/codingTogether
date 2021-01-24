@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.walab.coding.Model.GoalDTO;
+import com.walab.coding.Model.UserProblemDTO;
 
 @Repository("goalDAO")
 public class GoalDAOImpl implements GoalDAO{
@@ -39,21 +40,16 @@ public class GoalDAOImpl implements GoalDAO{
 		return goalList = sqlSession.selectList(namespace+".readGoalList", goalListParam);
 	}
 	
-//	public List<GoalDTO> countGoal(int userID) {
-//		
-//		List<GoalDTO> goalCount = new ArrayList<GoalDTO>();
-//		
-//		Map<String, Object> goalCountParam = new HashMap<String, Object>();
-//		goalCountParam.put("userID", userID);
-//		
-//		return goalCount = sqlSession.selectList(namespace+".goalCount", goalListParam);
-//	}
 	
-	public int updateGoal(GoalDTO goalDTO) {
-		int result=sqlSession.update(namespace+".updateCodingSite", goalDTO);
-		return result;
-		}
+	public int updateGoal(GoalDTO updatdGoal) {
+		
+		Map<String, Object> goalParam = new HashMap<String, Object>();
+		goalParam.put("goal", updatdGoal.getGoal());
+		goalParam.put("startDate", updatdGoal.getStartDate());
+		goalParam.put("endDate", updatdGoal.getEndDate());
+		goalParam.put("id", updatdGoal.getId());
+		
+		return sqlSession.update(namespace+".updateGoal", goalParam);
+	}
 }
-	
-
 

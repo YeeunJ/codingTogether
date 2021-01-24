@@ -78,7 +78,10 @@
 								<h6 class="m-0 font-weight-bold text-primary">내 정보</h6>
 							</div>
 							<div class="card-body">
-						     	<div id="table">
+								<div class = "table" id="usersContent">
+									<%@ include file="../ajaxContent/usersContent.jsp" %>
+								</div>						
+<%-- 						     	<div id="table">
 						     	   <c:forEach items="${users}" var="user" varStatus="status">
 								      <div class="tableRow">
 								        <span class="tableCell th1">이름 </span>
@@ -97,24 +100,26 @@
 								        <span class="tableCell th4">${user.intro} </span>
 								      </div>
 								   </c:forEach>						     									      
-								 </div>	
+								 </div>	 --%>
 							</div>
 							<div class="row center">
 									<input type="button" value="수정하기 " onclick="showInfoEdit();hideInfo();" id="download-button" class="btn-large waves-effect waves-light green" />
 							</div>
 						</div>
-						
+			
 						<div class="card shadow mb-4" id = infoEdit style = "display:none">
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary">내 정보 수정 </h6>
 							</div>
 							<div class="card-body">
-								<form id = "registerInfo" method="post" action="registerok">	
+								<form id = "registerInfo" method="post" action="information/updateUser">	
 							     	<div id="table">
 							     		<c:forEach items="${users}" var="user" varStatus="status">
+							     		<input name = "id"  value ="${user.id}" type = "hidden" />														     	
+							     		
 									      <div class="tableRow">
 									        <span class="tableCell th1">이름</span>
-									        <span class="tableCell th1"><input type="text" name="userName" value ="${user.name}" placeholder = "${user.name}"/> </span>
+									        <span class="tableCell th1"><input type="text" name="name" value ="${user.name}" placeholder = "${user.name}"/> </span>
 									      </div>
 									      <div class="tableRow">
 									        <span class="tableCell th2">닉네임</span>
@@ -129,13 +134,13 @@
 									        <span class="tableCell th4"><textarea cols="20" rows="10" name="intro" placeholder = "${user.intro}">${user.intro}</textarea> </span>
 									      </div>
 										</c:forEach>									     						 			      
+									 </div>	
+									 <div class="center" style = "padding: 10px;">
+									    <input id = "submit" type="submit" value="수정하기 " id="download-button" class="btn-large waves-effect waves-light green" />
+									   	<input id = "add" type = "button" value="취소하기 " onclick = "showInfo(); hideInfoEdit()" id="download-button" class="btn-large waves-effect waves-light green" />									    
 									 </div>											
 								</form>
 							</div>
-							<div class="row center" style ="padding: 10px;">
-					   	  		 <input id = "submit" type="button" value="수정하기 " id="download-button" class="btn-large waves-effect waves-light green" />
-					     		 <input id = "add" type = "button" value="취소하기 " onclick = "showInfo(); hideInfoEdit()" id="download-button" class="btn-large waves-effect waves-light green" />
-						    </div>	
 						</div>
 												
 						<div class="card shadow mb-4" id = "goal">
@@ -173,29 +178,30 @@
 								<h6 class="m-0 font-weight-bold text-primary">내 목표 수정 </h6>
 							</div>
 							<div class="card-body">							
-								  <form:form id = "editGoal" method="post" action="information/editok" >
+								  <form:form id = "updateGoal" method="post" action="information/updateGoal" >
 										<div id="table">
 										<c:forEach items="${goals}" var="goal" varStatus="status">
-											<input name = "id"  type = "hidden" />
+							     			<input name = "id"  value ="${goal.id}" type = "hidden" />														     	
 											<div class="tableRow">
 												<span class="tableCell th1">목표 내용 </span>
 												<span class="tableCell th1"><input type="text" name="goal" value ="${goal.goal}" placeholder = "${goal.goal}"/> </span>
 											</div>
 											<div class="tableRow">
 											    <span class="tableCell th2">목표 시작일</span>
-											    <span class="tableCell th3"><input type="date" name="startDate" value ="${sDate}" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.startDate}"/>/> </span>
+											    <span class="tableCell th3"><input type="date" name="startDate" value ="${sDate}" /> </span>
 											                        
 											</div>
 											<div class="tableRow">
 											    <span class="tableCell th3">목표 종료일</span>
-											    <span class="tableCell th3"><input type="date" name="endDate" value ="${eDate}" placeholder = <fmt:formatDate pattern="yyyy-MM-dd" value="${goal.endDate}"/>/> </span>
+											    <span class="tableCell th3"><input type="date" name="endDate" value ="${eDate}" /> </span>
 											</div>
 										</c:forEach>
-										</div>									  			
-										<div class="row center" style ="padding: 10px; position: absolute; top: 50%; left: 50%; display:flex; align-items: center;justify-content: center;">
-										  <input id = "submit" type="submit" value="수정하기 " id="download-button" class="btn-large waves-effect waves-light green" />
-										  <input id = "add" type = "button" value="취소하기 " onclick = "showGoal(); hideGoalEdit()" id="download-button" class="btn-large waves-effect waves-light green" />
-										</div>
+										</div>	
+										<div class="center" style = "padding: 10px;">
+										    <input id = "submit" type="submit" value="수정하기 " id="download-button" class="btn-large waves-effect waves-light green" />
+										   	<input id = "add" type = "button" value="취소하기 " onclick = "showGoal(); hideGoalEdit()" id="download-button" class="btn-large waves-effect waves-light green" />
+										    
+										</div>								  			
 						    		</form:form>						    	
 							</div>										
 						</div>
