@@ -12,8 +12,9 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="./resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 <link rel="stylesheet" href="./resources/css/jquery.sweet-modal.min.css" />
-<link href="./resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-
+<link href="./resources/css/style.css?as" type="text/css" rel="stylesheet" media="screen,projection" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 
 <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
 

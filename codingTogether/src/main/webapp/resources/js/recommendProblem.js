@@ -22,6 +22,10 @@ instance.destroy();
 	});
 });*/
 
+function createProblems() {
+	createModel("#createProblems", "문제집 등록", addAjax);
+}
+
 function printAllContent(id){
 	$('#problems').html($(id+' .readProblem').html());
 	$('#tags').html($(id+' .readTag').html());

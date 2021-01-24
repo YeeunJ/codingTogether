@@ -8,6 +8,12 @@ public class CodingSiteDTO {
 	String siteUrl;
 	Date regDate;
 	
+	@Override
+	public String toString() {
+		return "CodingSiteDTO [id=" + id + ", siteName=" + siteName + ", siteUrl=" + siteUrl + ", regDate=" + regDate
+				+ "]";
+	}
+	
 	public int getId() {
 		return id;
 	}

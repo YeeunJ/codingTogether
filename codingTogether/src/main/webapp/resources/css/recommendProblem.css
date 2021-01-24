@@ -36,3 +36,25 @@ fieldset {
 	border: 0;
 	background-color: Transparent;
 }
+.comment {
+	border-bottom: 1px solid #bdbdbd;
+}
+
+/* 문제 추천 - 문제집 등록 모달 */
+.title {
+	color: #e69238;
+    font-size: 25px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+#createProblems input {
+	width: 500px;
+}
+#createProblems textarea {
+	height: 70px;
+	width: 500px;
+	border: 1px solid #bdbdbd;
+}
+#createProblems #confirmSite {
+	height: 150px;
+}

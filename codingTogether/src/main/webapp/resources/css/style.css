@@ -5,6 +5,9 @@
  *
  * Made By MaterializeCSS.com
  */
+ * {
+ 	font-family: 'Nanum Gothic', sans-serif;
+ }
 .icon-block {
 	padding: 0 15px;
 }
