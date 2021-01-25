@@ -62,4 +62,10 @@
 	<beans:bean id="recomCommentDAO" class="com.walab.coding.Repository.RecomCommentDAOImpl"/>
 	<beans:bean id="recomCommentService" class="com.walab.coding.Service.RecomCommentServiceImpl"/>
 	
+	<beans:bean id="recomProblemsDAO" class="com.walab.coding.Repository.RecomProblemsDAOImpl"/>
+	<beans:bean id="recomProblemsService" class="com.walab.coding.Service.RecomProblemsServiceImpl"/>
+	
+	<beans:bean id="tagDAO" class="com.walab.coding.Repository.TagDAOImpl"/>
+	<beans:bean id="tagService" class="com.walab.coding.Service.TagServiceImpl"/>
+	
 </beans:beans>
