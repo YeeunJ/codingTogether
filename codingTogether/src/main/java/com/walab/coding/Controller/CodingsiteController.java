@@ -85,10 +85,11 @@ public class CodingsiteController {
 		ArrayList<String> data = new ArrayList<String>();
 		List<CodingSiteDTO> codingSite = codingSiteService.read();
 		
-		String html="";
+		String html="<li>"+" | ";
 		for(CodingSiteDTO i : codingSite) {
-			html +=  "<li>" +i.getSiteName()+"<a href='" + i.getSiteUrl() + "'>"+i.getSiteUrl()+"</a></li>";
+			html += "<a href='" + i.getSiteUrl() + "'>"+i.getSiteName()+"</a>"+"   |   ";
 		}
+		html+="</li>";
 		System.out.println(html);
 		return html;
 	}
