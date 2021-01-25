@@ -27,3 +27,7 @@ input {
 .right{
 	float:right;
 }
+img {
+    opacity: 0.4;
+    
+}

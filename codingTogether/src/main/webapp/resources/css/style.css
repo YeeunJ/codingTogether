@@ -25,10 +25,14 @@
 .tableRow {
 	display: table-row !important;
 }
-
-.tableRow:nth-child(2n) {
-	background-color: #f7f7f7 !important;
+.whitebtn {
+  background-color: white;
+  color: black;
+  border: 2px solid #666666;
+  border-radius : 30px;
+  padding:7px 20px;
 }
+
 
 .th1, .th15, .th2, .th3, .th4, .th5, .th6, .th7, .th8, .th9 { font-weight: bold !important; }
 

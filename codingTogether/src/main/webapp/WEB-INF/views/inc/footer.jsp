@@ -1,9 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><link href="./resources/css/style.css?as" type="text/css" rel="stylesheet" media="screen,projection" />
+<link href="./resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
 
 <footer class="page-footer grey">
-	<div class="container">
-		<div class="row">
+	<div  class="container">
+		<div class="row center gray-text">
 			<!-- <h2 class="bold fs-25 coding-title">코딩 사이트 바로가기</h2> -->
 			<!-- <div class="row block-wrapper fs-16">
 				<a href="https://www.acmicpc.net/" class="site-block">백준</a> <a
@@ -17,18 +19,14 @@
 					href="https://level.goorm.io/" class="site-block">groom</a>
 			</div> -->
 			<ul id="codingSite" class="codingSites">
-		
+				
 			</ul>
-
+			<h6 class="gray-text">©️Copyright</h6> 
+		
 		</div>
 	</div>
 
-	<div class="footer-copyright">
-		<div class="container">
-			Made by <a class="green-text text-lighten-3"
-				href="http://materializecss.com">Materialize</a>
-		</div>
-	</div>
+
 </footer>
 </body>
 </html>
