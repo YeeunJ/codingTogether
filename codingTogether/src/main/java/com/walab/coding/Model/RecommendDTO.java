@@ -8,6 +8,7 @@ public class RecommendDTO {
 	private int userID;
 	private String nickname;
 	private String title;
+	private int difficulty;
 	private String content;
 	private int recomCount;
 	private Date deleteDate;
@@ -36,6 +37,12 @@ public class RecommendDTO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getDifficulty() {
+		return difficulty;
+	}
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
 	}
 	public String getContent() {
 		return content;
