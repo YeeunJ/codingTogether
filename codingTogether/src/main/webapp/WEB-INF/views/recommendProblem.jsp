@@ -96,7 +96,7 @@
 				<br><br> -->
 				
 				<!-- read -->
-				<div id="readRecommendProblem">
+				<div id="readRecommendProblem" hidden>
 					<div class = "container">
 						<div class = "col s12">
 							<span>문제 : </span><span id="problems"></span>
