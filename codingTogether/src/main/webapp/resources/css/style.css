@@ -118,8 +118,10 @@
 }
 
 .page-footer {
-	position: initial;
-    padding: 0;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0px;
 }
 
 .sweet-modal-box.alert{left: 0 !important;}
