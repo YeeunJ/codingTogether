@@ -33,15 +33,22 @@ public class MyproblemsController {
 	GoalServiceImpl goalService;	
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ModelAndView viewProblems(ModelAndView mv) {
+	public ModelAndView viewProblems(ModelAndView mv, Model model) {
 		
 		int userID = 1;
 		
 		List<UserProblemDTO> problems = userProblemService.read(userID);
 		List<GoalDTO> goal = goalService.readGoal(userID);
+		int userSolvedP = userProblemService.readSolvedP(userID);
+		
+		GoalDTO g = goal.get(0);
+		int goalNum = g.getGoalNum();
 		
 		mv.addObject("goal", goal);
 		mv.addObject("problems", problems);
+		model.addAttribute("userSolvedP", userSolvedP);
+		model.addAttribute("goalNum", goalNum);
+
 		mv.setViewName("mypage/problems");
 
 		
@@ -97,8 +104,6 @@ public class MyproblemsController {
 	public ModelAndView searchProblem(HttpServletRequest httpServletRequest) {		
 		
 		String searchValue= httpServletRequest.getParameter("searchValue");
-		
-		
 		
 		ModelAndView mv = new ModelAndView();
 		return mv;

@@ -25,10 +25,14 @@
 .tableRow {
 	display: table-row !important;
 }
-
-.tableRow:nth-child(2n) {
-	background-color: #f7f7f7 !important;
+.whitebtn {
+  background-color: white;
+  color: black;
+  border: 2px solid #666666;
+  border-radius : 30px;
+  padding:7px 20px;
 }
+
 
 .th1, .th15, .th2, .th3, .th4, .th5, .th6, .th7, .th8, .th9 { font-weight: bold !important; }
 
@@ -114,8 +118,10 @@
 }
 
 .page-footer {
-	position: initial;
-    padding: 0;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0px;
 }
 
 .sweet-modal-box.alert{left: 0 !important;}
@@ -158,4 +164,28 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .select-wrapper input.select-dropdown:focus {
     border-bottom: 1px solid #677e52 !important;
+}
+
+.orange {
+  background-color: #e69138ff !important;
+}
+
+.orange-text {
+  color: #e69138ff !important;
+}
+.gray {
+  background-color: #666666 !important;
+}
+
+.gray-text {
+  color: #666666 !important;
+}
+nav ul a {
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+  font-size: 1rem;
+  color: #666666 !important;
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
 }

@@ -137,34 +137,40 @@ $(document).ready(function() {
 
 
 <div id="codingSiteContainer" class="container">
-	<div>
-		<h4 class="header green-text">코딩 사이트 관리</h4>
-		<br>
-	</div>
-	<div class="table">
-		<div class="right">
-			<button id="addbtn"
-				class=" btn-small waves-effect waves-light green button">추가</button>
-			<button id="editbtn"
-				class=" btn-small waves-effect waves-light green button">편집</button>
+	<div style="position: relative;">
+		
+		<img id="codingsiteimg" style="max-width:100%"src="./resources/img/codingSiteimg.jpg">
+		<div style="left: 50px; width: 450px; bottom: 100px;  color:#666666;font-weight: 800; position: absolute;">
+			<h4>코딩 사이트 관리</h4>
+			<h6>코딩 사이트를 관리할 수 있습니다.</h6>
+			
 		</div>
+	</div><br><br>
+	<div class="table">
+		<div style="margin-bottom:10px;"class="right">
+			<button id="addbtn"
+				class=" whitebtn button">추가</button>
+			<button id="editbtn"
+				class=" whitebtn button">편집</button>
+		</div>
+		
 	</div>
 	<form name="form1" action="manageCodingsite/addok" method="post">
 		 
 		<div id="table">
-			<div class="tableRow">
-				<span class="tableCell th3 tablehead">사이트 이름 </span> 
-				<span class="tableCell th5 tablehead">URL</span> 
+			<div class="tableRow orange white-text">
+				<span class="tableCell th3 tablehead center">사이트 이름 </span> 
+				<span class="tableCell th5 tablehead center">URL</span> 
 				<span class="tableCell th1"></span> 
 				<span class="tableCell th1"></span>
 
 			</div>
 			<c:forEach items="${CodingSite}" var="u">
 				<div class="tableRow content">
-			 		<span class="tableCell td3 sub">${u.getSiteName()}</span> 
-					<span class="tableCell td5 sub"><a href="${u.getSiteUrl()}">${u.getSiteUrl()}</a></span> 
-					<span class="tableCell td1 sub"><button type="button" id="change" style="display:none;" class="editSite edit waves-effect waves-light btn-small green">수정</button></span> 
-					<span class="tableCell td1 sub"><button style="display:none;" value="${u.getId()}" class="deleteBtn edit waves-effect waves-light btn-small green" type="button">삭제</button></span>
+			 		<span class="tableCell td3 sub ">${u.getSiteName()}</span> 
+					<span class="tableCell td5 sub "><a href="${u.getSiteUrl()}">${u.getSiteUrl()}</a></span> 
+					<span class="tableCell td1 sub "><button type="button" id="change" style="display:none;" class="editSite edit whitebtn">수정</button></span> 
+					<span class="tableCell td1 sub "><button style="display:none;" value="${u.getId()}" class="deleteBtn edit whitebtn" type="button">삭제</button></span>
 				</div>
 			</c:forEach>
 			
@@ -172,12 +178,12 @@ $(document).ready(function() {
 				<input id="editonly" type="hidden" name="id" />
 				<span class="tableCell td3 sub"><input  id="siteName" type='text'name='siteName'></span>
 				<span class="tableCell td5 sub"><input  id="siteUrl" type='text' name='siteUrl'></span> 
-				<span class="tableCell td1 sub"><button id="cancelAdd"class=" waves-effect waves-light btn-small green" type="button">취소</button></span>
-				<span class="tableCell td1 sub"><button id="submitbtn"class=" waves-effect waves-light btn-small green" type="submit">추가</button></span>
+				<span class="tableCell td1 sub"><button id="cancelAdd"class=" whitebtn" type="button">취소</button></span>
+				<span class="tableCell td1 sub"><button id="submitbtn"class=" whitebtn" type="submit">추가</button></span>
 			</div>
 		</div>
 		</form>
-	</div>
+	</div><br><br><br>
 
 
 
