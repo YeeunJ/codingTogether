@@ -4277,7 +4277,7 @@ table span.badge {
 
 nav {
   color: #fff;
-  background-color: #ee6e73;
+  background-color: white;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -4422,9 +4422,9 @@ nav ul a.btn > .material-icons, nav ul a.btn-large > .material-icons, nav ul a.b
   line-height: inherit;
 }
 
-nav ul a:hover {
+/* nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
-}
+} */
 
 nav ul.left {
   float: left;
@@ -4446,11 +4446,11 @@ nav .input-field input {
   padding-left: 2rem;
 }
 
-nav .input-field input:focus, nav .input-field input[type=text]:valid, nav .input-field input[type=password]:valid, nav .input-field input[type=email]:valid, nav .input-field input[type=url]:valid, nav .input-field input[type=date]:valid {
+/* nav .input-field input:focus, nav .input-field input[type=text]:valid, nav .input-field input[type=password]:valid, nav .input-field input[type=email]:valid, nav .input-field input[type=url]:valid, nav .input-field input[type=date]:valid {
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-}
+} */
 
 nav .input-field label {
   top: 0;
