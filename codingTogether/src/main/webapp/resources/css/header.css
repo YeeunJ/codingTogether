@@ -1,0 +1,21 @@
+
+
+
+/* nav ul a:hover {
+  background-color: orange !important;
+} */
+li a:hover:before, li.on a:before {
+    width: 100%;
+    padding: 0 2px;
+    transition: width 0.12s, padding 0.12s;
+}
+li a:before {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    padding: 0;
+    left: -2px;
+    height: 4px;
+    background: orange;
+}

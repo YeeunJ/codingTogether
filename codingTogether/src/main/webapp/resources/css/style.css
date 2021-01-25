@@ -141,14 +141,14 @@ input[type=tel]:not(.browser-default):focus:not([readonly]),
 input[type=number]:not(.browser-default):focus:not([readonly]),
 input[type=search]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #677e52 !important;
-  -webkit-box-shadow: 0 1px 0 0 #677e52 !important;
-          box-shadow: 0 1px 0 0 #677e52 !important;
+  border-bottom: 1px solid #e69138ff !important;
+  -webkit-box-shadow: 0 1px 0 0 #e69138ff !important;
+          box-shadow: 0 1px 0 0 #e69138ff !important;
 }
 
 .dropdown-content li > a, .dropdown-content li > span {
     font-size: 14px !important;
-    color: #677e52 !important;
+    color: #e69138ff !important;
     line-height: 18px !important;
     padding: 10px 12px !important;
 }
