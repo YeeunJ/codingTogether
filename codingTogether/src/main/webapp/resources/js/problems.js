@@ -1,22 +1,3 @@
-/*
-data = { 
-        datasets: [{ 
-            backgroundColor: ['lightblue','yellow'], 
-            data: [100, 20] 
-        }],
-        labels: ['총 문제수','푼 문제수'] };
-    var ctx = document.getElementById("myChart"); 
-    var myDoughnutChart = new Chart(ctx, { 
-        type: 'doughnut', 
-        data: data, 
-        options: {
-            legend: {
-                display: false
-            }
-        } 
-    }); 
-*/
-
 $(document).ready(function() {
 	$('#register-button').on('click', function() {
 		 createModel("#registerSolvedProblem", "문제 등록", addAjax);
