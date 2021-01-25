@@ -8,13 +8,12 @@
 <link href="../resources/css/problems.css" rel="stylesheet">
 <script src="../resources/js/problems.js"></script>
 
-
 <script>
 window.onload = function() {
 	data = { 
 	        datasets: [{ 
 	            backgroundColor: ['lightblue','yellow'], 
-	            data: [100, 20] }],
+	            data: [ ${goalNum}, ${userSolvedP} ] }],
 	        	labels: ['총 문제수','푼 문제수'] 
 	        };
 var ctx = document.getElementById("myChart"); 
@@ -29,7 +28,6 @@ var myDoughnutChart = new Chart(ctx, {
  });
 }
 </script>
-
 
 <!-- Page Wrapper -->
     <div id="wrapper">
@@ -149,20 +147,16 @@ var myDoughnutChart = new Chart(ctx, {
                                     </div>
                                     <div class="h1 pt-5 center">           
 							     	<div id="table">
-							     	   <c:forEach items="${problems}" var="problems" varStatus="status">
-								        <c:if test="${status.count == 6}">
-									        <div class="box">
-									        	<span class="h5 font-weight-bold text-info text-uppercase mb-1">현재 푼 문제 개수</span>
-									        	<span class="h5 font-weight-bold text-info text-uppercase mb-1">${status.count} </span>
-									        </div>
-								      	</c:if>
-									   </c:forEach>						     									      
+									     <div class="box">
+									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">현재 푼 문제 개수</span>
+									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">${userSolvedP}개 </span>
+									     </div> 					     									      
 									 </div>	                                   
 							     	 <div id="table">
 							     	   <c:forEach items="${goal}" var="goal" varStatus="status">
 									      <div class="box">
 									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">목표 개수 </span>
-									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">${goal.goalNum} </span>
+									        <span class="h5 font-weight-bold text-info text-uppercase mb-1">${goal.goalNum}개 </span>
 									      </div>
 									   </c:forEach>						     									      
 									 </div>	                                    
@@ -186,7 +180,7 @@ var myDoughnutChart = new Chart(ctx, {
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
-                                    <canvas id="myChart" width="200" height="100"></canvas>
+                                    <canvas id="myChart" width="200" height="90"></canvas>
                                     <div class="mt-4 text-center small">
                                         <span class="ml-3 mr-2">
                                             <i class="fas fa-circle" style="color: lightblue;"></i> 총 문제수

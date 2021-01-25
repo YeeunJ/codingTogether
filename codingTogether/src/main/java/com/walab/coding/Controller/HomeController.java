@@ -52,6 +52,7 @@ public class HomeController {
 
 	public @ResponseBody String createProblem(@RequestParam(value="siteId[]") List<String> siteId, @RequestParam(value="problem[]") List<String> problem, @RequestParam(value="link[]") List<String> link) throws UnsupportedEncodingException {
 		List<UserProblemsDTO> probs = new ArrayList<UserProblemsDTO>();
+		
 //		request.setCharacterEncoding("UTF-8");
 //		String test = request.getParameter("test");
 //		String testarr[] = request.getParameterValues("testarr");

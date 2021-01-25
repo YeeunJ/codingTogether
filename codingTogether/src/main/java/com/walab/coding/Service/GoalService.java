@@ -8,6 +8,7 @@ public interface GoalService {
 	List<GoalDTO> readGoal(int userID);
 	List<GoalDTO> readGoalAll(int userID);
 //	List<GoalDTO> countGoal(int userID);
-	public int updateGoal(GoalDTO goalDTO);
+//	public int updateGoal(GoalDTO goalDTO);
+	int updateGoal(GoalDTO goalDTO);
 
 }

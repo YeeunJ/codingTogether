@@ -61,6 +61,19 @@ public class UserDAOImpl implements UserDAO{
 		sqlSession.insert("userInfo.createUserProblem", p);
 	
 	}
+	@Override
+	public int updateUser(UserDTO updateUser) {
+		
+		Map<String, Object> userParam = new HashMap<String, Object>();
+		userParam.put("name", updateUser.getName());
+		userParam.put("nickName", updateUser.getNickName());
+		userParam.put("userNumber", updateUser.getUserNumber());
+		userParam.put("intro", updateUser.getIntro());
+		userParam.put("id", updateUser.getId());
+		
+		return sqlSession.update("user.updateUser", userParam);
+	}
+	
 	
 }
 

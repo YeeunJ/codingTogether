@@ -5,6 +5,9 @@
  *
  * Made By MaterializeCSS.com
  */
+ * {
+ 	font-family: 'Nanum Gothic', sans-serif;
+ }
 .icon-block {
 	padding: 0 15px;
 }
@@ -155,4 +158,28 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .select-wrapper input.select-dropdown:focus {
     border-bottom: 1px solid #677e52 !important;
+}
+
+.orange {
+  background-color: #e69138ff !important;
+}
+
+.orange-text {
+  color: #e69138ff !important;
+}
+.gray {
+  background-color: #666666 !important;
+}
+
+.gray-text {
+  color: #666666 !important;
+}
+nav ul a {
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+  font-size: 1rem;
+  color: #666666 !important;
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
 }

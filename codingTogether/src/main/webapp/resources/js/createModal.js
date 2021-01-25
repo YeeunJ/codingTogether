@@ -9,7 +9,7 @@ function createModel(content, titleValue, actionFunction){
 					buttons: [
 						{
 							label: '등록',
-							classes: 'green',
+							classes: 'modal_button',
 							action: function() {
 								actionFunction();
 								return $.sweetModal({

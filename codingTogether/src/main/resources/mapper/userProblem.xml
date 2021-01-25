@@ -16,4 +16,10 @@
 		update userProblem set difficulty='${difficulty}', memo='${memo}' where id = #{problemID}
 	</update>
 	
+	<select id="readSovledUserProblem" resultType="int" parameterType="hashmap">
+		SELECT count(A.userID) as solved 
+		FROM userProblem as A, (SELECT startDate FROM goal WHERE userID=1 ORDER BY DATE(startDate) DESC limit 1) subquery 
+		WHERE A.regDate >= subquery.startDate and A.userID = #{userID}
+	</select>
+	
 </mapper>

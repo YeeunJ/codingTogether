@@ -3,7 +3,8 @@
 
 <%@ include file="./inc/header.jsp" %>
 
-<link href="./resources/css/recommendProblem.css" rel="stylesheet">
+<link rel="stylesheet" href="./resources/css/solvedProblem.css?a" />
+<link href="./resources/css/recommendProblem.css?as" rel="stylesheet">
 <script src="./resources/js/recommendProblem.js"></script>
 
 			<div class="container" style = "max-width: 80%;">
@@ -23,7 +24,7 @@
 					</select>
 				</div>
 			    
-			    <button id="register-button" class= "waves-effect waves-light btn green input-field">문제 추천집 만들기</button>
+			    <button id="register-button" class= "waves-effect waves-light btn green input-field" onclick="createProblems()">문제 추천집 만들기</button>
 			    
 			    <br><br>
 			    
@@ -32,22 +33,43 @@
 						<span class="tableCell th1">No.</span>
 						<span class="tableCell th4">제목</span>
 						<span class="tableCell th2">등록자</span>
-						<span class="tableCell th15">난이도</span>
-						<span class="tableCell th15">추천수</span>
+						<span class="tableCell th1">난이도</span>
+						<span class="tableCell th1">추천수</span>
+						<span class="tableCell th1">댓글수</span>
 					</div>
 					<c:forEach items="${recoms}" var="recoms" varStatus="status">
+						<c:set var="count" value="0"/>
+						<c:forEach items="${commentCount}" var="c">
+							<c:if test="${ c.recomID eq recoms.id }">
+    							<c:set var="count" value="${ c.count }"/>
+							</c:if>
+						</c:forEach>
 						<div class="tableRow" id="recoms${recoms.id}" onclick="printAllContent('#recoms${recoms.id}')">
 							<span class="tableCell td1">${status.count}</span>
 							<%-- <button class="title">${recoms.title}</button> --%>
 							<span class="tableCell td4 readTitle">${recoms.title}</span>
 							<span class="tableCell td2">${recoms.nickname}</span>
+<!-- <<<<<<< HEAD -->
+							<span class="tableCell td1"></span>
+							<span class="tableCell td1"></span>
+							<span class="tableCell td1">${ count }</span>
+<!-- ======= -->
 							<span class="tableCell td15"></span>
 							<span class="tableCell td15 readRecommend">${recoms.recomCount}</span>
-							<span class="readProblem" style="display:none;">10문제</span>
+<!-- >>>>>>> branch 'master' of https://github.com/YeeunJ/codingTogether.git
+ -->							<span class="readProblem" style="display:none;">10문제</span>
 							<span class="readTag" style="display:none;">정렬</span>
 							<span class="readContent" style="display:none;">${recoms.content}</span>
 						</div>
 					</c:forEach>
+					
+					<div id="comment" style="background: pink; width:200px;"">
+						<div>
+							<input id="content" value="" />
+							<button id="addComment">댓글 추가</button>
+						</div>
+					</div>
+					
 				</div>
 				<br><br>
 		      	
@@ -103,6 +125,12 @@
                             <span>태그 : </span><span id="tags"></span>
                				<span>내용 : </span><span id="contents"></span>
                				<span>추천 : </span><span id="recommends"></span><span>&nbsp;&nbsp;&nbsp;</span><button class= "waves-effect waves-light btn green">추천</button>
+               				
+               				<div>
+               				<b>댓글</b>
+               				<p class="comment">좋은 문제 감사합니다~~</p>
+               				</div>
+        
                         </div>
 					</div>
 				</div>	
@@ -115,5 +143,67 @@
 				</div>
 				<br><br> -->
 			</div>
+			
+			
+<!-- 문제집 등록 모달 -->
+<div id="createProblems" class="container">
+	<form class="col s12">
+		<p class="title">추천 문제집 제목</p>
+		<input placeholder="제목을 입력해주세요."></input>
+		
+		<p class="title">추천 문제 등록</p>
+		<div class="row">
+			<div class="input-field col s4">
+				<select id="siteName" required>
+					<optgroup label="코딩사이트 선택">
+						<c:forEach items="${CodingSite}" var="site">
+							<option value="${ site.id }">${ site.siteName }</option>
+						</c:forEach>
+					</optgroup>
+					<optgroup label="링크로 입력">
+						<option value="0">링크로 입력</option>
+					</optgroup>
+				</select> <label>코딩사이트 선택</label> <span class="helper-text">코딩 사이트를
+					선택해서 입력하거나 링크로 입력할 수 있습니다.</span>
+			</div>
+			<div class="input-field col s6">
+				<input id="problems" type="text" class="validate"> <label
+					for="problems">Problems</label> <span class="helper-text">문제들을
+					입력할 때 ,로 구분해주세요!!</span>
+			</div>
+			<button type="button" id="add" class="modal_button lighten-1" onClick="insertProblems()">추가</button>
+		</div>
+		<div class="input-field col s10">
+			<label for="last_name">입력한 Problems</label> <br> <br>
+			<div id="confirmSite"></div>
+		</div>
+		
+		<p class="title">추천 문제집 설명</p>
+		<textarea></textarea>
+	</form>
+</div>
 		
 <%@ include file="./inc/footer.jsp" %>
+
+<script>
+
+$('#addComment').click(function() {
+	if(confirm("댓글을 추가하시겠습니까?")){
+		$.ajax({
+			url: "recommendProblem/addComment",
+			type: "POST",
+			async: false,
+			data: {
+				recomID: 2,
+				content: $('#content').val()
+			},
+			success: function(data){
+				$('#comment').append(data);
+			}, 
+			error:function(request, status, error){
+				console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	        }
+		}); 
+	}
+});
+</script>

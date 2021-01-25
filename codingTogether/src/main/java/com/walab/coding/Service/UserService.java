@@ -1,6 +1,5 @@
 package com.walab.coding.Service;
 
-import java.util.Date;
 import java.util.List;
 
 import com.walab.coding.Model.GoalDTO;
@@ -17,5 +16,7 @@ public interface UserService {
 	int registerUsergoal(GoalDTO g);
 	
 	void createUserProblem(List<UserProblemsDTO> p);
+	public int updateUser(UserDTO updateUser);
+
 
 }
