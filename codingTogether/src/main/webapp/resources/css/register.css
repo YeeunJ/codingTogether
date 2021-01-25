@@ -1,0 +1,22 @@
+.register{
+	margin: 0 auto;
+	max-width: 60%;
+	margin-top: 5%;
+	margin-bottom: 10%;
+}
+
+.cell{
+	color: gray ;
+}
+.th1{
+	color: #e69138ff ;
+}
+.th2{
+	color: #e69138ff ;
+}
+.th3{
+	color: #e69138ff ;
+}
+.th4{
+	color: #e69138ff ;
+}
