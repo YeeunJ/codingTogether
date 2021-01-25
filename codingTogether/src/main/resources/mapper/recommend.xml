@@ -18,4 +18,14 @@
 		FROM recomCount
 		WHERE recomID = #{recomID}
 	</select>
+	
+	<select id="readRecommendProblemList" resultType="com.walab.coding.Model.RecomProblemsDTO" parameterType="hashmap">
+		SELECT cs.siteName as site, rp.problem as problem, rp.difficulty as difficulty
+		FROM recomProblems as rp left join codingSite as cs on rp.site = cs.id
+		WHERE rp.recomID = #{recomID}
+	</select>
+	
+	<insert id="createRecomProblem" parameterType="com.walab.coding.Model.RecommendDTO" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO recommend (userID, title, difficulty, content) VALUES (#{userID}, #{title}, #{difficulty}, #{content})
+	</insert>
 </mapper>

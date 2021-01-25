@@ -171,45 +171,74 @@ fieldset {
 
 
 	<!-- insert -->
-	<!-- <div id="registerRecommendProblem">
-					<div class = "container">
-						<form class="col s12">
-							<div class="row">
-								<div class="input-field col s4">
-									<select id = "siteName" required>
-										<optgroup label="코딩사이트 선택">
-											<option value="" disabled selected>코딩사이트 별 입력</option>
-											<option value="1">백준</option>
-											<option value="2">leetcode</option>
-											<option value="3">SW expert academy</option>
-											<option value="4">programmers</option>
-											<option value="5">oncoder</option>
-											<option value="6">goorm</option>
-											<option value="7">leetcode(database)</option>
-										</optgroup>
-										<optgroup label="링크로 입력">
-											<option value="8">링크로 입력</option>
-										</optgroup>
-									</select>
-									<label>코딩사이트 선택</label>
-									<span class="helper-text">코딩 사이트를 선택해서 입력하거나 링크로 입력할 수 있습니다.</span>
-								</div>
-								<div class="input-field col s6">
-									<input id="problems" type="text" class="validate">
-									<label for="problems">Problems</label>
-									<span class="helper-text">문제들을 입력할 때 ,로 구분해주세요!!</span>
-								</div>
-								<button type="button" id = "add" class="modal_button green lighten-1" onClick = "insertProblems()">추가</button>
+				<div class = "container">
+					<form class="col s12">
+						<div class="input-field col s10">
+							<input id="title" type="text" class="validate"> <label
+									for="title">제목</label> <span class="helper-text">문제집의 제목을  
+									입력해주세요.</span>
+						</div>
+						
+						<div class="row">
+							<div class="input-field col s4">
+								<select id="siteName" required>
+									<optgroup label="코딩사이트 선택">
+										<c:forEach items="${CodingSite}" var="site">
+											<option value="${site.id}">${site.siteName}</option>
+										</c:forEach>
+									</optgroup>
+									<optgroup label="링크로 입력">
+										<option value="0">링크로 입력</option>
+									</optgroup>
+								</select> <label>코딩사이트 선택</label> <span class="helper-text">코딩 사이트를
+									선택해서 입력하거나 링크로 입력할 수 있습니다.</span>
 							</div>
-							 <div class="input-field col s10">
-							 	<label for="last_name">입력한 Problems</label>
-								<br><br>
-								<div id = "confirmSite"></div>
+							<div class="input-field col s6">
+								<input id="problems" type="text" class="validate"> <label
+									for="problems">Problems</label> <span class="helper-text">문제들을
+									입력할 때 ,로 구분해주세요!!</span>
 							</div>
-						</form>
-					</div>
+							<button type="button" id="add" class="modal_button waves-effect waves-light btn green"
+								onClick="insertProblems()">추가</button>
+						</div>
+						<div class="input-field col s10">
+							<label for="last_name">입력한 Problems</label> <br> <br>
+							<div id="confirmSite"></div>
+						</div>
+						
+						<div class="input-field col s10">
+							<!-- <span>난이도: </span>
+							<input type="radio" name="difficulty" value="1" checked/>1
+							<input type="radio" name="difficulty" value="2" />2
+							<input type="radio" name="difficulty" value="3" />3
+							<input type="radio" name="difficulty" value="4" />4
+							<input type="radio" name="difficulty" value="5" />5 -->
+							<input id="difficulty" type="text" class="validate"> <label
+									for="difficulty">난이도</label><span class="helper-text">1~5까지만 
+									입력가능합니다.</span>
+						</div>
+						
+						<div class="row">
+							<div class="input-field col s10">
+								<input id="tags" type="text" class="validate"> <label
+										for="tags">태그</label> <span class="helper-text">태그들을
+										입력할 때 ,로 구분해주세요!!</span>
+							</div>
+							<button type="button" id="addTag" class="modal_button waves-effect waves-light btn green"
+									onClick="insertTags()">추가</button>
+						</div>
+						<div class="input-field col s10">
+							<label for="last_tag">입력한 Tags</label> <br> <br>
+							<div id="confirmTag"></div>
+						</div>
+						
+						<div class="input-field col s10">
+							<textarea id="content" name="content" rows="5"></textarea>
+							<span class="helper-text">추천 문제집에 대한 내용을 입력해주세요.</span>
+						</div>
+					</form>
+					<button id="createRecomProblem" class="waves-effect waves-light btn green">만들기</button>
 				</div>
-				<br><br> -->
 
 	<!-- read -->
 	<div id="readRecommendProblem" hidden>
@@ -240,7 +269,7 @@ fieldset {
 
 
 <!-- 문제집 등록 모달 -->
-<div id="createProblems" class="container">
+<%-- <div id="createProblems" class="container">
 	<form class="col s12">
 		<p class="title">추천 문제집 제목</p>
 		<input placeholder="제목을 입력해주세요."></input>
@@ -276,11 +305,113 @@ fieldset {
 		<p class="title">추천 문제집 설명</p>
 		<textarea></textarea>
 	</form>
-</div>
+</div> --%>
 
 <%@ include file="./inc/footer.jsp"%>
 
 <script>
+$('#createRecomProblem').click(function() {
+	var probs;
+	var siteId = [];
+	var problem = [];
+	var link = [];
+	var title = document.getElementById("title").value;
+	var difficulty = document.getElementById("difficulty").value;
+	var tag = [];
+	var content = document.getElementById("content").value;
+	
+	$('.problem').each(function(){
+		
+		var s_id = 0;
+		var l = null;
+		var p;
+		var valueSplit = $(this).val().split(' ');
+		
+		if($(this).attr('name') == 0){ // link로 설정하는 경우
+			l = valueSplit[0];
+			console.log("link: "+l);
+			
+			var split = l.split('/');
+			p = split[split.length-1];
+			console.log("problem: "+split[split.length-1]);
+
+		} else { // siteId 존재하는 경우
+			s_id = $(this).attr('name');
+			p = valueSplit[0];
+		}
+		
+		siteId.push(s_id);
+		problem.push(p);
+		link.push(l);
+		
+		/* var p = {
+			siteID: siteId,
+			problem: valueSplit[0],
+			link: link,
+		}
+		probs.push(p); */
+		
+		console.log($(this).val());
+	});
+	
+	probs = {"siteId":siteId, "problem":problem, "link":link};
+	
+	$('.tag').each(function(){
+		var tagVal = $(this).val();
+		console.log(tagVal);
+		
+		tag.push(tagVal);
+	});
+
+	for(var i=0 ; i<siteId.length ; i++) {
+		console.log("TEST: "+siteId[i]+"/"+problem[i]+"/"+link[i]);
+	}
+	
+
+   $.ajax({
+        url : './recommendProblem/createRecomProblem',
+        type: 'POST',
+        data: {
+        	"siteId":siteId, "problem":problem, "link":link, "title":title, "difficulty":difficulty, "tag":tag, "content":content
+        },
+        success: function(data) {
+            alert('리스트에 추가하였습니다.');
+        },
+        error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        },
+    });
+});
+
+	var count=0;
+	function insertProblems(){
+		var siteId = $('#siteName').val();
+		var array = ['', '백준', 'leetcode', 'SW expert academy', 'oncoder', 'goorm', 'leetcode[database]', 'link'];
+		var site = $("#siteName option:selected").val();
+		var value = document.getElementById("problems").value;
+		var valueSplit = value.split(',');
+		var data = $('#confirmSite').html();
+		for(var i in valueSplit){
+			data += '<div id = "confirmProblemValue'+count+'" onClick="deleteThis(\'confirmProblemValue'+count+'\')"><input disabled name="'+siteId+'" value="'+valueSplit[i]+' ('+array[site]+')" id="last_name disabled" type="text" class="problem validate"/></div>';
+			count++;
+		}
+		$('#confirmSite').html(data);
+		document.getElementById("problems").value = "";
+	};
+	
+	count=0;
+	function insertTags(){
+		var value = document.getElementById("tags").value;
+		var valueSplit = value.split(',');
+		var data = $('#confirmTag').html();
+		for(var i in valueSplit){
+			valueSplit[i] = valueSplit[i].trim();
+			data += '<div id = "confirmTagValue'+count+'" onClick="deleteThis(\'confirmTagValue'+count+'\')"><input disabled name="'+valueSplit[i]+'" value="'+valueSplit[i]+'" id="last_tag disabled" type="text" class="tag validate"/></div>';
+			count++;
+		}
+		$('#confirmTag').html(data);
+		document.getElementById("tags").value = "";
+	};
 	$('#addComment').click(
 			function() {
 				if (confirm("댓글을 추가하시겠습니까?")) {
