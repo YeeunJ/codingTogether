@@ -32,7 +32,8 @@ function printAllContent(id){
 	$('#contents').html($(id+' .readContent').html());
 	$('#recommends').html($(id+' .readRecommend').html());
 	
-	rudModel("#readRecommendProblem", "#updateRecommendProblem", $(id+' .readTitle').html(), updateAjax, deleteAjax);
+	rudModel("#recomDetailModal", "#updateRecommendProblem", $(id+' .readTitle').html(), updateAjax, deleteAjax);
+//	rudModel("#readRecommendProblem", "#updateRecommendProblem", $(id+' .readTitle').html(), updateAjax, deleteAjax);
 	$('select').formSelect();
 }
 

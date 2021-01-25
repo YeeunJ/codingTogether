@@ -10,13 +10,6 @@
 	all:unset;
 }
 
-.addButton {
-	height: 31px;
-    border-radius: 20px;
-    border: 1px solid white;
-    float: right;
-}
-
 #solvedProblemH {
 	display: inline-block;
     line-height: 2;

@@ -36,7 +36,7 @@
 
 #confirmSite{
 	height: 300px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 /* 문제 추천 - 문제집 등록 모달 */
@@ -46,14 +46,14 @@
     margin-bottom: 5px;
     font-weight: 500;
 }
-#createProblems input {
-	width: 500px;
+.title-input {
+	width: 500px !important;
 }
-#createProblems textarea {
+.desc-textarea {
 	height: 70px;
 	width: 500px;
 	border: 1px solid #bdbdbd;
 }
-#createProblems #confirmSite {
-	height: 150px;
+.recom-confirmSite {
+	height: 150px !important;
 }
