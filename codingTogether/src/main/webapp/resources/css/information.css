@@ -3,18 +3,40 @@
 	margin-top: 10%;
 	margin-bottom: 10%;
 	max-width: 60%;
-	
 }
 
 #info{
 	margin-top: 10%;
 	margin-bottom: 10%;
+	color: white;
 }
-.center{
+#goal{
 	margin-top: 10%;
 	margin-bottom: 10%;
+	color: white;
 }
+
 .th3{
 	text-align: center;
+	border-right: solid 1px orange !important;
+ 	border-bottom: none !important;
+ 	font-weight: normal !important;
 }
+.th8{
+	font-weight: normal !important;
+}
+
+.tableCell {
+ 	border-bottom: none !important;
+} 
+
+
+.mybtn {
+  background-color: white;
+  color: black;
+  border: 2px solid #666666;
+  border-radius : 30px;
+  padding:2px 10px;
+}
+
 

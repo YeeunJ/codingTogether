@@ -7,7 +7,7 @@
   
     <div class="container">
     	<div class="register">
-	    	<h4 class="header center gray-text">초기 정보 등록</h4><br>
+	    	<h5 class="header center gray-text">초기 정보 등록</h5><br>
 	  		<form id = "registerInfo" method="post" action="./registerUserinfo">
 		     	<div id="table">
 				      <div class="row">
@@ -29,12 +29,12 @@
 				 </div>
 				 <br><br>
 				 <div class="center">			
-		          	<input type="submit" value="등록 " id="download-button" class="btn-large waves-effect waves-light orange" />
+		          	<input type="submit" value="등록 " id="download-button" class="btn-small waves-effect waves-light orange" />
 		         </div>         
 			</form>
 		</div>
 	    <div class="register">			
-	    	<h4 class="header center gray-text">초기 목표 등록</h4><br>
+	    	<h5 class="header center gray-text">초기 목표 등록</h5><br>
 			<form action="./registerUsergoal" method="post">
 		     	<div id="table">
 				      <div class="row">
@@ -56,7 +56,7 @@
 				 </div>
 				 <br><br>
 				 <div class="center">			
-		          	<input type="submit" value="등록 " id="download-button" class="btn-large waves-effect waves-light orange" />
+		          	<input type="submit" value="등록 " id="download-button" class="btn-small waves-effect waves-light orange" />
 		         </div>
 			</form>			
 		</div>   
