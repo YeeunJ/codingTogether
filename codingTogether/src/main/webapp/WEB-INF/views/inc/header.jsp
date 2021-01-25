@@ -9,6 +9,7 @@
 <title>codingTogether</title>
 
 <!-- CSS  -->
+<link href="./resources/css/header.css" type="text/css" rel="stylesheet" media="screen,projection" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="./resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 <link rel="stylesheet" href="./resources/css/jquery.sweet-modal.min.css" />
