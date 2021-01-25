@@ -240,11 +240,11 @@ fieldset {
 
 
 <!-- 문제집 등록 모달 -->
-<div id="createProblems" class="container">
+<div id="createProblems" class="container" style="display:none;">
 	<form class="col s12">
 		<p class="title">추천 문제집 제목</p>
-		<input placeholder="제목을 입력해주세요."></input>
-
+		<input class="title-input" placeholder="제목을 입력해주세요."></input>
+		
 		<p class="title">추천 문제 등록</p>
 		<div class="row">
 			<div class="input-field col s4">
@@ -270,14 +270,71 @@ fieldset {
 		</div>
 		<div class="input-field col s10">
 			<label for="last_name">입력한 Problems</label> <br> <br>
-			<div id="confirmSite"></div>
+			<div class="recom-confirmSite" id="confirmSite"></div>
 		</div>
 
 		<p class="title">추천 문제집 설명</p>
-		<textarea></textarea>
+		<textarea class="desc-textarea"></textarea>
 	</form>
 </div>
 
+
+<!-- 세부 정보 모달 -->
+<div id="recomDetailModal" style="display:none">
+	
+	<div id="detailRecom">
+		<div>
+			<div>
+				<p class="title">추천 문제 설명</p>
+				<p>배열에 대해 익히고, 재귀 함수를 익힐 수 있는 문제집입니다. 한번씩 풀어보세요~~</p>
+			</div>
+			
+			<div>
+				<p class="title desc">추천 문제</p>
+				<div id="readProblems">
+					<div class="sitetitle">백준</div>
+					<div>
+						<p>122번</p>
+						<p>1256번</p>
+						<p>129번</p>
+						<p>3번</p>
+						<p>2980번</p>
+					</div>
+					<div class="sitetitle">leetcode</div>
+					<div>
+						<p>별짓기</p>
+						<p>하노이탑</p>
+						<p>9002번</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="details">
+				<span class="like-icon icon"></span><span class="bold">34</span><span></span>
+				<span class="comment-icon icon"></span><span class="bold">18</span><span></span>
+				<span class="diff-icon icon">3</span>
+			</div>
+			<div id="commentDetail">
+				<div class="comment-add">
+					<textarea placeholder="댓글을 달아주세요."></textarea>
+					<button class="modal_button add-btn">등록</button>
+				</div>
+				<div class="wrapper">
+					<div class="comment-wrapper">
+						<span class="username">수루수</span><span class="commentdate">2020-01-17 09:03:17</span>
+						<p class="comment">문제 풀면서 다양한 해결법을 배웠습니다!</p>
+					</div>
+				</div>
+				
+				
+			</div>
+			
+		</div>
+	</div>
+	
+</div>	
+		
 <%@ include file="./inc/footer.jsp"%>
 
 <script>

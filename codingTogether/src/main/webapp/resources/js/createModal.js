@@ -38,14 +38,14 @@ function rudModel(readContent, updateContent, titleValue, updateFunction, delete
 					buttons: [
 						{
 							label: '수정',
-							classes: 'green',
+							classes: 'modal_button',
 							action: function() {
 								return $.sweetModal({
 									content: $(updateContent).html(),
 									buttons: [
 										{
 											label: '등록',
-											classes: 'green',
+											classes: 'modal_button',
 											action: function() {
 												updateFunction();
 												return $.sweetModal({
@@ -60,7 +60,7 @@ function rudModel(readContent, updateContent, titleValue, updateFunction, delete
 						},
 						{
 							label: '삭제',
-							classes: 'green',
+							classes: 'modal_button',
 							action: function() {
 								deleteFunction();
 								return $.sweetModal({
