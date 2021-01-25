@@ -1,44 +1,4 @@
-.order {
-	width: 13%;
-	float: right;
-}
 
-#register-button {
-	float: left;
-}
-
-fieldset {
-  position: relative;
-  padding: 0 0 0 40px;
-  background: #fff;
-  border: none;
-}
-.searchText {
-	position: relative;
-	width: 65% !important;
-  	height: 50px;
-  	padding: 0;
-  	float: left;
-  	margin-right: 5% !important;
-}
-
-.searchBtn {
-	position: relative;
-	width: 20% !important;
-  	height: 50px;
-  	padding: 0;
-  	float: left;
-  	color:white;
-  	border-radius: 10px;
-}
-
-.title {
-	border: 0;
-	background-color: Transparent;
-}
-.comment {
-	border-bottom: 1px solid #bdbdbd;
-}
 
 /* 문제 추천 - 문제집 등록 모달 */
 .title {
