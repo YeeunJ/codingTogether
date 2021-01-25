@@ -169,8 +169,8 @@ $(document).ready(function() {
 				<div class="tableRow content">
 			 		<span class="tableCell td3 sub ">${u.getSiteName()}</span> 
 					<span class="tableCell td5 sub "><a href="${u.getSiteUrl()}">${u.getSiteUrl()}</a></span> 
-					<span class="tableCell td1 sub "><button type="button" id="change" style="display:none;" class="editSite edit waves-effect waves-light btn-small green">수정</button></span> 
-					<span class="tableCell td1 sub "><button style="display:none;" value="${u.getId()}" class="deleteBtn edit waves-effect waves-light btn-small green" type="button">삭제</button></span>
+					<span class="tableCell td1 sub "><button type="button" id="change" style="display:none;" class="editSite edit whitebtn">수정</button></span> 
+					<span class="tableCell td1 sub "><button style="display:none;" value="${u.getId()}" class="deleteBtn edit whitebtn" type="button">삭제</button></span>
 				</div>
 			</c:forEach>
 			
@@ -178,12 +178,12 @@ $(document).ready(function() {
 				<input id="editonly" type="hidden" name="id" />
 				<span class="tableCell td3 sub"><input  id="siteName" type='text'name='siteName'></span>
 				<span class="tableCell td5 sub"><input  id="siteUrl" type='text' name='siteUrl'></span> 
-				<span class="tableCell td1 sub"><button id="cancelAdd"class=" waves-effect waves-light btn-small green" type="button">취소</button></span>
-				<span class="tableCell td1 sub"><button id="submitbtn"class=" waves-effect waves-light btn-small green" type="submit">추가</button></span>
+				<span class="tableCell td1 sub"><button id="cancelAdd"class=" whitebtn" type="button">취소</button></span>
+				<span class="tableCell td1 sub"><button id="submitbtn"class=" whitebtn" type="submit">추가</button></span>
 			</div>
 		</div>
 		</form>
-	</div>
+	</div><br><br><br>
 
 
 
