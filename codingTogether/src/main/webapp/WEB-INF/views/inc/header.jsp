@@ -26,8 +26,8 @@
 
 </head>
 <body>
-  <nav class="green lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="../home" class="brand-logo"></a><img src="https://i.ibb.co/pXsymdb/2021-01-24-10-09-26.png" alt="2021-01-24-10-09-26" border="0" style="width: 80px; padding: 5px;">
       <ul class="right hide-on-med-and-down">
         <li><a href="./recommendProblem">문제 추천</a></li>
         <li><a href="./manageCodingsite">코딩 사이트 관리</a></li>
