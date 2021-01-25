@@ -139,13 +139,13 @@ $(document).ready(function() {
 <div id="codingSiteContainer" class="container">
 	<div style="position: relative;">
 		
-		<img style="max-width:100%"src="./resources/img/codingSiteimg.jpg">
-		<div style="left: 50px; width: 450px; bottom: 140px;  font-weight: 800; position: absolute;">
+		<img id="codingsiteimg" style="max-width:100%"src="./resources/img/codingSiteimg.jpg">
+		<div style="left: 50px; width: 450px; bottom: 100px;  color:#666666;font-weight: 800; position: absolute;">
 			<h4>코딩 사이트 관리</h4>
 			<h6>코딩 사이트를 관리할 수 있습니다.</h6>
 			
 		</div>
-	</div>
+	</div><br><br>
 	<div class="table">
 		<div style="margin-bottom:10px;"class="right">
 			<button id="addbtn"
