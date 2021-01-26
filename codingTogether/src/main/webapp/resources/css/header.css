@@ -1,8 +1,37 @@
-
+ul.mymenu > li { 
+	display:inline-block;
+	/* width:80px; */ 
+	/* padding:5px 10px;  */
+	/* background:#eee;  */
+	text-align:center; 
+}
+li ul.submenu{
+	display:none;
+    position: absolute;
+	left:360px;
+	
+}
+li:hover ul.submenu{
+	display:block;
+	color:#666666;
+	transition-duration: 10s;
+}
+ul.myMenu > li ul.submenu > li { 
+	display:inline-block; 
+	background:#eee; 
+	text-align:center; 
+	}
+li ul.submenu>li{
+	
+	display:inline-block;
+	width:65%;
+	border:1px solid #eee;
+}
 ul { 
 	list-style:none; 
 	cursor:pointer;
 }
+ul.myMenu > li ul.submenu > li:hover { background:#fff; }
 #list { 
   float:left; 
   transition:all .3s ease;
