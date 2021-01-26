@@ -269,7 +269,6 @@ fieldset {
 
 
 <!-- 문제집 등록 모달 -->
-<%-- <div id="createProblems" class="container">
 <div id="createProblems" class="container" style="display:none;">
 	<form class="col s12">
 		<p class="title">추천 문제집 제목</p>
@@ -306,7 +305,7 @@ fieldset {
 		<p class="title">추천 문제집 설명</p>
 		<textarea class="desc-textarea"></textarea>
 	</form>
-</div> --%>
+</div>
 
 
 <!-- 세부 정보 모달 -->
@@ -470,6 +469,7 @@ $('#createRecomProblem').click(function() {
 		$('#confirmTag').html(data);
 		document.getElementById("tags").value = "";
 	};
+	
 	$('#addComment').click(
 			function() {
 				if (confirm("댓글을 추가하시겠습니까?")) {
