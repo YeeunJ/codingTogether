@@ -53,4 +53,8 @@ nav ul a {
   border-radius : 30px;
   padding:7px 20px;
 }
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-size: none !important;
+}
 

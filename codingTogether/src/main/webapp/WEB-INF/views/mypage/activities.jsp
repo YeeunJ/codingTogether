@@ -6,6 +6,7 @@
 <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="nowDate" />
 
 <%@ include file="../inc/header2.jsp"%>
+<script src="../resources/js/activities.js"></script>
 
 <style>
 #myActivities {
@@ -47,18 +48,22 @@
 
 	<div class="table center mt-5">
 		<div class="tableRow">
-			<span class="tableCell th1">No.</span> <span class="tableCell th3">기간</span>
-			<span class="tableCell th3">달성률</span> <span class="tableCell th2">상태</span>
+			<span class="tableCell th1">No.</span>
+			<span class="tableCell th3">기간</span>
+			<span class="tableCell th3">달성률</span> 
+			<span class="tableCell th2">상태</span>
 		</div>
 		
 		<c:forEach items="${goalList}" var="goals" varStatus="status">
 			<div class="tableRow" id="goals${goals.id}" onclick="printAllContent('#goals${goals.id}')">
-				<span class="tableCell td1">${status.count}</span> 
+				<div class="readGoal" hidden>${goals.goal}</div>
+				<div class="readGoalNum" hidden>${goals.goalNum} </div>
+				<span class="tableCell td1">${status.count}</span>
 				<span class="tableCell td3 readTitle"> <fmt:formatDate
 						pattern="yyyy-MM-dd" value="${goals.startDate}" /> ~ <fmt:formatDate
 						pattern="yyyy-MM-dd" value="${goals.endDate}" />
 				</span>
-				<span class="tableCell td3">
+				<span class="tableCell td3 readRate">
 					<div class="progress">
 						<div class="progress-bar" role="progressbar" aria-valuenow="70"
 							aria-valuemin="0" aria-valuemax="100" style="width: 70%">
@@ -70,34 +75,17 @@
 					var="endDate" />
 				<c:choose>
 					<c:when test="${endDate > nowDate}">
-						<span class="tableCell td2" style="color: blue;">진행중</span>
+						<span class="tableCell td2 readStatus" style="color: blue;">진행중</span>
 					</c:when>
 					<c:otherwise>
-						<span class="tableCell td2">종료</span>
+						<span class="tableCell td2 readStatus">종료</span>
 					</c:otherwise>
 				</c:choose>
 			</div>
 		</c:forEach>
-		
-		<!-- read modal -->
-		<div class="table">
-				<!-- <div class="tableRow" >
-					<span class="tableCell th2">목표</span><span class="tableCell td5" id="goal"></span>
-				</div> -->
-				<div class="tableRow">
-					<span class="tableCell th2">기간</span><span class="tableCell td5" id="term"></span>
-				</div>
-				<!-- <div class="tableRow">
-					<span class="tableCell th2">총 문제수</span><span class="tableCell td5" id="pNum"></span>
-				</div> -->
-			<!-- 	<div class="tableRow">
-					<span class="tableCell th2">달성률</span> <span class="tableCell td5"
-						id="rate"></span>
-				</div> -->
-		</div>
 	</div>
 
-	<div id="readGoalList">
+	<div id="readGoalList" hidden>
 		<%@ include file="../ajaxContent/activitiesContent.jsp"%>
 	</div>
 </div>
