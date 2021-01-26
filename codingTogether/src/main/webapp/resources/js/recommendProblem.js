@@ -26,7 +26,9 @@ function createProblems() {
 	createModel("#createProblems", "문제집 등록", addAjax);
 }
 
-function printAllContent(id){
+function printAllContent(id, recomId, userId){
+	//alert(recomId);
+	readComment(recomId);
 	$('#problems').html($(id+' .readProblem').html());
 	$('#tags').html($(id+' .readTag').html());
 	$('#contents').html($(id+' .readContent').html());
@@ -36,6 +38,27 @@ function printAllContent(id){
 //	rudModel("#readRecommendProblem", "#updateRecommendProblem", $(id+' .readTitle').html(), updateAjax, deleteAjax);
 	$('select').formSelect();
 }
+
+function readComment(recomID) {
+		$.ajax({
+			url : "recommendProblem/readComment",
+			type : "POST",
+			async : false,
+			data : {
+				recomID : recomID,
+			},
+			success : function(data) {
+				console.log(data);
+				$("#modal-comment").html(data);
+			},
+			error : function(request, status, error) {
+				console.log("code:" + request.status + "\n"
+						+ "message:" + request.responseText + "\n"
+						+ "error:" + error);
+			}
+		});
+}
+
 
 function addAjax (){
 	console.log("success");

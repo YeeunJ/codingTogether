@@ -7,7 +7,7 @@ import com.walab.coding.Model.RecomCommentDTO;
 
 public interface RecomCommentDAO {
 	
-	public List<RecomCommentDTO> readAll();
+	public List<Map<String, String>> readAll(Map<String, Object> param);
 	public List<Map<Integer, Integer>> readCommentCount();
 	public void createComment(RecomCommentDTO r);
 	
