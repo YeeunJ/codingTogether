@@ -8,9 +8,9 @@
 });*/
 
 function printAllContent(id){
-	//$('#goal').html($(id+' .readProblem').html());
-	$('#term').html($(id+' .readTitle').html());
-	//$('#pNum').html($(id+' .readContent').html());
+	$('#readGoalList #goal').html($(id+' .readGoal').html());
+	$('#readGoalList #term').html($(id+' .readTitle').html());
+	$('#readGoalList #goalNum').html($(id+' .readGoalNum').html()+'개');
 	
 	/*$('#UuserProblemID').html(id.substring(8, id.length));
 	$('#Usite').html($(id+' .pSite').html());
