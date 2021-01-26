@@ -8,9 +8,9 @@
 });*/
 
 function printAllContent(id){
-	$('#goal').html($(id+' .readProblem').html());
+	//$('#goal').html($(id+' .readProblem').html());
 	$('#term').html($(id+' .readTitle').html());
-	$('#pNum').html($(id+' .readContent').html());
+	//$('#pNum').html($(id+' .readContent').html());
 	
 	/*$('#UuserProblemID').html(id.substring(8, id.length));
 	$('#Usite').html($(id+' .pSite').html());
@@ -21,5 +21,5 @@ function printAllContent(id){
 	console.log($(id+' .pDifficulty').attr('alt'));*/
 	
 	readModel("#readGoalList", $(id+' .readTitle').html());
-	//$('select').formSelect();
+	$('select').formSelect();
 }
