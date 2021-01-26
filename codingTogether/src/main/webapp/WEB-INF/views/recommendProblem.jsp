@@ -257,7 +257,6 @@ fieldset {
 
 
 <!-- 문제집 등록 모달 -->
-<%-- <div id="createProblems" class="container">
 <div id="createProblems" class="container" style="display:none;">
 	<form class="col s12">
 		<p class="title">추천 문제집 제목</p>
@@ -294,7 +293,7 @@ fieldset {
 		<p class="title">추천 문제집 설명</p>
 		<textarea class="desc-textarea"></textarea>
 	</form>
-</div> --%>
+</div>
 
 
 <!-- 세부 정보 모달 -->
@@ -454,6 +453,7 @@ $('#createRecomProblem').click(function() {
 		$('#confirmTag').html(data);
 		document.getElementById("tags").value = "";
 	};
+<<<<<<< HEAD
 	$("#addComment").click(function() {
 		var userID = $("input[name='writer']").val();
 		var recomID = $("input[name='recomID']").val();
@@ -476,6 +476,29 @@ $('#createRecomProblem').click(function() {
 					console.log("code:" + request.status + "\n"
 							+ "message:" + request.responseText + "\n"
 							+ "error:" + error);
+=======
+	
+	$('#addComment').click(
+			function() {
+				if (confirm("댓글을 추가하시겠습니까?")) {
+					$.ajax({
+						url : "recommendProblem/addComment",
+						type : "POST",
+						async : false,
+						data : {
+							recomID : 2,
+							content : $('#content').val()
+						},
+						success : function(data) {
+							$('#comment').append(data);
+						},
+						error : function(request, status, error) {
+							console.log("code:" + request.status + "\n"
+									+ "message:" + request.responseText + "\n"
+									+ "error:" + error);
+						}
+					});
+>>>>>>> branch 'master' of https://github.com/YeeunJ/codingTogether.git
 				}
 			});
 		}

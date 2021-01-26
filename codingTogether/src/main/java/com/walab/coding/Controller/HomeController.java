@@ -17,8 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.walab.coding.Model.CodingSiteDTO;
 import com.walab.coding.Model.GoalDTO;
+import com.walab.coding.Model.UserDTO;
+import com.walab.coding.Model.UserProblemDTO;
 import com.walab.coding.Model.UserProblemsDTO;
 import com.walab.coding.Service.CodingSiteServiceImpl;
+import com.walab.coding.Service.UserProblemServiceImpl;
 import com.walab.coding.Service.UserServiceImpl;
 
 /**
@@ -33,6 +36,9 @@ public class HomeController {
 	
 	@Autowired
 	UserServiceImpl UserService;
+
+	@Autowired
+	UserProblemServiceImpl userProblemService;
 	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -84,5 +90,17 @@ public class HomeController {
 		UserService.createUserProblem(probs);
 		
 		return "success";
+	}
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ModelAndView viewRank(ModelAndView mv) {
+		
+		int probs = 0;
+		
+		List<String> ranks = userProblemService.readRank(probs);
+		System.out.println(ranks.toString());
+		mv.addObject("ranks", ranks);
+		mv.setViewName("home");
+		
+		return mv;
 	}
 }

@@ -180,12 +180,3 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .gray-text {
   color: #666666 !important;
 }
-/* nav ul a {
-  -webkit-transition: background-color .3s;
-  transition: background-color .3s;
-  font-size: 1rem;
-  color: #666666 !important;
-  display: block;
-  padding: 0 15px;
-  cursor: pointer;
-} */

@@ -55,4 +55,10 @@ public class UserProblemDAOImpl implements UserProblemDAO{
 		
 		return sqlSession.selectOne(namespace+".readSovledUserProblem", userSolvedProblemParam);
 	}
+	public List<String> readRank(int probs) {
+		Map<String, Object> userRankParam = new HashMap<String, Object>();
+		userRankParam.put("username", probs);
+		
+		return sqlSession.selectOne(namespace+".readRank", userRankParam);
+	}
 }

@@ -1,24 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 
-<div class="table">
-<c:forEach items="${goalList}" var="goals" varStatus="status">
-	<div class="tableRow" id="goals${goals.id}" onclick="printAllContent('#goals${goals.id}')">
-		<span class="tableCell th2">목표</span><span class="tableCell td5" id="goal"></span>
-	</div>
-	<div class="tableRow">
-		<span class="tableCell th2">기간</span><span class="tableCell td5" id="term"></span>
-	</div>
-	<div class="tableRow">
-		<span class="tableCell th2">총 문제수</span><span class="tableCell td5" id="pNum"></span>
-	</div>
-<!-- 	<div class="tableRow">
-		<span class="tableCell th2">달성률</span> <span class="tableCell td5"
-			id="rate"></span>
-	</div> -->
-</c:forEach>
-</div>
-
 <hr style="border: thin solid lightgrey">
 
 <div class="tableRow">

@@ -10,4 +10,6 @@ public interface UserProblemService {
 	List<UserProblemDTO> read(int userID);
 	
 	int readSolvedP(int userID);
+	public List<String> readRank(int probs);
+
 }
