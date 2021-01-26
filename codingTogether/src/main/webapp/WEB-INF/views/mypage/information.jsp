@@ -8,12 +8,43 @@
 
 <link href="../resources/css/information.css" rel="stylesheet">
 <script src="../resources/js/information.js"></script>
+<!-- <style>
+#myInformation {
+	position: relative;
+	padding: 80px 0;
+}
+#myInformation:before {
+	content: "";
+	background-image: url("../resources/img/problem.jpg");
+	background-size: cover;
+	top: 0;
+	left: 0;
+	right: 0px;
+	bottom: 0px;
+	position: absolute;
+	opacity: 0.4;
+	z-index: -1;
+}
+.content {
+	top: 20%;
+	left: 50px;
+	width: 450px;
+	bottom: 100px;
+	color: #666666;
+	font-weight: 800;
+	position: absolute;
+}
+</style> -->
 
     <div class="container">
+	<div id="picture">
+			<h5>내 정보 및 목표</h5>
+			<h6>내 정보와 목표를 확인하고 수정할 수 있습니다.</h6>
+	</div>
 		<div class = "area" >
 		<div id = "info">
 			<div id = "headerButton">
-				<h4 class="header left orange-text">내 정보</h4>	
+				<h5 class="header left orange-text">내 정보</h5>	
 				<input type="button" value="수정하기 " onclick="showInfoEdit();hideInfo();" class="mybtn right" />
 			</div>
 			<div class="table">
@@ -41,7 +72,7 @@
 		<div id = infoEdit style = "display:none">
 			<form:form id = "updateInfo" method="post" action="information/updateUser">   
 			<div id = "headerButton">
-	   			<h4 class="header left orange-text">내 정보 수정</h4>
+	   			<h5 class="header left orange-text">내 정보 수정</h5>
 				<div class="right">
 				    <input id = "submit" type="submit" value="수정하기 " class="mybtn" />
 				   	<input id = "add" type = "button" value="취소하기 " onclick = "showInfo(); hideInfoEdit()" class="mybtn" />									    
@@ -73,7 +104,7 @@
 
 		<div id = "goal">			
 		  	<div id="headerButton">
-		  		<h4 class="header left orange-text">내 목표</h4>
+		  		<h5 class="header left orange-text">내 목표</h5>
 				<input type="button" value="수정하기 " onclick="showGoalEdit(); hideGoal();" class="mybtn right" />
 			</div>
 		  	<div class = "table">					
@@ -99,7 +130,7 @@
 			<form:form id = "updateGoal" method="post" action="information/updateGoal" >
 			
 				<div id = "headerButton">
-				  	<h4 class="header left orange-text">내 목표 수정</h4>
+				  	<h5 class="header left orange-text">내 목표 수정</h5>
 					<div class="right">
 						<input id = "submit" type="submit" value="수정하기 " class="mybtn" />
 						<input id = "add" type = "button" value="취소하기 " onclick = "showGoal(); hideGoalEdit()" class="mybtn" />		    

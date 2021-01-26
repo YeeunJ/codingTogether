@@ -180,3 +180,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .gray-text {
   color: #666666 !important;
 }
+.picture{
+	text-align: left;
+	background-image: url("../resources/img/problem.jpg");
+	background-size: cover;
+	position: absolute;
+	opacity: 0.4;
+	z-index: -1;
+	margin-top: 100px !important;
+	
+}
