@@ -5,6 +5,7 @@ import java.util.Date;
 public class RecomCommentDTO {
 	int id;
 	int recomID;
+	int userId;
 	String content;
 	Date regDate;
 	
@@ -37,5 +38,11 @@ public class RecomCommentDTO {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 }
