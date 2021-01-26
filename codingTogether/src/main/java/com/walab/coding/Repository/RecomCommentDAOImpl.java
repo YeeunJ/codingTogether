@@ -18,9 +18,9 @@ public class RecomCommentDAOImpl implements RecomCommentDAO{
 	
 	
 	@Override
-	public List<RecomCommentDTO> readAll() {
-		List<RecomCommentDTO> commentList = new ArrayList<RecomCommentDTO>();
-		commentList = sqlSession.selectList("recomComment.readRecomComment");
+	public List<Map<String, String>> readAll(Map<String, Object> param) {
+		List<Map<String, String>> commentList;
+		commentList = sqlSession.selectList("recomComment.readRecomComment", param);
 
 		return commentList;
 	}

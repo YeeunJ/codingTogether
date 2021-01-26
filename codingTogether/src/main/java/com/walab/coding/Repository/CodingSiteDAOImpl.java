@@ -11,16 +11,10 @@ import com.walab.coding.Model.CodingSiteDTO;
 
 @Repository("CodingSiteDAO")
 public class CodingSiteDAOImpl implements CodingSiteDAO {
+	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public SqlSessionTemplate getSqlSession() {
-		return sqlSession;
-	}
-
-	public void setSqlSession(SqlSessionTemplate sqlSession) {
-		this.sqlSession = sqlSession;
-	}
 
 	public int insertCodingSite(CodingSiteDTO dto) {
 		int result = sqlSession.insert("CodingSite.insertCodingSite", dto);
@@ -36,7 +30,6 @@ public class CodingSiteDAOImpl implements CodingSiteDAO {
 		int result = sqlSession.delete("CodingSite.deleteCodingSite", seq);
 		return result;
 	}
-
 	@Override
 	public List<CodingSiteDTO> readCodingSite() {
 		List<CodingSiteDTO> codingSitelist = new ArrayList<CodingSiteDTO>();

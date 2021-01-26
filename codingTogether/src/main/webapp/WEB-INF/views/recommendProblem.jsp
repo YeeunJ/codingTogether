@@ -138,31 +138,19 @@ fieldset {
 				</c:if>
 			</c:forEach>
 			<div class="tableRow" id="recoms${recoms.id}"
-				onclick="printAllContent('#recoms${recoms.id}')">
+				onclick="printAllContent('#recoms${recoms.id}', ${recoms.id})">
 				<span class="tableCell td1">${status.count}</span>
-				<%-- <button class="title">${recoms.title}</button> --%>
 				<span class="tableCell td4 readTitle">${recoms.title}</span> <span
 					class="tableCell td2">${recoms.nickname}</span>
-				<!-- <<<<<<< HEAD -->
 				<span class="tableCell td1"></span> <span class="tableCell td1"></span>
 				<span class="tableCell td1">${ count }</span>
-				<!-- ======= -->
 				<span class="tableCell td15"></span> <span
 					class="tableCell td15 readRecommend">${recoms.recomCount}</span>
-				<!-- >>>>>>> branch 'master' of https://github.com/YeeunJ/codingTogether.git
- -->
 				<span class="readProblem" style="display: none;">10문제</span> <span
 					class="readTag" style="display: none;">정렬</span> <span
 					class="readContent" style="display: none;">${recoms.content}</span>
 			</div>
 		</c:forEach>
-
-		<div id="comment" style="background: pink; width: 200px;"">
-			<div>
-				<input id="content" value="" />
-				<button id="addComment">댓글 추가</button>
-			</div>
-		</div>
 
 	</div>
 	<br> <br>
@@ -309,7 +297,7 @@ fieldset {
 
 
 <!-- 세부 정보 모달 -->
-<div id="recomDetailModal" style="display:none">
+<div id="recomDetailModal" style="display: none;">
 	
 	<div id="detailRecom">
 		<div>
@@ -346,16 +334,12 @@ fieldset {
 			</div>
 			<div id="commentDetail">
 				<div class="comment-add">
-					<textarea placeholder="댓글을 달아주세요."></textarea>
-					<button class="modal_button add-btn">등록</button>
+					<textarea id="comment-textarea"placeholder="댓글을 달아주세요."></textarea>
+					<button id="addComment" class="modal_button add-btn">등록</button>
 				</div>
-				<div class="wrapper">
-					<div class="comment-wrapper">
-						<span class="username">수루수</span><span class="commentdate">2020-01-17 09:03:17</span>
-						<p class="comment">문제 풀면서 다양한 해결법을 배웠습니다!</p>
-					</div>
-				</div>
-				
+				<div id="modal-comment" class="wrapper">
+<%-- 					<%@ include file="./ajaxContent/recomCommentContent.jsp"%>
+ --%>				</div>
 				
 			</div>
 			
@@ -469,6 +453,30 @@ $('#createRecomProblem').click(function() {
 		$('#confirmTag').html(data);
 		document.getElementById("tags").value = "";
 	};
+<<<<<<< HEAD
+	$("#addComment").click(function() {
+		var userID = $("input[name='writer']").val();
+		var recomID = $("input[name='recomID']").val();
+		alert(userID + "/" + recomID);
+		
+		if (confirm("댓글을 추가하시겠습니까?")) {
+			$.ajax({
+				url : "recommendProblem/addComment",
+				type : "POST",
+				async : false,
+				data : {
+					userID : userID,
+					recomID : recomID,
+					content : $('#comment-textarea').val()
+				},
+				success : function(data) {
+					$('#modal-comment').append(data);
+				},
+				error : function(request, status, error) {
+					console.log("code:" + request.status + "\n"
+							+ "message:" + request.responseText + "\n"
+							+ "error:" + error);
+=======
 	
 	$('#addComment').click(
 			function() {
@@ -490,6 +498,10 @@ $('#createRecomProblem').click(function() {
 									+ "error:" + error);
 						}
 					});
+>>>>>>> branch 'master' of https://github.com/YeeunJ/codingTogether.git
 				}
 			});
+		}
+	});
+	
 </script>

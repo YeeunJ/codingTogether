@@ -96,6 +96,7 @@ fieldset {
     grid-template-columns: 4fr 1fr;
     padding: 10px 15px;
     border-bottom: 1px solid #bdbdbd;
+    margin-bottom: 15px;
 }
 .add-btn {
 	height: 35px;
@@ -129,7 +130,8 @@ fieldset {
 	cursor: pointer;
 }
 .wrapper {
-	overflow-y: auto;
+	height: 305px;
+    overflow-y: scroll;
 }
 .comment-icon {
 	background: url("../img/comment.png");

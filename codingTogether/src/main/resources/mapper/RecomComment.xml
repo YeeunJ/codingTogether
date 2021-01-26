@@ -11,13 +11,26 @@
 		<id column="recomID" property="recomID"/>
 		<id column="count" property="count"/>
 	</resultMap>
-	<select id="readRecomComment" resultType="com.walab.coding.Model.RecomCommentDTO">
-		SELECT * FROM recomComment
+	
+	<resultMap type="HashMap" id="Comment">
+		<id column="commentID" property="commentID"/>
+		<id column="userID" property="userID"/>
+		<id column="userName" property="userName"/>
+		<id column="regDate" property="regDate"/>
+		<id column="content" property="content"/>
+	</resultMap>
+	
+	<select id="readRecomComment" resultMap="Comment" parameterType="hashmap">
+		SELECT R.id, U.id, U.name, R.regDate, R.content 
+		FROM recomComment AS R, user AS U 
+		WHERE R.userId = U.id AND R.recomID=#{recomID}
 	</select>
+	
 	<select id="readCommentCount" resultMap="CommentCount">
 		SELECT recomID, COUNT(recomID) AS count FROM recomComment GROUP BY recomID
 	</select>
+	
 	<insert id="createComment" parameterType="com.walab.coding.Model.RecomCommentDTO">
-		INSERT INTO recomComment (recomID, content) VALUES (#{recomID}, #{content})
+		INSERT INTO recomComment (recomID, content, userId) VALUES (#{recomID}, #{content}, #{userId})
 	</insert>
 </mapper>

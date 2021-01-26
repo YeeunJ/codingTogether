@@ -1,5 +1,6 @@
 package com.walab.coding.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,9 +17,12 @@ public class RecomCommentServiceImpl implements RecomCommentService {
 	RecomCommentDAO recomCommentDAO;
 	
 	@Override
-	public List<RecomCommentDTO> read() {
+	public List<Map<String, String>> read(int recomID) {
 		
-		List<RecomCommentDTO> list = recomCommentDAO.readAll();
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("recomID", recomID);
+		
+		List<Map<String, String>> list = recomCommentDAO.readAll(param);
 		
 		return list;
 	}
