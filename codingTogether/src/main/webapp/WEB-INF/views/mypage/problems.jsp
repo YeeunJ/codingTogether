@@ -103,16 +103,29 @@ var myDoughnutChart = new Chart(ctx1, {
 	opacity: 0.4;
 	z-index: -1;
 }
-.content{
-	top: 20%; left: 50px; width: 450px; bottom: 100px;  color:#666666;font-weight: 800; position: absolute;
+
+.content {
+	top: 20%;
+	left: 50px;
+	width: 450px;
+	bottom: 100px;
+	color: #666666;
+	font-weight: 800;
+	position: absolute;
 }
 
 .card {
-	border-radius: 10%;!improtant;
+	border-radius: 10%;
+	!
+	improtant;
 }
 
 .font-color {
 	color: #e69138ff;
+}
+
+.search {
+	border: none;
 }
 
 .custom-button {
@@ -120,14 +133,33 @@ var myDoughnutChart = new Chart(ctx1, {
 	margin-top: 12px;
 	border: 1px solid #666666;
 	height: 31px;
-    border-radius: 20px;
-    float: right;
+	border-radius: 20px;
+	float: right;
 }
 
 .custom-button:hover {
 	background-color: #e69138ff;
 	color: white;
 	border: 1px solid #e69138ff;
+}
+
+.card-wrap {
+	display: flex;
+}
+
+.card-content {
+	flex: 1;
+}
+
+.card-body {
+	height: 250px;
+	padding: 10px;
+	margin: 10px 5px;
+}
+
+.card-title {
+	font-size: 10px; !important;
+	margin-bottom: 10px;
 }
 </style>
 
@@ -140,80 +172,51 @@ var myDoughnutChart = new Chart(ctx1, {
 	</div>
 
 	<!-- Content Row -->
-	<div class="row mt-5">
-		<div class="col-xl-4 col-md-6 mb-3">
-			<div class="card shadow h-100 py-3">
-				<div class="card-body">
-					<div class="row no-gutters align-items-center">
-						<div class="col mr-2">
-							<div class="h5 font-weight-bold font-color text-uppercase mb-1">
-								나의 목표</div>
-						</div>
-						<div class="col-auto">
-							<i class="fas fa-calendar fa-2x text-gray-300"></i>
-						</div>
-					</div>
-					<div>
-						<table>
-							<c:forEach items="${goal}" var="goal" varStatus="status">
-								<tr class="box">
-									<td>목표</td>
-									<td>${goal.goal}</td>
-								</tr>
-								<tr class="box">
-									<td>기간</td>
-									<td><fmt:formatDate pattern="yyyy-MM-dd"
-											value="${goal.startDate}" /> ~ <fmt:formatDate
-											pattern="yyyy-MM-dd" value="${goal.endDate}" /></td>
-								</tr>
-								<tr class="box">
-									<td>총 문제수</td>
-									<td>${goal.goalNum}개</td>
-								</tr>
-							</c:forEach>
-						</table>
-					</div>
+	<div class="card-wrap">
+		<div class="card-content">
+			<div class="card shadow card-body">
+				<div class="font-color card-title">나의 목표</div>
+				<div>
+					<table>
+						<c:forEach items="${goal}" var="goal" varStatus="status">
+							<tr class="box">
+								<td>목표</td>
+								<td>${goal.goal}</td>
+							</tr>
+							<tr class="box">
+								<td>기간</td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd"
+										value="${goal.startDate}" /> ~ <fmt:formatDate
+										pattern="yyyy-MM-dd" value="${goal.endDate}" /></td>
+							</tr>
+							<tr class="box">
+								<td>총 문제수</td>
+								<td>${goal.goalNum}개</td>
+							</tr>
+						</c:forEach>
+					</table>
 				</div>
 			</div>
 		</div>
 
-		<div class="col-xl-4 col-md-6 mb-3">
-			<div class="card shadow h-100 py-3">
-				<div class="card-body">
-					<div class="row no-gutters align-items-center">
-						<div class="col mr-2">
-							<div class="h5 font-weight-bold font-color text-uppercase mb-1">
-								오늘 해야 할 양</div>
-						</div>
-						<div class="col-auto">
-							<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-						</div>
-					</div>
-					<canvas id="myBarChart" width="200" height="90"></canvas>
-				</div>
+		<div class="card-content">
+			<div class="card shadow card-body">
+				<div class="font-color card-title">오늘 해야 할 양</div>
+				<canvas id="myBarChart" width="200" height="90"></canvas>
 			</div>
 		</div>
 
-		<div class="col-xl-4 col-md-6 mb-3">
-			<div class="card shadow h-100 py-3">
-				<div class="card-body">
-					<div class="row no-gutters align-items-center">
-						<div class="col mr-2">
-							<div class="h5 font-weight-bold font-color text-uppercase mb-1">
-								현재 상황</div>
-						</div>
-						<div class="col-auto">
-							<i class="fas fa-comments fa-2x text-gray-300"></i>
-						</div>
-					</div>
-					<canvas id="myDoughnutChart" width="200" height="90"></canvas>
-					<div class="mt-4 text-center small">
-						<span class="ml-3 mr-2"> <i class="fas fa-circle"
-							style="color: lightblue;"></i> 총 문제수
-						</span> <span class="mr-2"> <i class="fas fa-circle"
-							style="color: yellow;"></i> 푼 문제수
-						</span>
-					</div>
+		<div class="card-content">
+			<div class="card shadow card-body">
+				<div class="font-color card-title">현재 상황</div>
+				<canvas id="myDoughnutChart" width="200" height="90"></canvas>
+				<div class="">
+					<span class=""> 
+						<i class="fas fa-circle" style="color: lightblue;"></i> 총 문제수
+					</span> 
+					<span class=""> 
+						<i class="fas fa-circle" style="color: yellow;"></i> 푼 문제수
+					</span>
 				</div>
 			</div>
 		</div>
@@ -221,7 +224,9 @@ var myDoughnutChart = new Chart(ctx1, {
 
 	<!-- Content Row -->
 	<div>
-		<br><h4 class="header font-weight-bold font-color ml-2">내가 푼 문제들</h4><br>
+		<br>
+		<h5 class="font-color">내가 푼 문제들</h5>
+		<br>
 
 		<fieldset class="search" style="float: left;">
 			<input class="search_problem" type="search"
@@ -235,6 +240,7 @@ var myDoughnutChart = new Chart(ctx1, {
 		<div class="table" id="problemsContent">
 			<%@ include file="../ajaxContent/problemsContent.jsp"%>
 		</div>
+		
 		<div id="registerSolvedProblem" hidden>
 			<div class="container">
 				<form class="col s12">
@@ -272,8 +278,8 @@ var myDoughnutChart = new Chart(ctx1, {
 				</form>
 			</div>
 		</div>
-		
-		
+
+
 		<!-- 모달 -->
 		<div id="readSolvedProblem" hidden>
 			<div class="table">
