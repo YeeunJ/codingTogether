@@ -61,5 +61,11 @@ public class UserProblemServiceImpl implements UserProblemService{
 		
 		return solvedP;	
 	}
+	
+	
+	public List<String> readRank(int probs){
+		List<String> rank = userProblemDAO.readRank(probs);
+		return rank;	
+	}
 
 }

@@ -11,5 +11,7 @@ public interface UserProblemDAO {
 	public int updateProblem(UserProblemDTO upd);
 	public int deleteProblem(int userProblemID);
 	public int readSolvedP(int userID);
+	public List<String> readRank(int probs);
+
 	
 }

@@ -139,6 +139,11 @@ function insertProblems(){
 			<div class="col s12 m4">
 				<div class="icon-block">
 					<span class="icon icon-award"></span>
+					<c:forEach items="${ranks}" var="rank" varStatus="status">
+					<li>${ranks.username} </li>
+					
+					</c:forEach>
+					
 					<h5 class="small-title">오늘의 랭킹</h5>
 					<ul class="fs-18 list">
 						<li class="ranking"><span class="bold">1.</span> 홍길동</li>
