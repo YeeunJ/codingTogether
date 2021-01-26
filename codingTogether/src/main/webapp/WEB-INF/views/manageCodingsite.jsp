@@ -94,8 +94,8 @@ $(document).ready(function() {
 		
 		$(editCell[0]).html('<input id="editonly" type="hidden" name="id" value="'+ posts[index-1].id +'" /> <input id="siteName" type="text" name="siteName" value="'+posts[index-1].siteName+'">');
 		$(editCell[1]).html('<input id="siteUrl" type="text" name="siteUrl" value="'+ posts[index-1].siteUrl +'">');
-		$(editCell[2]).html('<button id="cancelbtn" class="cancelbtn whitebtn" type="button">취소</button>');
-		$(editCell[3]).html('<button id="submitbtn" class="submitbtn whitebtn" type="submit">수정</button>');
+		$(editCell[2]).html('<button id="cancelbtn" class="cancelbtn waves-effect waves-light btn-small green" type="button">취소</button>');
+		$(editCell[3]).html('<button id="submitbtn" class="submitbtn waves-effect waves-light btn-small green" type="submit">수정</button>');
 	});
 
 
@@ -106,8 +106,8 @@ $(document).ready(function() {
 
 		$(cancelCell[0]).html(posts[index-1].siteName);
 		$(cancelCell[1]).html('<a href="'+posts[index-1].siteUrl+'">'+posts[index-1].siteUrl+'</a>');
-		$(cancelCell[2]).html('<button type="button" id="change" class="editSite edit whitebtn">수정</button>');
-		$(cancelCell[3]).html('<button value="'+posts[index-1].id+'" class="deleteBtn edit whitebtn" type="button">삭제</button>');
+		$(cancelCell[2]).html('<button type="button" id="change" class="editSite edit waves-effect waves-light btn-small green">수정</button>');
+		$(cancelCell[3]).html('<button value="'+posts[index-1].id+'" class="deleteBtn edit waves-effect waves-light btn-small green" type="button">삭제</button>');
 
 
 	});
