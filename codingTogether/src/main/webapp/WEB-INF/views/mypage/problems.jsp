@@ -210,11 +210,11 @@ var myDoughnutChart = new Chart(ctx1, {
 			<div class="card shadow card-body">
 				<div class="font-color card-title">현재 상황</div>
 				<canvas id="myDoughnutChart" width="200" height="90"></canvas>
-				<div class="">
-					<span class=""> 
+				<div class="" style="margin-left:22%; margin-top:5%;">
+					<span> 
 						<i class="fas fa-circle" style="color: lightblue;"></i> 총 문제수
 					</span> 
-					<span class=""> 
+					<span> 
 						<i class="fas fa-circle" style="color: yellow;"></i> 푼 문제수
 					</span>
 				</div>
