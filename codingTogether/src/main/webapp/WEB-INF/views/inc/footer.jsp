@@ -3,8 +3,8 @@
 <link href="./resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
 
-<footer class="page-footer grey">
-	<div  class="container">
+<footer class="page-footer footergray">
+	<div class="container">
 		<div class="row center gray-text">
 			<!-- <h2 class="bold fs-25 coding-title">코딩 사이트 바로가기</h2> -->
 			<!-- <div class="row block-wrapper fs-16">
@@ -21,7 +21,7 @@
 			<ul id="codingSite" class="codingSites">
 				
 			</ul>
-			<h6 class="gray-text">©️Copyright</h6> 
+			<h6 style="font-size:15px; padding-bottom : 20px; font-weight: normal;"class="gray-text">©️Copyright 김빛나리 김수현 정예은 최승아 양지후 김예진</h6> 
 		
 		</div>
 	</div>

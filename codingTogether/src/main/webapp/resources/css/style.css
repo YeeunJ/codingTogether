@@ -115,7 +115,7 @@
 }
 
 .codingSites a {
-	color: #393939;
+	color: #666666;
 }
 
 .page-footer {
@@ -177,7 +177,9 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .gray {
   background-color: #666666 !important;
 }
-
+.footergray {
+	background-color:#e2e2e2 !important;
+}
 .gray-text {
   color: #666666 !important;
 }
