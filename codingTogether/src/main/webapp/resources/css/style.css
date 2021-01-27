@@ -21,15 +21,7 @@
 	background-color: #e3a96d;
 }
 
-/* table common */
-.table {
-	display: table !important; 
-	width: 100% !important;
-}
-
-.tableRow {
-	display: table-row !important;
-}
+/* button common */
 .whitebtn {
   background-color: white;
   color: black;
@@ -39,6 +31,29 @@
   display:block;
 }
 
+.mybtn {
+  background-color: white;
+  color: black;
+  border: 2px solid #666666;
+  border-radius : 30px;
+  padding:2px 10px;
+}
+
+.mybtn:hover {
+	background-color: #e69138ff;
+	color: white;
+	border: 1px solid #e69138ff;
+}
+
+/* table common */
+.table {
+	display: table !important; 
+	width: 100% !important;
+}
+
+.tableRow {
+	display: table-row !important;
+}
 
 .th1, .th15, .th2, .th3, .th4, .th5, .th6, .th7, .th8, .th9 { font-weight: bold !important; }
 

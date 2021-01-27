@@ -86,12 +86,13 @@ var myDoughnutChart = new Chart(ctx1, {
 </script>
 
 <style>
-#myProblem {
+#problem {
 	position: relative;
 	padding: 80px 0;
+	margin-bottom: 3%;
 }
 
-#myProblem:before {
+#problem:before {
 	content: "";
 	background-image: url("../resources/img/problem.jpg");
 	background-size: cover;
@@ -105,9 +106,9 @@ var myDoughnutChart = new Chart(ctx1, {
 }
 
 .content {
-	top: 20%;
+	top: 15%;
 	left: 50px;
-	width: 450px;
+	width: 100%;
 	bottom: 100px;
 	color: #666666;
 	font-weight: 800;
@@ -126,21 +127,6 @@ var myDoughnutChart = new Chart(ctx1, {
 
 .search {
 	border: none;
-}
-
-.custom-button {
-	background-color: white;
-	margin-top: 12px;
-	border: 1px solid #666666;
-	height: 31px;
-	border-radius: 20px;
-	float: right;
-}
-
-.custom-button:hover {
-	background-color: #e69138ff;
-	color: white;
-	border: 1px solid #e69138ff;
 }
 
 .card-wrap {
@@ -164,10 +150,10 @@ var myDoughnutChart = new Chart(ctx1, {
 </style>
 
 <div class="container">
-	<div id="myProblem">
+	<div id="problem">
 		<div class="content">
-			<h3 class="main-title">내가 푼 문제</h3>
-			<p class="sub-title">지금까지 자신이 푼 문제와 목표 현황을 확인해 보세요!</p>
+			<h4>내가 푼 문제</h4>
+			<p>지금까지 자신이 푼 문제와 목표 현황을 확인해 보세요!</p>
 		</div>
 	</div>
 
@@ -235,7 +221,7 @@ var myDoughnutChart = new Chart(ctx1, {
 				<i class="fa fa-search"></i>
 			</button>
 		</fieldset>
-		<button id="register-button" class="custom-button">문제 등록하기</button>
+		<button id="register-button" class="mybtn" style="margin-top: 12px; float: right;">문제 등록하기</button>
 
 		<div class="table" id="problemsContent">
 			<%@ include file="../ajaxContent/problemsContent.jsp"%>

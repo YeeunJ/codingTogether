@@ -134,18 +134,45 @@ $(document).ready(function() {
 });
 
 </script>
+<style>
+#manage {
+	position: relative;
+	padding: 80px 0;
+	margin-bottom: 3%;
+}
 
+#manage:before {
+	content: "";
+	background-image: url("./resources/img/codingSiteimg.jpg");
+	background-size: cover;
+	top: 0;
+	left: 0;
+	right: 0px;
+	bottom: 0px;
+	position: absolute;
+	opacity: 0.4;
+	z-index: -1;
+}
+
+.content {
+	top: 15%;
+	left: 50px;
+	width: 100%;
+	bottom: 100px;
+	color: #666666;
+	font-weight: 800;
+	position: absolute;
+}
+</style>
 
 <div id="codingSiteContainer" class="container">
-	<div style="position: relative;">
-		
-		<img id="codingsiteimg" style="max-width:100%"src="./resources/img/codingSiteimg.jpg">
-		<div style="left: 50px; width: 450px; bottom: 100px;  color:#666666;font-weight: 800; position: absolute;">
+	<div id="manage">
+		<div class="content">
 			<h4>코딩 사이트 관리</h4>
-			<h6>코딩 사이트를 관리할 수 있습니다.</h6>
-			
+			<p>코딩 사이트를 관리할 수 있습니다.</p>
 		</div>
-	</div><br><br>
+	</div>
+	
 	<div class="table">
 		<div style="margin-bottom:10px;"class="right">
 			<button id="addbtn"
@@ -166,7 +193,7 @@ $(document).ready(function() {
 
 			</div>
 			<c:forEach items="${CodingSite}" var="u">
-				<div class="tableRow content">
+				<div class="tableRow">
 			 		<span class="tableCell td3 sub ">${u.getSiteName()}</span> 
 					<span class="tableCell td5 sub "><a href="${u.getSiteUrl()}">${u.getSiteUrl()}</a></span> 
 					<span class="tableCell td1 sub "><button type="button" id="change" style="display:none;" class="editSite edit whitebtn">수정</button></span> 
