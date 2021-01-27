@@ -16,6 +16,11 @@
 	font-size: inherit;
 }
 
+/* 모달  */
+.sweet-modal-close a.sweet-modal-close-link:hover {
+	background-color: #e3a96d;
+}
+
 /* button common */
 .whitebtn {
   background-color: white;
@@ -77,6 +82,8 @@
 .th8, .td8 { width: 80% !important;}
 
 .th9, .td9 { width: 90% !important;}
+
+.td10 { width: 100% !important;}
 
 
 /* footer */

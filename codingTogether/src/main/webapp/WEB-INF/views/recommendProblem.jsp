@@ -454,7 +454,7 @@ $('#createRecomProblem').click(function() {
 		$('#confirmTag').html(data);
 		document.getElementById("tags").value = "";
 	};
-<<<<<<< HEAD
+
 	$("#addComment").click(function() {
 		var userID = $("input[name='writer']").val();
 		var recomID = $("input[name='recomID']").val();
@@ -477,7 +477,7 @@ $('#createRecomProblem').click(function() {
 					console.log("code:" + request.status + "\n"
 							+ "message:" + request.responseText + "\n"
 							+ "error:" + error);
-=======
+
 	
 	$('#addComment').click(
 			function() {
@@ -499,7 +499,6 @@ $('#createRecomProblem').click(function() {
 									+ "error:" + error);
 						}
 					});
->>>>>>> branch 'master' of https://github.com/YeeunJ/codingTogether.git
 				}
 			});
 		}
