@@ -75,13 +75,13 @@ nav ul a {
 /* 	display: none !important;
  */
  }
-.mybtn{
-	  background-color: white;
+/* .mybtn{
+  background-color: white;
   color: black;
   border: 2px solid #666666;
   border-radius : 30px;
   padding:7px 20px;
-}
+} */
 button, input, optgroup, select, textarea {
     margin: 0;
     font-size: none !important;

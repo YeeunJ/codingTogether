@@ -10,12 +10,13 @@
 <style>
 #recommend {
 	position: relative;
-	padding: 100px 0;
+	padding: 80px 0;
+	margin-bottom: 3%;
 }
 
 #recommend:before {
 	content: "";
-	background-image: url("./resources/img/recommend.jpg");
+	background-image: url("./resources/img/recommendimg.jpg");
 	background-size: cover;
 	top: 0;
 	left: 0;
@@ -27,9 +28,9 @@
 }
 
 .content {
-	top: 20%;
+	top: 15%;
 	left: 50px;
-	width: 450px;
+	width: 100%;
 	bottom: 100px;
 	color: #666666;
 	font-weight: 800;
@@ -56,13 +57,13 @@ fieldset {
 	margin-bottom: 5%;
 }
 
-.top-bar{
+.top-bar {
 	display: flex;
 }
 
 .custom-button {
 	background-color: white;
-	margin-top: 10%; !important;
+	margin-top: 10%; ! important;
 	border: 1px solid #666666;
 	height: 31px;
 	border-radius: 20px;
@@ -80,7 +81,6 @@ fieldset {
 	float: right;
 }
 
-
 .title {
 	border: 0;
 	background-color: Transparent;
@@ -94,8 +94,8 @@ fieldset {
 <div class="container">
 	<div id="recommend">
 		<div class="content">
-			<h4 class="header main-title">문제 추천</h4>
-			<h5 class="sub-title">자신의 문제집을 등록하고, 사용자들과 공유해 보세요!</h5>
+			<h4>문제 추천</h4>
+			<p>자신의 문제집을 등록하고, 사용자들과 공유해 보세요!</p>
 		</div>
 	</div>
 
@@ -110,9 +110,9 @@ fieldset {
 	</div>
 
 	<div class="top-bar">
-		<button class="input-field custom-button"
-			onclick="createProblems()">문제 추천집 만들기</button>
-			<div class="input-field col s12 order">
+		<button class="input-field custom-button" onclick="createProblems()">문제
+			추천집 만들기</button>
+		<div class="input-field col s12 order">
 			<select>
 				<option value="" disabled selected>정렬</option>
 				<option value="1">난이도순</option>
@@ -120,7 +120,7 @@ fieldset {
 				<option value="3">추천순</option>
 				<option value="4">최신순</option>
 			</select>
-		</div>	
+		</div>
 	</div>
 
 
@@ -139,14 +139,14 @@ fieldset {
 			</c:forEach>
 			<div class="tableRow" id="recoms${recoms.id}"
 				onclick="printAllContent('#recoms${recoms.id}', ${recoms.id})">
-				<span class="tableCell td1">${status.count}</span>
-				<span class="tableCell td4 readTitle">${recoms.title}</span> <span
-					class="tableCell td2">${recoms.nickname}</span>
-				<span class="tableCell td1"></span> <span class="tableCell td1"></span>
-				<span class="tableCell td1">${ count }</span>
-				<span class="tableCell td15"></span> <span
-					class="tableCell td15 readRecommend">${recoms.recomCount}</span>
-				<span class="readProblem" style="display: none;">10문제</span> <span
+				<span class="tableCell td1">${status.count}</span> <span
+					class="tableCell td4 readTitle">${recoms.title}</span> <span
+					class="tableCell td2">${recoms.nickname}</span> <span
+					class="tableCell td1"></span> <span class="tableCell td1"></span> <span
+					class="tableCell td1">${ count }</span> <span
+					class="tableCell td15"></span> <span
+					class="tableCell td15 readRecommend">${recoms.recomCount}</span> <span
+					class="readProblem" style="display: none;">10문제</span> <span
 					class="readTag" style="display: none;">정렬</span> <span
 					class="readContent" style="display: none;">${recoms.content}</span>
 			</div>
@@ -154,79 +154,79 @@ fieldset {
 
 	</div>
 	<br> <br>
-
-
-
-
+	
 	<!-- insert -->
-				<div class = "container">
-					<form class="col s12">
-						<div class="input-field col s10">
-							<input id="title" type="text" class="validate"> <label
-									for="title">제목</label> <span class="helper-text">문제집의 제목을  
-									입력해주세요.</span>
-						</div>
-						
-						<div class="row">
-							<div class="input-field col s4">
-								<select id="siteName" required>
-									<optgroup label="코딩사이트 선택">
-										<c:forEach items="${CodingSite}" var="site">
-											<option value="${site.id}">${site.siteName}</option>
-										</c:forEach>
-									</optgroup>
-									<optgroup label="링크로 입력">
-										<option value="0">링크로 입력</option>
-									</optgroup>
-								</select> <label>코딩사이트 선택</label> <span class="helper-text">코딩 사이트를
-									선택해서 입력하거나 링크로 입력할 수 있습니다.</span>
-							</div>
-							<div class="input-field col s6">
-								<input id="problems" type="text" class="validate"> <label
-									for="problems">Problems</label> <span class="helper-text">문제들을
-									입력할 때 ,로 구분해주세요!!</span>
-							</div>
-							<button type="button" id="add" class="modal_button waves-effect waves-light btn green"
-								onClick="insertProblems()">추가</button>
-						</div>
-						<div class="input-field col s10">
-							<label for="last_name">입력한 Problems</label> <br> <br>
-							<div id="confirmSite"></div>
-						</div>
-						
-						<div class="input-field col s10">
-							<!-- <span>난이도: </span>
+	<%-- <div class="container">
+		<form class="col s12">
+			<div class="input-field col s10">
+				<input id="title" type="text" class="validate"> <label
+					for="title">제목</label> <span class="helper-text">문제집의 제목을
+					입력해주세요.</span>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s4">
+					<select id="siteName" required>
+						<optgroup label="코딩사이트 선택">
+							<c:forEach items="${CodingSite}" var="site">
+								<option value="${site.id}">${site.siteName}</option>
+							</c:forEach>
+						</optgroup>
+						<optgroup label="링크로 입력">
+							<option value="0">링크로 입력</option>
+						</optgroup>
+					</select> <label>코딩사이트 선택</label> <span class="helper-text">코딩 사이트를
+						선택해서 입력하거나 링크로 입력할 수 있습니다.</span>
+				</div>
+				<div class="input-field col s6">
+					<input id="problems" type="text" class="validate"> <label
+						for="problems">Problems</label> <span class="helper-text">문제들을
+						입력할 때 ,로 구분해주세요!!</span>
+				</div>
+				<button type="button" id="add"
+					class="modal_button waves-effect waves-light btn green"
+					onClick="insertProblems()">추가</button>
+			</div>
+			<div class="input-field col s10">
+				<label for="last_name">입력한 Problems</label> <br> <br>
+				<div id="confirmSite"></div>
+			</div>
+
+			<div class="input-field col s10">
+				<!-- <span>난이도: </span>
 							<input type="radio" name="difficulty" value="1" checked/>1
 							<input type="radio" name="difficulty" value="2" />2
 							<input type="radio" name="difficulty" value="3" />3
 							<input type="radio" name="difficulty" value="4" />4
 							<input type="radio" name="difficulty" value="5" />5 -->
-							<input id="difficulty" type="text" class="validate"> <label
-									for="difficulty">난이도</label><span class="helper-text">1~5까지만 
-									입력가능합니다.</span>
-						</div>
-						
-						<div class="row">
-							<div class="input-field col s10">
-								<input id="tags" type="text" class="validate"> <label
-										for="tags">태그</label> <span class="helper-text">태그들을
-										입력할 때 ,로 구분해주세요!!</span>
-							</div>
-							<button type="button" id="addTag" class="modal_button waves-effect waves-light btn green"
-									onClick="insertTags()">추가</button>
-						</div>
-						<div class="input-field col s10">
-							<label for="last_tag">입력한 Tags</label> <br> <br>
-							<div id="confirmTag"></div>
-						</div>
-						
-						<div class="input-field col s10">
-							<textarea id="content" name="content" rows="5"></textarea>
-							<span class="helper-text">추천 문제집에 대한 내용을 입력해주세요.</span>
-						</div>
-					</form>
-					<button id="createRecomProblem" class="waves-effect waves-light btn green">만들기</button>
+				<input id="difficulty" type="text" class="validate"> <label
+					for="difficulty">난이도</label><span class="helper-text">1~5까지만
+					입력가능합니다.</span>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s10">
+					<input id="tags" type="text" class="validate"> <label
+						for="tags">태그</label> <span class="helper-text">태그들을 입력할 때
+						,로 구분해주세요!!</span>
 				</div>
+				<button type="button" id="addTag"
+					class="modal_button waves-effect waves-light btn green"
+					onClick="insertTags()">추가</button>
+			</div>
+			<div class="input-field col s10">
+				<label for="last_tag">입력한 Tags</label> <br> <br>
+				<div id="confirmTag"></div>
+			</div>
+
+			<div class="input-field col s10">
+				<textarea id="content" name="content" rows="5"></textarea>
+				<span class="helper-text">추천 문제집에 대한 내용을 입력해주세요.</span>
+			</div>
+		</form>
+		<button id="createRecomProblem"
+			class="waves-effect waves-light btn green">만들기</button>
+	</div> --%>
 
 	<!-- read -->
 	<div id="readRecommendProblem" hidden>
@@ -257,55 +257,80 @@ fieldset {
 
 
 <!-- 문제집 등록 모달 -->
-<div id="createProblems" class="container" style="display:none;">
+<div id="createProblems" class="container" style="display: none;">
 	<form class="col s12">
 		<p class="title">추천 문제집 제목</p>
-		<input class="title-input" placeholder="제목을 입력해주세요."></input>
-		
+		<input id="title" type="text" placeholder="제목을 입력해주세요."></input>
+
 		<p class="title">추천 문제 등록</p>
 		<div class="row">
 			<div class="input-field col s4">
 				<select id="siteName" required>
 					<optgroup label="코딩사이트 선택">
 						<c:forEach items="${CodingSite}" var="site">
-							<option value="${ site.id }">${ site.siteName }</option>
+							<option value="${site.id}">${site.siteName}</option>
 						</c:forEach>
 					</optgroup>
 					<optgroup label="링크로 입력">
 						<option value="0">링크로 입력</option>
 					</optgroup>
-				</select> <label>코딩사이트 선택</label> <span class="helper-text">코딩 사이트를
-					선택해서 입력하거나 링크로 입력할 수 있습니다.</span>
+				</select>
+				<label>코딩사이트 선택</label> 
+				<span class="helper-text">코딩 사이트를 선택해서 입력하거나 링크로 입력할 수 있습니다.</span>
 			</div>
 			<div class="input-field col s6">
-				<input id="problems" type="text" class="validate"> <label
-					for="problems">Problems</label> <span class="helper-text">문제들을
-					입력할 때 ,로 구분해주세요!!</span>
+				<input id="problems" type="text" class="validate"> 
+				<label for="problems">Problems</label> 
+				<span class="helper-text">문제들을 입력할 때 ,로 구분해주세요!!</span>
 			</div>
-			<button type="button" id="add" class="modal_button lighten-1"
-				onClick="insertProblems()">추가</button>
+			<button type="button" id="add" class="modal_button lighten-1" onClick="insertProblems()">추가</button>
 		</div>
 		<div class="input-field col s10">
 			<label for="last_name">입력한 Problems</label> <br> <br>
-			<div class="recom-confirmSite" id="confirmSite"></div>
+			<div id="confirmSite"></div>
 		</div>
-
+		
+		<p class="title">추천 문제집 난이도</p>
+		<div class="input-field col s10">
+			<!-- <input type="radio" name="difficulty" value="1" checked/>1
+			<input type="radio" name="difficulty" value="2" />2
+			<input type="radio" name="difficulty" value="3" />3
+			<input type="radio" name="difficulty" value="4" />4
+			<input type="radio" name="difficulty" value="5" />5 -->
+			<input id="difficulty" type="text" class="validate"> 
+			<span class="helper-text">1~5까지만 입력가능합니다.</span>
+		</div>
+		
+		<p class="title">추천 문제집 태그</p>
+		<div class="row">
+			<div class="input-field col s10">
+				<input id="tags" type="text" class="validate"> 
+				<span class="helper-text">태그들을 입력할 때 ,로 구분해주세요!!</span>
+			</div>
+			<button type="button" id="addTag" class="modal_button lighten-1" onClick="insertTags()">추가</button>
+		</div>
+		<div class="input-field col s10">
+			<label for="last_tag">입력한 Tags</label> <br> <br>
+			<div id="confirmTag"></div>
+		</div>
+		
 		<p class="title">추천 문제집 설명</p>
-		<textarea class="desc-textarea"></textarea>
+		<textarea id="content" name="content" rows="5"></textarea>
+
 	</form>
 </div>
 
 
 <!-- 세부 정보 모달 -->
 <div id="recomDetailModal" style="display: none;">
-	
+
 	<div id="detailRecom">
 		<div>
 			<div>
 				<p class="title">추천 문제 설명</p>
 				<p>배열에 대해 익히고, 재귀 함수를 익힐 수 있는 문제집입니다. 한번씩 풀어보세요~~</p>
 			</div>
-			
+
 			<div>
 				<p class="title desc">추천 문제</p>
 				<div id="readProblems">
@@ -334,20 +359,21 @@ fieldset {
 			</div>
 			<div id="commentDetail">
 				<div class="comment-add">
-					<textarea id="comment-textarea"placeholder="댓글을 달아주세요."></textarea>
+					<textarea id="comment-textarea" placeholder="댓글을 달아주세요."></textarea>
 					<button id="addComment" class="modal_button add-btn">등록</button>
 				</div>
 				<div id="modal-comment" class="wrapper">
-<%-- 					<%@ include file="./ajaxContent/recomCommentContent.jsp"%>
- --%>				</div>
-				
+					<%-- 					<%@ include file="./ajaxContent/recomCommentContent.jsp"%>
+ --%>
+				</div>
+
 			</div>
-			
+
 		</div>
 	</div>
-	
-</div>	
-		
+
+</div>
+
 <%@ include file="./inc/footer.jsp"%>
 
 <script>
@@ -453,7 +479,7 @@ $('#createRecomProblem').click(function() {
 		$('#confirmTag').html(data);
 		document.getElementById("tags").value = "";
 	};
-<<<<<<< HEAD
+
 	$("#addComment").click(function() {
 		var userID = $("input[name='writer']").val();
 		var recomID = $("input[name='recomID']").val();
@@ -476,7 +502,7 @@ $('#createRecomProblem').click(function() {
 					console.log("code:" + request.status + "\n"
 							+ "message:" + request.responseText + "\n"
 							+ "error:" + error);
-=======
+
 	
 	$('#addComment').click(
 			function() {
@@ -498,7 +524,6 @@ $('#createRecomProblem').click(function() {
 									+ "error:" + error);
 						}
 					});
->>>>>>> branch 'master' of https://github.com/YeeunJ/codingTogether.git
 				}
 			});
 		}

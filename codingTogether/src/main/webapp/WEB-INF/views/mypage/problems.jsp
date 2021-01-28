@@ -86,12 +86,13 @@ var myDoughnutChart = new Chart(ctx1, {
 </script>
 
 <style>
-#myProblem {
+#problem {
 	position: relative;
 	padding: 80px 0;
+	margin-bottom: 3%;
 }
 
-#myProblem:before {
+#problem:before {
 	content: "";
 	background-image: url("../resources/img/problem.jpg");
 	background-size: cover;
@@ -105,9 +106,9 @@ var myDoughnutChart = new Chart(ctx1, {
 }
 
 .content {
-	top: 20%;
+	top: 15%;
 	left: 50px;
-	width: 450px;
+	width: 100%;
 	bottom: 100px;
 	color: #666666;
 	font-weight: 800;
@@ -126,21 +127,6 @@ var myDoughnutChart = new Chart(ctx1, {
 
 .search {
 	border: none;
-}
-
-.custom-button {
-	background-color: white;
-	margin-top: 12px;
-	border: 1px solid #666666;
-	height: 31px;
-	border-radius: 20px;
-	float: right;
-}
-
-.custom-button:hover {
-	background-color: #e69138ff;
-	color: white;
-	border: 1px solid #e69138ff;
 }
 
 .card-wrap {
@@ -164,10 +150,10 @@ var myDoughnutChart = new Chart(ctx1, {
 </style>
 
 <div class="container">
-	<div id="myProblem">
+	<div id="problem">
 		<div class="content">
-			<h3 class="main-title">내가 푼 문제</h3>
-			<p class="sub-title">지금까지 자신이 푼 문제와 목표 현황을 확인해 보세요!</p>
+			<h4>내가 푼 문제</h4>
+			<p>지금까지 자신이 푼 문제와 목표 현황을 확인해 보세요!</p>
 		</div>
 	</div>
 
@@ -235,7 +221,7 @@ var myDoughnutChart = new Chart(ctx1, {
 				<i class="fa fa-search"></i>
 			</button>
 		</fieldset>
-		<button id="register-button" class="custom-button">문제 등록하기</button>
+		<button id="register-button" class="mybtn" style="margin-top: 12px; float: right;">문제 등록하기</button>
 
 		<div class="table" id="problemsContent">
 			<%@ include file="../ajaxContent/problemsContent.jsp"%>
@@ -282,48 +268,47 @@ var myDoughnutChart = new Chart(ctx1, {
 
 		<!-- 모달 -->
 		<div id="readSolvedProblem" hidden>
-			<div class="table">
-				<div class="tableRow">
-					<span class="tableCell th1">문제 제목</span> <span
-						class="tableCell td7" id="problemName"></span> <span
-						class="tableCell th1">사이트 이름</span> <span class="tableCell td2"
-						id="site"></span>
+				<div class="row mrg">
+					<p class="title">문제 제목</p>
+					<span id="problemName" class="box"></span>
 				</div>
-				<div class="tableRow">
-					<span class="tableCell th1">날짜</span> <span class="tableCell td2"
-						id="regdate"></span> <span class="tableCell th1">난이도</span> <span
-						class="tableCell td7" id="difficulty"></span>
+				<div class="row mrg">
+					<p class="title">사이트 이름</p>
+					<span id="site" class="box"></span>
 				</div>
-				<div class="tableRow">
-					<span class="tableCell th1">메모</span> <span class="tableCell td9"
-						id="memo"></span>
+				<div class="row mrg">
+					<p class="title">날짜</p>
+					<span id="regdate" class="box"></span>
 				</div>
-			</div>
+				<div class="row mrg">
+					<p class="title">난이도</p>
+					<span id="difficulty" class="box"></span>
+				</div>
+				<p class="title">메모</p>
+				<span id="memo" class="box"></span> 
 		</div>
 		<div id="updateSolvedProblem" hidden>
-			<div class="container">
-				<form class="col s12">
-					<div class="table">
-						<div class="tableRow">
-							<span id="UuserProblemID" style=""></span> <span
-								class="tableCell th1">문제 제목</span> <span class="tableCell td7"
-								id="UproblemName"></span> <span class="tableCell th1">사이트
-								이름</span> <span class="tableCell td2" id="Usite"></span>
-						</div>
-						<div class="tableRow">
-							<span class="tableCell th1">날짜</span> <span class="tableCell td2"
-								id="regdate"></span> <span class="tableCell th1">난이도</span> <input
-								id="Udifficulty" type="text" class="validate"
-								placeholder="1~5사이 숫자로 난이도를 표현하세요!!">
-						</div>
-						<div class="tableRow">
-							<span class="tableCell th1">메모</span>
-							<textarea id="Umemo" type="text" class="validate"
-								placeholder="이 문제에 메모하고 싶은 내용을 적어주세요!!"></textarea>
-						</div>
-					</div>
-				</form>
-			</div>
+			<form >
+				<span id="UuserProblemID" style=""></span>
+				<div class="row mrg">
+					<p class="title">문제 제목</p>
+					<span id="UproblemName" class="box"></span>
+				</div>
+				<div class="row mrg">
+					<p class="title">사이트 이름</p>
+					<span id="Usite" class="box"></span>
+				</div>
+				<div class="row mrg">
+					<p class="title">날짜</p>
+					<span id="Uregdate" class="box"></span>
+				</div>
+				<div class="row mrg">
+					<p class="title">난이도</p>
+					<input id="Udifficulty" type="text" class="validate" placeholder="1~5사이 숫자로 난이도를 표현하세요!!">
+				</div>
+				<p class="title">메모</p>
+				<textarea id="Umemo" type="text" class="validate" placeholder="이 문제에 메모하고 싶은 내용을 적어주세요!!"></textarea>
+			</form>
 		</div>
 
 	</div>

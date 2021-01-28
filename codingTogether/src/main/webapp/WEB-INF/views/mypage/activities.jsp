@@ -9,14 +9,15 @@
 <script src="../resources/js/activities.js"></script>
 
 <style>
-#myActivities {
+#activities {
 	position: relative;
 	padding: 80px 0;
+	margin-bottom: 3%;
 }
 
-#myActivities:before {
+#activities:before {
 	content: "";
-	background-image: url("../resources/img/activities.jpg");
+	background-image: url("../resources/img/activityimg.jpg");
 	background-size: cover;
 	top: 0;
 	left: 0;
@@ -28,9 +29,9 @@
 }
 
 .content {
-	top: 20%;
+	top: 15%;
 	left: 50px;
-	width: 450px;
+	width: 100%;
 	bottom: 100px;
 	color: #666666;
 	font-weight: 800;
@@ -39,10 +40,10 @@
 </style>
 
 <div class="container">
-	<div id="myActivities">
+	<div id="activities">
 		<div class="content">
-			<h3 class="main-title">내 기록</h3>
-			<p class="sub-title">지금까지 내가 등록한 기록들을 확인해 보세요!</p>
+			<h4>내 기록</h4>
+			<p>지금까지 내가 등록한 기록들을 확인해 보세요!</p>
 		</div>
 	</div>
 
