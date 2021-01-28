@@ -45,9 +45,9 @@ public class HomeController {
 	public ModelAndView viewHome(ModelAndView mv) {
 			
 		int userID = 1;
-		List<CodingSiteDTO> codingSite = codingSiteService.read();
-		mv.addObject("CodingSite", codingSite);
-		mv.addObject("userID", userID);
+		//List<CodingSiteDTO> codingSite = codingSiteService.read();
+		//mv.addObject("CodingSite", codingSite);
+		//mv.addObject("userID", userID);
 		mv.setViewName("home");
 		
 		return mv;
@@ -99,6 +99,7 @@ public class HomeController {
 		List<String> ranks = userProblemService.readRank(probs);
 		System.out.println(ranks.toString());
 		mv.addObject("ranks", ranks);
+		
 		mv.setViewName("home");
 		
 		return mv;

@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.walab.coding.Controller" />
+	<context:component-scan base-package="com.walab.coding" />
 	
 	<beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <beans:property name="location" value="/WEB-INF/config/config.properties"/>
@@ -44,28 +44,5 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
 	</beans:bean>
 	
-	<beans:bean id="userProblemDAO" class="com.walab.coding.Repository.UserProblemDAOImpl"/>
-	<beans:bean id="userProblemService" class="com.walab.coding.Service.UserProblemServiceImpl"/>
-	
-	<beans:bean id="userDAO" class="com.walab.coding.Repository.UserDAOImpl"/>
-	<beans:bean id="userService" class="com.walab.coding.Service.UserServiceImpl"/>
-	
-	<beans:bean id="CodingSiteDAO" class="com.walab.coding.Repository.CodingSiteDAOImpl"/>
-	<beans:bean id="CodingSiteService" class="com.walab.coding.Service.CodingSiteServiceImpl"/>
 
-	<beans:bean id="recommendDAO" class="com.walab.coding.Repository.RecommendDAOImpl"/>
-	<beans:bean id="recommendService" class="com.walab.coding.Service.RecommendServiceImpl"/>
-
-	<beans:bean id="goalDAO" class="com.walab.coding.Repository.GoalDAOImpl"/>
-	<beans:bean id="goalService" class="com.walab.coding.Service.GoalServiceImpl"/>
-	
-	<beans:bean id="recomCommentDAO" class="com.walab.coding.Repository.RecomCommentDAOImpl"/>
-	<beans:bean id="recomCommentService" class="com.walab.coding.Service.RecomCommentServiceImpl"/>
-	
-	<beans:bean id="recomProblemsDAO" class="com.walab.coding.Repository.RecomProblemsDAOImpl"/>
-	<beans:bean id="recomProblemsService" class="com.walab.coding.Service.RecomProblemsServiceImpl"/>
-	
-	<beans:bean id="tagDAO" class="com.walab.coding.Repository.TagDAOImpl"/>
-	<beans:bean id="tagService" class="com.walab.coding.Service.TagServiceImpl"/>
-	
 </beans:beans>
