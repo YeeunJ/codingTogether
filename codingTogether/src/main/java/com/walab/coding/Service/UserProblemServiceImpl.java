@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.walab.coding.Model.CodingSiteDTO;
 import com.walab.coding.Model.GoalDTO;
+import com.walab.coding.Model.RankDTO;
 import com.walab.coding.Model.UserDTO;
 import com.walab.coding.Model.UserProblemDTO;
 import com.walab.coding.Repository.UserProblemDAO;
@@ -62,10 +64,10 @@ public class UserProblemServiceImpl implements UserProblemService{
 		return solvedP;	
 	}
 	
-	
-	public List<String> readRank(int probs){
-		List<String> rank = userProblemDAO.readRank(probs);
-		return rank;	
+	@Override
+	public List<RankDTO> readRankList() {
+		List<RankDTO> result = userProblemDAO.readRankList();
+		return result;
 	}
 
 }
