@@ -4,9 +4,29 @@
 
 <%@ include file="./inc/header.jsp" %>
 <link rel="stylesheet" href="./resources/css/register.css?asd" />
+<script>
+
+function showUserGoal(){
+	if($('#userGoal').css('display') == 'none'){
+	$('#userGoal').show();
+	}
+  }
+function hideUserGoal(){
+	if($('#userGoal').css('display') != 'none'){
+		$('#userGoal').hide();
+		}			
+}
+function hideUserInfo(){
+	if($('#userInfo').css('display') != 'none'){
+		$('#userInfo').hide();
+		}			
+}
+
+
+</script>
   
     <div class="container">
-    	<div class="register">
+    	<div class="register" id=userInfo>
 	    	<h5 class="header center gray-text">초기 정보 등록</h5><br>
 	  		<form id = "registerInfo" method="post" action="./registerUserinfo">
 		     	<div id="table">
@@ -15,8 +35,8 @@
 				        <span class="cell th1"><input type="text" name="name" placeholder = "이름을 입력하세요. " required/></span>
 				      </div>
 				      <div class="row">
-				        <span class="cell th2">아이디</span>
-				        <span class="cell th2"><input type="text" name="userID" placeholder = "아이디를 입력하세요. " required/> </span>
+				        <span class="cell th2">이메일</span>
+				        <span class="cell th2"><input type="text" name="email" placeholder = "이메일을 입력하세요. " required/> </span>
 				      </div>
 				      <div class="row">
 				        <span class="cell th3">닉네임</span>
@@ -29,11 +49,11 @@
 				 </div>
 				 <br><br>
 				 <div class="center">			
-		          	<input type="submit" value="등록 " id="download-button" class="btn-small waves-effect waves-light orange" />
+		          	<input type="submit" value="등록 "  onclick="hideUserInfo(); showUserGoal()" id="download-button" class="btn-small waves-effect waves-light orange" />
 		         </div>         
 			</form>
 		</div>
-	    <div class="register">			
+	    <div class="register" id=userGoal style="display: none">			
 	    	<h5 class="header center gray-text">초기 목표 등록</h5><br>
 			<form action="./registerUsergoal" method="post">
 		     	<div id="table">
